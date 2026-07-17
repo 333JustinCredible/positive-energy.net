@@ -1,0 +1,147 @@
+We are redesigning the Positive Energy website. This is not a complete rebranding or a blank-sheet redesign.
+
+The current website already contains a great deal of thought, strong visual branding, quality graphics, and content that reflects who we are. I want to preserve the overall look, feel, colors, imagery, and personality wherever possible.
+
+Instead, think of this as Version 2 of the website.
+
+Your goal is to elevate the existing site into one that could confidently represent a company competing for large commercial, municipal, industrial, and energy infrastructure projects.
+
+Please retain and improve the strongest parts of the current design while modernizing the layout, information architecture, messaging, navigation, responsiveness, and scalability.
+
+Do not replace custom graphics, illustrations, or visual elements simply for the sake of change. If an existing design element is working well, improve around it rather than discarding it.
+
+Vision
+
+Positive Energy designs, builds, and supports the infrastructure powering the future of transportation and distributed energy.
+
+We are evolving beyond an EV charger installer into a commercial energy infrastructure partner specializing in:
+
+Commercial EV Charging (DC Fast Charging)
+Energy Monitoring Systems
+Operations & Maintenance
+Consulting & Engineering Support
+Design-Build / EPC
+Solar
+Battery Storage
+Microgrids & Resiliency
+Mobile & Temporary Event Power
+Commercial Electrical Contracting
+
+The website should communicate confidence, technical expertise, and professionalism while remaining approachable and easy to navigate.
+
+Who We Want To Work With
+
+The homepage should immediately tell visitors that we specialize in serving:
+
+General Contractors
+Commercial Property Owners
+Real Estate Developers
+Government Agencies & Municipalities
+Fleet Operators
+Electrical Contractors
+Architects & Engineers
+
+Additional markets such as healthcare, hospitality, education, multifamily, manufacturing, utilities, renewable energy, and data centers should have dedicated pages or sections.
+
+Our visitors should quickly recognize whether Positive Energy is the right partner for their project.
+
+Organize Services Into Professional Practice Areas
+
+Rather than presenting a long list of services, group them into areas of expertise.
+
+Commercial Infrastructure
+DC Fast Charging
+Level 2 Charging
+Fleet Electrification
+Commercial Electrical
+Distributed Energy
+Solar
+Battery Storage
+Microgrids
+Energy Monitoring
+Field Services
+Operations & Maintenance
+Charger Repairs
+NACS Cable Replacement
+Commissioning
+Engineering & Consulting
+Design Support
+Feasibility Studies
+Utility Coordination
+Incentive Consulting
+Design-Build / EPC
+Resilient Power
+Disaster Response
+Emergency Power
+Temporary Event Power
+Mobile Charging
+Remote Energy Systems
+Highlight Our Experience
+
+One of our differentiators is experience supporting resilient power and remote operations.
+
+Create a dedicated section highlighting projects such as:
+
+Bonnaroo Music & Arts Festival
+Willie Nelson's Luck Reunion
+Deep Tropics
+Nashville Earth Day
+Off-Grid Fest
+2020 Nashville Tornado Recovery
+Hurricane Helene Recovery
+
+This section should communicate our ability to deploy reliable electrical infrastructure where utility power is unavailable, limited, or mission-critical.
+
+Build for Growth
+
+The website should include or prepare space for:
+
+Project Gallery
+Case Studies
+Manufacturer Experience
+Capabilities Statement
+Financing & Tax Incentives
+Utility & Rebate Resources
+FAQ
+Quote Request Wizard
+AI Assistant
+
+Projects, manufacturers, certifications, statistics, testimonials, and case studies should all be built using reusable components so they are easy to expand over time.
+
+Trust Builders
+
+Include sections that can grow as the company grows.
+
+Examples include:
+
+200+ EV Chargers Installed
+40+ Years Combined Construction Experience
+12+ Years in Sustainability
+Founded in 2020
+NABCEP Certification
+Tennessee Electrical License (In Progress)
+Vanderbilt Global Sustainability
+
+Also showcase experience with manufacturers and organizations including ChargePoint, ABB, Blink, Tritium, Tesla, FranklinWH, SolarEdge, LG, SunGold, Toyota, Kia, Lexus, Hyundai, USGBC, IFMA, CSI, Drive Electric USA, Drive Electric Tennessee, Drive Electric Nashville, Footprint Project, Civil Air Patrol, and OVRDRV.
+
+Design Philosophy
+
+The website should feel like a premium engineering and construction company.
+
+Keep what already works. Improve what doesn't.
+
+Prioritize:
+
+Clear messaging
+Better organization
+Less text and more visual hierarchy
+Strong typography
+Real project photography
+Clean spacing
+Mobile responsiveness
+Fast performance
+Accessibility
+
+Avoid redesigning simply for the sake of redesign. Respect the visual identity we've already established while refining it into something that feels timeless, polished, and capable of representing a company pursuing significantly larger and more complex commercial projects.
+
+The overarching goal is evolution, not replacement. Imagine that Positive Energy has grown substantially over the past several years, and the website needs to mature alongside it. Keep the recognizable brand we've built, but elevate the user experience, messaging, and structure to match the level of clients and projects we want to attract over the next decade.
