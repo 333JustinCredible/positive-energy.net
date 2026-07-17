@@ -1,0 +1,209 @@
+Please revise the implementation plan into a cost-conscious Phase 1 focused on structure, usability, and reusable components.
+
+Do not attempt to fully build every future page, feature, animation, backend workflow, or content system in the first pass.
+
+## Phase 1 Goal
+
+Create the strong visual and structural foundation of the new website while preserving the best graphics, branding, colors, imagery, and personality from the current site.
+
+The priority is to establish:
+
+* Clear positioning
+* Strong homepage structure
+* Clean navigation
+* Reusable service and project components
+* Mobile responsiveness
+* Consistent visual styling
+* Easy future expansion
+
+## Phase 1 Pages
+
+Fully build only these core pages:
+
+1. Home
+2. Services
+3. Projects / Experience
+4. About
+5. Contact
+
+Create simple placeholder routes or navigation-ready placeholders for future pages, but do not fully develop them yet.
+
+Future pages include:
+
+* Markets We Serve
+* Case Studies
+* Financing & Tax Incentives
+* Utility & Rebate Resources
+* FAQ
+* Manufacturer Pages
+* Capabilities Statement
+* Quote Request Wizard
+* AI Assistant
+
+## Homepage Scope
+
+Build the homepage with these sections:
+
+* Hero
+* Who We Work With
+* Core Practice Areas
+* Why Positive Energy
+* Featured Projects / Experience
+* Resilient Power and Remote Deployments
+* Trust Builders
+* Manufacturer and Organization Experience
+* Geographic Service Area
+* Final Call to Action
+
+Keep the first version concise. Use temporary text or placeholders where final copy, customer approvals, photos, logos, or project details are not yet available.
+
+## Services Scope
+
+Create one Services overview page organized into reusable practice-area sections:
+
+* Commercial Infrastructure
+* Distributed Energy
+* Field Services
+* Engineering & Consulting
+* Resilient Power
+
+Do not build ten separate service landing pages during Phase 1.
+
+Instead, structure the service data and components so individual landing pages can be added later without redesigning the site.
+
+## Projects and Experience Scope
+
+Create a reusable project-card system and a clean Projects / Experience page.
+
+Initially populate it with a small number of representative entries and placeholders.
+
+The component should support future fields such as:
+
+* Project name
+* Location
+* Client type
+* Industry
+* Services performed
+* Equipment
+* Completion date
+* Short summary
+* Multiple photos
+* Optional customer logo
+* Tags
+
+Do not build a complex database, CMS, advanced filtering system, or interactive map during Phase 1.
+
+Use a simple editable local data file, JSON file, or similarly straightforward content structure that can later be upgraded.
+
+## Design Guardrails
+
+Preserve the strongest existing custom graphics and visual identity.
+
+Do not:
+
+* Replace custom graphics with generic stock images
+* Redesign the logo
+* Introduce a completely new color system
+* Add excessive animations
+* Add video backgrounds
+* Add complex scroll effects
+* Add decorative features that do not improve usability
+* Rewrite every piece of existing content automatically
+* Remove existing assets unless they are clearly broken, redundant, or low quality
+
+Prefer:
+
+* Clean spacing
+* Strong typography
+* Consistent buttons
+* Reusable cards
+* Clear section hierarchy
+* Subtle transitions
+* Fast loading
+* Mobile-first layouts
+* Accessible contrast and navigation
+
+Before removing or significantly altering a major existing graphic, create a replacement proposal or retain the original until we review it.
+
+## Technical and Expense Guardrails
+
+Keep Phase 1 technically simple and inexpensive.
+
+Do not add unless specifically approved:
+
+* Paid APIs
+* Paid plugins
+* New monthly software subscriptions
+* External CMS platforms
+* Authentication
+* Customer accounts
+* Databases
+* AI integrations
+* Automated quote calculations
+* Payment processing
+* Complex backend services
+* Advanced analytics platforms
+* Third-party form services with recurring fees
+
+Use Cloudflare-compatible, lightweight architecture where practical.
+
+Prefer static or mostly static pages, reusable components, local content files, and simple forms.
+
+For the Contact page, build the form layout and validation, but clearly identify whether an external email or form-handling service will be required before connecting one.
+
+Do not create any service that could generate recurring costs without first explaining:
+
+1. What it does
+2. Why it is needed
+3. The likely cost
+4. The free or lower-cost alternative
+
+## Work Process
+
+Please work in checkpoints rather than trying to finish and polish the entire site in one large run.
+
+### Checkpoint 1
+
+* Navigation
+* Homepage skeleton
+* Global styles
+* Reusable components
+* Mobile layout
+
+Stop for review before major polish.
+
+### Checkpoint 2
+
+* Services page
+* Projects / Experience page
+* About page
+* Contact page
+
+Stop for review again.
+
+### Checkpoint 3
+
+* Copy refinement
+* Spacing
+* Image placement
+* Responsive cleanup
+* Accessibility
+* Final Phase 1 polish
+
+Avoid repeated redesign passes unless we specifically request them.
+
+## Deliverable
+
+The Phase 1 result should feel complete enough to preview and evaluate, but it does not need to include every future feature.
+
+The goal is to get the bones right first:
+
+* Brand
+* Structure
+* Navigation
+* Messaging hierarchy
+* Core pages
+* Reusable components
+* Future-ready architecture
+
+Please revise your proposed plan around this reduced Phase 1 scope before beginning the build. Clearly identify anything you believe still creates significant agent usage, technical complexity, or recurring expense.
