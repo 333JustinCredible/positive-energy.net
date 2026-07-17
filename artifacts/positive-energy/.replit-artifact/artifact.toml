@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Positive Energy"
+version = "1.0.0"
+id = "artifacts/positive-energy"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21877
+
+[services.development]
+run = "pnpm --filter @workspace/positive-energy run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/positive-energy", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/positive-energy/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21877"
+BASE_PATH = "/"
