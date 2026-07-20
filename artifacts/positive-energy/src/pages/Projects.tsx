@@ -28,9 +28,14 @@ export default function Projects() {
                 key={project.id} 
                 className="group bg-card border border-border hover:border-primary/50 transition-colors duration-300 flex flex-col h-full"
               >
-                {/* Visual Stub */}
+                {/* Project Image */}
                 <div className="aspect-video bg-background relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-20 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)] bg-[length:250%_250%] group-hover:animate-[shimmer_2s_infinite]" />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
                     {project.category.map((cat, i) => (
                       <span key={i} className="bg-background/80 backdrop-blur text-xs font-bold uppercase px-2 py-1 text-primary border border-primary/20">

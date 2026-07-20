@@ -30,14 +30,17 @@ export default function Services() {
                 key={service.id}
                 className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-24 items-center`}
               >
-                {/* Visual Placeholder */}
+                {/* Service Image */}
                 <div className="w-full lg:w-1/2 aspect-[4/3] bg-card border border-border relative group overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-background to-primary/10 opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="h-1 w-12 bg-primary mb-4" />
-                    <div className="text-6xl font-heading font-black text-foreground/10 opacity-50 group-hover:text-primary/20 transition-colors duration-700">
-                      0{index + 1}
-                    </div>
+                  <img
+                    src={`/images/services/${service.id}.jpg`}
+                    alt={service.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/20 to-transparent group-hover:from-black/50 transition-opacity duration-700" />
+                  <div className="absolute bottom-6 left-6">
+                    <div className="h-1 w-12 bg-primary mb-3" />
+                    <p className="text-white/90 text-sm font-bold uppercase tracking-widest">{service.title}</p>
                   </div>
                 </div>
 
