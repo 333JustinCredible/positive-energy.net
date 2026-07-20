@@ -89,5 +89,15 @@ export const projectsData: Project[] = [
     summary: "Delivered and commissioned an ABB DC fast charger for a Kia dealership, enabling on-lot rapid charging for new EV inventory and customer test drives.",
     metrics: ["ABB DCFC Hardware", "Same-Day Commission"],
     image: "/images/projects/kia-dealership.jpg"
+  },
+  {
+    id: "lexus-greenville",
+    title: "Lexus of Greenville EV Charging",
+    category: ["Commercial EV", "Dealership"],
+    location: "Greenville, SC",
+    year: "2023",
+    summary: "Designed and installed a multi-unit ChargePoint Level 2 charging array and ABB wall charger at the Lexus of Greenville dealership, delivering a branded EV charging experience for customers and inventory.",
+    metrics: ["6 Charging Stations", "ChargePoint + ABB Hardware"],
+    image: "/photos/lexus-greenville-exterior-chargepoint-row.jpg"
   }
 ];

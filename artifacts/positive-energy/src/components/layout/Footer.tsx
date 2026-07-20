@@ -27,6 +27,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">About Us</Link></li>
               <li><Link href="/projects" className="text-muted-foreground hover:text-primary transition-colors text-sm">Our Work</Link></li>
+              <li><Link href="/gallery" className="text-muted-foreground hover:text-primary transition-colors text-sm">Photo Gallery</Link></li>
               <li><Link href="/markets" className="text-muted-foreground hover:text-primary transition-colors text-sm">Markets</Link></li>
               <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link></li>
             </ul>

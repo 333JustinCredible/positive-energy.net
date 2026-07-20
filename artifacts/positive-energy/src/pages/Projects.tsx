@@ -1,9 +1,10 @@
 import React from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { projectsData } from '@/data/projects';
-import { MapPin, Calendar, ArrowUpRight } from 'lucide-react';
+import { MapPin, Calendar, ArrowUpRight, Images } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
+import { galleryPhotos } from '@/data/gallery';
 
 export default function Projects() {
   return (
@@ -97,6 +98,17 @@ export default function Projects() {
                         </div>
                       ))}
                     </div>
+                    {galleryPhotos.some((p) => p.project === project.id) && (
+                      <div className="mt-4 pt-4 border-t border-border/50">
+                        <Link
+                          href={`/gallery?project=${project.id}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+                        >
+                          <Images className="h-3.5 w-3.5" />
+                          View all photos →
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
