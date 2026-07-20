@@ -9,7 +9,7 @@ export default function Services() {
   return (
     <Layout>
       {/* Header */}
-      <section className="pt-24 pb-16 bg-card border-b border-white/5 relative overflow-hidden">
+      <section className="pt-24 pb-16 bg-card border-b border-border relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary via-background to-background pointer-events-none" />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold uppercase mb-6 font-heading">
@@ -31,11 +31,11 @@ export default function Services() {
                 className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-24 items-center`}
               >
                 {/* Visual Placeholder */}
-                <div className="w-full lg:w-1/2 aspect-[4/3] bg-card border border-white/5 relative group overflow-hidden">
+                <div className="w-full lg:w-1/2 aspect-[4/3] bg-card border border-border relative group overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-background to-primary/10 opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="h-1 w-12 bg-primary mb-4" />
-                    <div className="text-6xl font-heading font-black text-white/5 opacity-50 group-hover:text-primary/20 transition-colors duration-700">
+                    <div className="text-6xl font-heading font-black text-foreground/10 opacity-50 group-hover:text-primary/20 transition-colors duration-700">
                       0{index + 1}
                     </div>
                   </div>
@@ -60,7 +60,7 @@ export default function Services() {
                   </div>
 
                   {(service.partners || service.credentials) && (
-                    <div className="pt-8 border-t border-white/5">
+                    <div className="pt-8 border-t border-border">
                       <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
                         {service.partners ? 'Hardware Partners' : 'Credentials'}
                       </p>
@@ -68,7 +68,7 @@ export default function Services() {
                         {(service.partners || service.credentials)?.map((badge, i) => (
                           <span 
                             key={i} 
-                            className="px-3 py-1 bg-card border border-white/5 text-sm text-foreground"
+                            className="px-3 py-1 bg-card border border-border text-sm text-foreground"
                           >
                             {badge}
                           </span>

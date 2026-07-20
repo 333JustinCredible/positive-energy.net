@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <Layout>
       {/* Header */}
-      <section className="pt-24 pb-16 bg-card border-b border-white/5">
+      <section className="pt-24 pb-16 bg-card border-b border-border">
         <div className="container mx-auto px-4 md:px-6">
           <h1 className="text-5xl md:text-7xl font-bold uppercase mb-6 font-heading">
             Get a Quote
@@ -78,7 +78,7 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold uppercase font-heading mb-6">Direct Line</h3>
                 <ul className="space-y-6">
                   <li className="flex items-start gap-4">
-                    <div className="h-12 w-12 bg-card border border-white/5 flex items-center justify-center shrink-0 text-primary">
+                    <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
                       <Phone className="h-6 w-6" />
                     </div>
                     <div>
@@ -89,7 +89,7 @@ export default function Contact() {
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="h-12 w-12 bg-card border border-white/5 flex items-center justify-center shrink-0 text-primary">
+                    <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
                       <Mail className="h-6 w-6" />
                     </div>
                     <div>
@@ -100,7 +100,7 @@ export default function Contact() {
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="h-12 w-12 bg-card border border-white/5 flex items-center justify-center shrink-0 text-primary">
+                    <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
                       <MapPin className="h-6 w-6" />
                     </div>
                     <div>
@@ -129,7 +129,7 @@ export default function Contact() {
             {/* Form */}
             <div className="lg:col-span-8">
               {isSubmitted ? (
-                <div className="h-full min-h-[400px] bg-card border border-white/5 p-12 flex flex-col items-center justify-center text-center">
+                <div className="h-full min-h-[400px] bg-card border border-border p-12 flex flex-col items-center justify-center text-center">
                   <CheckCircle2 className="h-20 w-20 text-primary mb-6" />
                   <h3 className="text-3xl font-bold uppercase font-heading mb-4">Message Received</h3>
                   <p className="text-xl text-muted-foreground max-w-md mb-8">
@@ -144,7 +144,7 @@ export default function Contact() {
                   </Button>
                 </div>
               ) : (
-                <div className="bg-card border border-white/5 p-8 md:p-12">
+                <div className="bg-card border border-border p-8 md:p-12">
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                       
@@ -156,7 +156,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Full Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="Jane Doe" className="bg-background border-white/10 rounded-none h-12" {...field} />
+                                <Input placeholder="Jane Doe" className="bg-background border-border rounded-none h-12" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -169,7 +169,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Company</FormLabel>
                               <FormControl>
-                                <Input placeholder="Acme Logistics" className="bg-background border-white/10 rounded-none h-12" {...field} />
+                                <Input placeholder="Acme Logistics" className="bg-background border-border rounded-none h-12" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -185,7 +185,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Email Address</FormLabel>
                               <FormControl>
-                                <Input placeholder="jane@example.com" type="email" className="bg-background border-white/10 rounded-none h-12" {...field} />
+                                <Input placeholder="jane@example.com" type="email" className="bg-background border-border rounded-none h-12" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -198,7 +198,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Phone Number (Optional)</FormLabel>
                               <FormControl>
-                                <Input placeholder="(555) 123-4567" className="bg-background border-white/10 rounded-none h-12" {...field} />
+                                <Input placeholder="(555) 123-4567" className="bg-background border-border rounded-none h-12" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -214,11 +214,11 @@ export default function Contact() {
                             <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Service Interest</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-background border-white/10 rounded-none h-12">
+                                <SelectTrigger className="bg-background border-border rounded-none h-12">
                                   <SelectValue placeholder="Select a service category" />
                                 </SelectTrigger>
                               </FormControl>
-                              <SelectContent className="rounded-none border-white/10">
+                              <SelectContent className="rounded-none border-border">
                                 <SelectItem value="commercial-ev">Commercial EV Infrastructure</SelectItem>
                                 <SelectItem value="distributed-energy">Distributed Energy (Solar/Storage)</SelectItem>
                                 <SelectItem value="field-services">Field Services & Maintenance</SelectItem>
@@ -241,7 +241,7 @@ export default function Contact() {
                             <FormControl>
                               <Textarea 
                                 placeholder="Tell us about your timeline, location, and requirements..." 
-                                className="bg-background border-white/10 rounded-none min-h-[150px] resize-y" 
+                                className="bg-background border-border rounded-none min-h-[150px] resize-y" 
                                 {...field} 
                               />
                             </FormControl>

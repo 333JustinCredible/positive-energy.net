@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'wouter';
 import { contactData } from '@/data/company';
-import { Zap, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-white/5 pt-16 pb-8">
+    <footer className="bg-card border-t border-border pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          
+
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 text-primary mb-6 inline-block">
-              <Zap className="h-8 w-8 fill-primary inline mr-2" />
-              <span className="font-heading font-bold text-xl tracking-tight text-foreground uppercase">
-                Positive Energy
-              </span>
+            <Link href="/" className="inline-flex mb-6 hover:opacity-80 transition-opacity">
+              <img
+                src="/logos/pe-logo-wide.png"
+                alt="Positive Energy"
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               The crew that shows up. Commercial energy infrastructure, EV charging, and resilient power systems for the Southeast.
@@ -65,7 +66,7 @@ export function Footer() {
 
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-xs">
             © {new Date().getFullYear()} Positive Energy. All rights reserved.
           </p>

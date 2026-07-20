@@ -21,7 +21,7 @@ export default function About() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-24 pb-20 bg-card border-b border-white/5 relative overflow-hidden">
+      <section className="pt-24 pb-20 bg-card border-b border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2669&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">
@@ -36,9 +36,9 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-b border-white/5 bg-background">
+      <section className="py-12 border-b border-border bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
             {statsData.map((stat, idx) => (
               <div key={idx} className="text-center px-4">
                 <div className="text-4xl md:text-5xl font-black font-heading text-secondary mb-2">{stat.value}</div>
@@ -58,21 +58,21 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
-            <div className="bg-card p-8 border border-white/5 hover:border-primary/30 transition-colors">
+            <div className="bg-card p-8 border border-border hover:border-primary/30 transition-colors">
               <HardHat className="h-12 w-12 text-primary mb-6" />
               <h3 className="text-2xl font-bold uppercase font-heading mb-4">Field-First Mentality</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Plans are great until you hit rock. Our leadership comes from the field, meaning our engineering is actually constructible and our timelines reflect reality.
               </p>
             </div>
-            <div className="bg-card p-8 border border-white/5 hover:border-primary/30 transition-colors">
+            <div className="bg-card p-8 border border-border hover:border-primary/30 transition-colors">
               <Zap className="h-12 w-12 text-primary mb-6" />
               <h3 className="text-2xl font-bold uppercase font-heading mb-4">Mission Critical</h3>
               <p className="text-muted-foreground leading-relaxed">
                 From powering Willie Nelson's private ranch to deploying disaster recovery microgrids in hurricanes, we treat every project like failure isn't an option.
               </p>
             </div>
-            <div className="bg-card p-8 border border-white/5 hover:border-primary/30 transition-colors">
+            <div className="bg-card p-8 border border-border hover:border-primary/30 transition-colors">
               <ShieldCheck className="h-12 w-12 text-primary mb-6" />
               <h3 className="text-2xl font-bold uppercase font-heading mb-4">Technical Authority</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -84,7 +84,7 @@ export default function About() {
       </section>
 
       {/* Partners Wall */}
-      <section className="py-24 bg-card border-y border-white/5">
+      <section className="py-24 bg-card border-y border-border">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-heading uppercase mb-4">Hardware Partners & Affiliations</h2>

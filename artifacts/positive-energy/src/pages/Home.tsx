@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 border-b border-white/5">
+      <section className="relative min-h-[90vh] flex items-center pt-20 border-b border-border">
         <div className="absolute inset-0 bg-background z-0" />
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] z-0" />
@@ -43,7 +43,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/projects">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-bold rounded-none uppercase border-white/20 hover:bg-white/5 group">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-bold rounded-none uppercase border-border hover:bg-muted group">
                   View Projects
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -54,9 +54,9 @@ export default function Home() {
       </section>
 
       {/* Fast Stats Bar */}
-      <section className="border-b border-white/5 bg-card">
+      <section className="border-b border-border bg-card">
         <div className="container mx-auto px-4 md:px-6">
-          <Stagger className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
+          <Stagger className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
             {statsData.map((stat, idx) => (
               <StaggerItem 
                 key={idx} 
@@ -86,7 +86,7 @@ export default function Home() {
 
           <Stagger className="grid md:grid-cols-2 gap-8">
             <StaggerItem variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-              <Link href="/services" className="group block p-8 bg-card border border-white/5 hover:border-primary/50 transition-colors h-full">
+              <Link href="/services" className="group block p-8 bg-card border border-border hover:border-primary/50 transition-colors h-full">
                 <Zap className="h-12 w-12 text-primary mb-6" />
                 <h3 className="text-2xl font-bold font-heading uppercase mb-4">Commercial EV Infrastructure</h3>
                 <p className="text-muted-foreground mb-6">L2 and DC Fast Charging deployments for fleets, hospitality, multi-family, and public retail locations.</p>
@@ -95,7 +95,7 @@ export default function Home() {
             </StaggerItem>
 
             <StaggerItem variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-              <Link href="/services" className="group block p-8 bg-card border border-white/5 hover:border-primary/50 transition-colors h-full">
+              <Link href="/services" className="group block p-8 bg-card border border-border hover:border-primary/50 transition-colors h-full">
                 <Battery className="h-12 w-12 text-primary mb-6" />
                 <h3 className="text-2xl font-bold font-heading uppercase mb-4">Distributed Energy</h3>
                 <p className="text-muted-foreground mb-6">Commercial solar PV, smart battery storage, and demand management systems to take control of your power.</p>
@@ -104,7 +104,7 @@ export default function Home() {
             </StaggerItem>
 
             <StaggerItem variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-              <Link href="/services" className="group block p-8 bg-card border border-white/5 hover:border-primary/50 transition-colors h-full">
+              <Link href="/services" className="group block p-8 bg-card border border-border hover:border-primary/50 transition-colors h-full">
                 <Wrench className="h-12 w-12 text-primary mb-6" />
                 <h3 className="text-2xl font-bold font-heading uppercase mb-4">Field Services & Maint.</h3>
                 <p className="text-muted-foreground mb-6">On-call electrical repair, emergency response, and preventative maintenance with 24/7 dispatch capability.</p>
@@ -113,7 +113,7 @@ export default function Home() {
             </StaggerItem>
 
             <StaggerItem variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-              <Link href="/services" className="group block p-8 bg-card border border-white/5 hover:border-primary/50 transition-colors h-full">
+              <Link href="/services" className="group block p-8 bg-card border border-border hover:border-primary/50 transition-colors h-full">
                 <HardHat className="h-12 w-12 text-primary mb-6" />
                 <h3 className="text-2xl font-bold font-heading uppercase mb-4">Resilient & Remote Power</h3>
                 <p className="text-muted-foreground mb-6">Off-grid event power, disaster response microgrids, and temporary infrastructure deployments.</p>
@@ -125,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Highlight */}
-      <section className="py-24 bg-card border-y border-white/5">
+      <section className="py-24 bg-card border-y border-border">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-heading uppercase mb-4">Tested in the Field</h2>
@@ -134,7 +134,7 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {projectsData.slice(0, 3).map((project) => (
-              <div key={project.id} className="group bg-background border border-white/5 hover:border-primary/50 transition-all flex flex-col">
+              <div key={project.id} className="group bg-background border border-border hover:border-primary/50 transition-all flex flex-col">
                 <div className="p-8 flex-1">
                   <div className="flex gap-2 flex-wrap mb-4">
                     {project.category.slice(0, 2).map((cat, i) => (

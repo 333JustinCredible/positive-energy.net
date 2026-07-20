@@ -9,7 +9,7 @@ export default function Projects() {
   return (
     <Layout>
       {/* Header */}
-      <section className="pt-24 pb-16 bg-card border-b border-white/5 relative">
+      <section className="pt-24 pb-16 bg-card border-b border-border relative">
         <div className="container mx-auto px-4 md:px-6">
           <h1 className="text-5xl md:text-7xl font-bold uppercase mb-6 font-heading">
             Field Proven
@@ -26,7 +26,7 @@ export default function Projects() {
             {projectsData.map((project, idx) => (
               <div 
                 key={project.id} 
-                className="group bg-card border border-white/5 hover:border-primary/50 transition-colors duration-300 flex flex-col h-full"
+                className="group bg-card border border-border hover:border-primary/50 transition-colors duration-300 flex flex-col h-full"
               >
                 {/* Visual Stub */}
                 <div className="aspect-video bg-background relative overflow-hidden">
@@ -63,7 +63,7 @@ export default function Projects() {
                     {project.summary}
                   </p>
 
-                  <div className="pt-6 border-t border-white/5 mt-auto">
+                  <div className="pt-6 border-t border-border mt-auto">
                     <div className="grid grid-cols-2 gap-4">
                       {project.metrics.map((metric, i) => (
                         <div key={i}>
@@ -78,7 +78,7 @@ export default function Projects() {
             ))}
           </div>
 
-          <div className="mt-20 text-center p-12 bg-card border border-white/5">
+          <div className="mt-20 text-center p-12 bg-card border border-border">
             <h3 className="text-2xl font-bold font-heading uppercase mb-4">Have a specific project in mind?</h3>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
               This is just a selection of our public work. We handle confidential commercial deployments across the region.

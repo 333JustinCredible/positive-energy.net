@@ -61,57 +61,56 @@
 }
 
 :root {
-  /* Light mode is default but we want the overall brand to be dark charcoal by default. 
-     The prompt: "Dark charcoal as the primary base". So we'll make light mode act as dark. */
-  --background: 220 15% 12%; /* Charcoal */
-  --foreground: 220 10% 98%;
+  /* Light background is the brand base */
+  --background: 0 0% 100%; /* White */
+  --foreground: 220 15% 12%; /* Dark charcoal */
 
-  --border: 220 15% 20%;
-  --input: 220 15% 20%;
+  --border: 220 10% 88%; /* Light gray */
+  --input: 220 10% 88%;
   --ring: 164 63% 48%; /* Teal */
 
-  --card: 220 15% 15%;
-  --card-foreground: 220 10% 98%;
-  --card-border: 220 15% 22%;
+  --card: 220 10% 97%; /* Very light gray */
+  --card-foreground: 220 15% 12%;
+  --card-border: 220 10% 88%;
 
-  --popover: 220 15% 12%;
-  --popover-foreground: 220 10% 98%;
-  --popover-border: 220 15% 20%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 15% 12%;
+  --popover-border: 220 10% 88%;
 
   --primary: 164 63% 48%; /* Teal #2DC9A0 */
-  --primary-foreground: 220 15% 12%;
+  --primary-foreground: 0 0% 100%;
 
   --secondary: 47 90% 64%; /* Yellow #F5D352 */
   --secondary-foreground: 220 15% 12%;
 
-  --muted: 220 15% 20%;
-  --muted-foreground: 220 10% 65%;
+  --muted: 220 10% 94%; /* Very light gray */
+  --muted-foreground: 220 10% 40%;
 
-  --accent: 220 15% 25%;
-  --accent-foreground: 220 10% 98%;
+  --accent: 164 40% 94%; /* Very light teal */
+  --accent-foreground: 220 15% 12%;
 
   --destructive: 0 84% 60%;
-  --destructive-foreground: 220 10% 98%;
+  --destructive-foreground: 0 0% 100%;
 
-  --sidebar: 220 15% 15%;
-  --sidebar-foreground: 220 10% 98%;
-  --sidebar-border: 220 15% 22%;
+  --sidebar: 220 10% 97%;
+  --sidebar-foreground: 220 15% 12%;
+  --sidebar-border: 220 10% 88%;
   --sidebar-primary: 164 63% 48%;
-  --sidebar-primary-foreground: 220 15% 12%;
-  --sidebar-accent: 220 15% 25%;
-  --sidebar-accent-foreground: 220 10% 98%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 164 40% 94%;
+  --sidebar-accent-foreground: 220 15% 12%;
   --sidebar-ring: 164 63% 48%;
 
   --app-font-sans: 'Plus Jakarta Sans', sans-serif;
   --app-font-heading: 'Bricolage Grotesque', sans-serif;
   --radius: 0rem; /* Industrial, squared edges */
 
-  --button-outline: rgba(255, 255, 255, 0.1);
-  --badge-outline: rgba(255, 255, 255, 0.05);
+  --button-outline: rgba(0, 0, 0, 0.12);
+  --badge-outline: rgba(0, 0, 0, 0.06);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255, 255, 255, 0.04);
-  --elevate-2: rgba(255, 255, 255, 0.09);
-  
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.06);
+
   --primary-border: hsl(var(--primary));
   --secondary-border: hsl(var(--secondary));
   --muted-border: hsl(var(--muted));
@@ -122,21 +121,20 @@
 }
 
 .dark {
-  /* Same as root since dark charcoal is the brand base */
-  --background: 220 15% 12%; 
+  --background: 220 15% 12%;
   --foreground: 220 10% 98%;
   --border: 220 15% 20%;
   --input: 220 15% 20%;
-  --ring: 164 63% 48%; 
+  --ring: 164 63% 48%;
   --card: 220 15% 15%;
   --card-foreground: 220 10% 98%;
   --card-border: 220 15% 22%;
   --popover: 220 15% 12%;
   --popover-foreground: 220 10% 98%;
   --popover-border: 220 15% 20%;
-  --primary: 164 63% 48%; 
+  --primary: 164 63% 48%;
   --primary-foreground: 220 15% 12%;
-  --secondary: 47 90% 64%; 
+  --secondary: 47 90% 64%;
   --secondary-foreground: 220 15% 12%;
   --muted: 220 15% 20%;
   --muted-foreground: 220 10% 65%;
