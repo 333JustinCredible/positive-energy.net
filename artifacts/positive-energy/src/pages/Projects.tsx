@@ -34,7 +34,27 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const placeholder = target.nextElementSibling as HTMLElement | null;
+                      if (placeholder) placeholder.style.display = 'flex';
+                    }}
                   />
+                  {/* Fallback placeholder shown when image fails to load */}
+                  <div
+                    className="absolute inset-0 hidden items-center justify-center"
+                    style={{ background: 'linear-gradient(135deg, hsl(163 56% 15%) 0%, hsl(220 15% 18%) 100%)', display: 'none' }}
+                  >
+                    <div className="text-center px-4">
+                      <div className="w-12 h-12 mx-auto mb-3 opacity-40">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-primary w-full h-full">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                      </div>
+                      <p className="text-xs text-white/40 uppercase tracking-widest font-bold">{project.title}</p>
+                    </div>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
                     {project.category.map((cat, i) => (

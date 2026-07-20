@@ -79,5 +79,15 @@ export const projectsData: Project[] = [
     summary: "Activated the main EV showcase with temporary rapid charging infrastructure, supporting dozens of vehicles throughout the event.",
     metrics: ["20+ EVs Charged", "Temporary L2/DCFC Deployment"],
     image: "/images/projects/nashville-earth-day.jpg"
+  },
+  {
+    id: "kia-dealership",
+    title: "Kia Dealership DCFC Install",
+    category: ["Commercial EV", "Commercial Infrastructure"],
+    location: "Nashville, TN",
+    year: "2022",
+    summary: "Delivered and commissioned an ABB DC fast charger for a Kia dealership, enabling on-lot rapid charging for new EV inventory and customer test drives.",
+    metrics: ["ABB DCFC Hardware", "Same-Day Commission"],
+    image: "/images/projects/kia-dealership.jpg"
   }
 ];
