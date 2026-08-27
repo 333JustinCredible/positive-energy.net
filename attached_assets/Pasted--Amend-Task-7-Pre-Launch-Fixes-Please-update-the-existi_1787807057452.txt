@@ -1,0 +1,51 @@
+# Amend Task #7 — Pre-Launch Fixes
+
+Please update the existing Task #7 plan with these final instructions. Do not create a new task and do not implement anything yet.
+
+## Scope
+
+Keep Task #7 limited to:
+
+1. **Route scroll restoration**
+
+   * Every internal page navigation should open at the top.
+   * Use the smallest reliable fix.
+
+2. **SEO metadata**
+
+   * Remove all default Replit placeholder metadata.
+   * Add reusable page-specific metadata for the existing React/Vite site.
+   * Support title, meta description, Open Graph title/description/image, Twitter metadata, and canonical URL where appropriate.
+   * Keep SEO content separate from page components where practical.
+   * Use existing verified Positive Energy messaging only. Do not invent claims.
+
+3. **Contact form**
+
+   * Preserve the current form design and validation.
+   * Do not display a success state unless an inquiry has actually been delivered.
+   * Since `contact@positive-energy.net` is currently being established, do not create new email infrastructure simply to finish this task.
+   * If the existing project can support real delivery simply and safely without new paid services, credentials, databases, or infrastructure, identify that option in the plan.
+   * Otherwise, make the current form behavior truthful and leave final email delivery as a clearly identified launch dependency.
+   * Do not add Mailgun or reuse any legacy Mailgun configuration.
+   * Do not expose personal email addresses, credentials, API keys, or secrets in frontend code.
+
+## Guardrails
+
+Do not:
+
+* Modify Projects or Gallery
+* Change photos or photo metadata
+* Redesign pages
+* Change branding
+* Rewrite unrelated copy
+* Migrate frameworks
+* Add Astro or EmDash
+* Add a database
+* Add paid services
+* Add unnecessary dependencies
+* Refactor unrelated working code
+* Change Cloudflare or DNS configuration
+
+The goal is the **smallest safe patch**, not general site improvement.
+
+Update Task #7 accordingly and return the revised implementation scope for approval. Do not begin Build mode.
