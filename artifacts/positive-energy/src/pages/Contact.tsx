@@ -22,7 +22,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { contactData } from '@/data/company';
-import { Phone, Mail, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, AlertCircle } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -34,7 +34,7 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [submissionState, setSubmissionState] = React.useState<'idle' | 'not-connected'>('idle');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,9 +49,8 @@ export default function Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: wire to email service (e.g. Formspree free tier) — form is intentionally unwired
-    console.log(values);
-    setIsSubmitted(true);
+    void values;
+    setSubmissionState('not-connected');
   }
 
   return (
@@ -128,19 +127,19 @@ export default function Contact() {
 
             {/* Form */}
             <div className="lg:col-span-8">
-              {isSubmitted ? (
+              {submissionState === 'not-connected' ? (
                 <div className="h-full min-h-[400px] bg-card border border-border p-12 flex flex-col items-center justify-center text-center">
-                  <CheckCircle2 className="h-20 w-20 text-primary mb-6" />
-                  <h3 className="text-3xl font-bold uppercase font-heading mb-4">Message Received</h3>
+                  <AlertCircle className="h-20 w-20 text-primary mb-6" />
+                  <h3 className="text-3xl font-bold uppercase font-heading mb-4">Request Not Sent</h3>
                   <p className="text-xl text-muted-foreground max-w-md mb-8">
-                    Our team will review your project details and follow up within 24 hours.
+                    Email delivery is not connected yet. Please call {contactData.phone} or email {contactData.email} directly.
                   </p>
                   <Button 
-                    onClick={() => setIsSubmitted(false)}
+                    onClick={() => setSubmissionState('idle')}
                     variant="outline"
                     className="rounded-none border-primary text-primary hover:bg-primary/10"
                   >
-                    SEND ANOTHER MESSAGE
+                    RETURN TO FORM
                   </Button>
                 </div>
               ) : (
