@@ -13,6 +13,7 @@ import {
   projectsData,
   type Project,
   type ProjectContentType,
+  type ProjectImage,
   type ProjectImageRole,
 } from '@/data/projects';
 import { galleryPhotos } from '@/data/gallery';
@@ -25,13 +26,88 @@ const contentTypeLabels: Record<ProjectContentType, string> = {
 
 const imageRoleLabels: Record<ProjectImageRole, string> = {
   hero: 'Hero',
-  'scale/drone': 'Scale / Drone',
-  construction: 'Construction',
-  'technical detail': 'Technical Detail',
-  'crew/action': 'Crew / Action',
-  'finished system': 'Finished System',
-  'active charging': 'Active Charging',
+  sitework: 'Sitework',
+  'electrical-infrastructure': 'Electrical Infrastructure',
+  'power-block-installation': 'Power Block Installation',
+  'technical-detail': 'Technical Detail',
+  'crew-action': 'Crew / Field Work',
+  'completed-drone': 'Completed Drone',
+  'active-charging': 'Active Charging / Finished System',
 };
+
+function getProjectImages(project: Project): ProjectImage[] {
+  if (project.images && project.images.length > 0) {
+    return [...project.images].sort((a, b) => a.sortOrder - b.sortOrder);
+  }
+
+  const legacyImages: ProjectImage[] = [];
+
+  if (project.coverImage) {
+    legacyImages.push(project.coverImage);
+  } else if (project.image) {
+    legacyImages.push({
+      src: project.image,
+      role: 'hero',
+      placeholderLabel: `${project.title} photography`,
+      caption: '',
+      alt: project.title,
+      sortOrder: 0,
+    });
+  }
+
+  if (project.supportingImages) {
+    legacyImages.push(...project.supportingImages);
+  }
+
+  return legacyImages.sort((a, b) => a.sortOrder - b.sortOrder);
+}
+
+function ProjectImageCard({
+  image,
+  hero = false,
+}: {
+  image: ProjectImage;
+  hero?: boolean;
+}) {
+  const hasSource = Boolean(image.src);
+
+  return (
+    <figure className="bg-card border border-border overflow-hidden">
+      <div className={`${hero ? 'aspect-[4/3]' : 'aspect-video'} bg-muted/30 relative overflow-hidden`}>
+        {hasSource ? (
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading={hero ? 'eager' : 'lazy'}
+          />
+        ) : (
+          <div
+            role="img"
+            aria-label={`${image.placeholderLabel} placeholder`}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center bg-[linear-gradient(135deg,hsl(var(--muted)/0.55),hsl(var(--card)))]"
+          >
+            <span className="text-xs text-primary uppercase tracking-[0.2em] font-bold">
+              {imageRoleLabels[image.role]}
+            </span>
+            <span className="max-w-md text-lg md:text-xl font-heading font-bold uppercase leading-tight text-foreground/75">
+              {image.placeholderLabel}
+            </span>
+          </div>
+        )}
+        {hasSource && hero && (
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        )}
+      </div>
+      <figcaption className="p-4 text-sm text-muted-foreground">
+        <span className="block text-xs text-primary uppercase tracking-wider font-bold mb-1">
+          {imageRoleLabels[image.role]}
+        </span>
+        {image.caption}
+      </figcaption>
+    </figure>
+  );
+}
 
 function DetailSection({
   title,
@@ -62,16 +138,7 @@ function DetailList({ items }: { items: string[] }) {
 }
 
 function ProjectHero({ project }: { project: Project }) {
-  const coverImage = project.coverImage ?? (
-    project.image
-      ? {
-          src: project.image,
-          alt: project.title,
-          role: 'hero' as const,
-          sortOrder: 0,
-        }
-      : undefined
-  );
+  const heroImage = getProjectImages(project).find((image) => image.role === 'hero');
 
   return (
     <section className="bg-card border-b border-border">
@@ -84,7 +151,7 @@ function ProjectHero({ project }: { project: Project }) {
           Back to Projects
         </Link>
 
-        <div className={coverImage
+        <div className={heroImage
           ? 'grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center'
           : 'max-w-4xl'}>
           <div>
@@ -123,16 +190,7 @@ function ProjectHero({ project }: { project: Project }) {
             )}
           </div>
 
-          {coverImage && (
-            <div className="aspect-[4/3] bg-background relative overflow-hidden">
-              <img
-                src={coverImage.src}
-                alt={coverImage.alt}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            </div>
-          )}
+          {heroImage && <ProjectImageCard image={heroImage} hero />}
         </div>
       </div>
     </section>
@@ -175,6 +233,8 @@ export default function ProjectDetail() {
   }
 
   const hasGalleryPhotos = galleryPhotos.some((photo) => photo.project === project.id);
+  const projectImages = getProjectImages(project);
+  const supportingImages = projectImages.filter((image) => image.role !== 'hero');
 
   return (
     <Layout>
@@ -239,7 +299,7 @@ export default function ProjectDetail() {
             </div>
           )}
 
-          {project.supportingImages && project.supportingImages.length > 0 && (
+          {supportingImages.length > 0 && (
             <section className="mt-20 border-t border-border pt-10">
               <div className="flex items-end justify-between gap-6 mb-8">
                 <div>
@@ -252,26 +312,12 @@ export default function ProjectDetail() {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[...project.supportingImages]
-                  .sort((a, b) => a.sortOrder - b.sortOrder)
-                  .map((image) => (
-                  <figure key={`${image.src}-${image.caption ?? image.alt}`} className="bg-card border border-border">
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full aspect-video object-cover"
-                      loading="lazy"
-                    />
-                    {image.caption && (
-                      <figcaption className="p-4 text-sm text-muted-foreground">
-                        <span className="block text-xs text-primary uppercase tracking-wider font-bold mb-1">
-                          {imageRoleLabels[image.role]}
-                        </span>
-                        {image.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                  ))}
+                {supportingImages.map((image) => (
+                  <ProjectImageCard
+                    key={`${image.role}-${image.sortOrder}`}
+                    image={image}
+                  />
+                ))}
               </div>
             </section>
           )}

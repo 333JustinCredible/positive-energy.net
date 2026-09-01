@@ -39,12 +39,12 @@ export default function Projects() {
                 key={project.id} 
                 className="group bg-card border border-border hover:border-primary/50 transition-colors duration-300 flex flex-col h-full"
               >
-                {(project.coverImage?.src ?? project.image) && (
+                {(project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image) && (
                   /* Project Image */
                   <div className="aspect-video bg-background relative overflow-hidden">
                     <img
-                      src={project.coverImage?.src ?? project.image}
-                      alt={project.coverImage?.alt ?? project.title}
+                      src={project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image}
+                      alt={project.images?.find((image) => image.role === 'hero')?.alt || project.coverImage?.alt || project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

@@ -5,19 +5,21 @@ export type ProjectContentType =
 
 export type ProjectImageRole =
   | "hero"
-  | "scale/drone"
-  | "construction"
-  | "technical detail"
-  | "crew/action"
-  | "finished system"
-  | "active charging";
+  | "sitework"
+  | "electrical-infrastructure"
+  | "power-block-installation"
+  | "technical-detail"
+  | "crew-action"
+  | "completed-drone"
+  | "active-charging";
 
 export interface ProjectImage {
   src: string;
-  alt: string;
   role: ProjectImageRole;
+  placeholderLabel: string;
+  caption: string;
+  alt: string;
   sortOrder: number;
-  caption?: string;
 }
 
 export interface Project {
@@ -39,9 +41,16 @@ export interface Project {
   equipmentTechnology?: string[];
   resultsSignificance?: string;
   projectImportance?: string;
+  images?: ProjectImage[];
   coverImage?: ProjectImage;
   supportingImages?: ProjectImage[];
   sortOrder?: number;
+}
+
+export const PROJECT_PHOTO_DIRECTORY = "/images/projects";
+
+export function projectPhotoPath(filename: string): string {
+  return filename ? `${PROJECT_PHOTO_DIRECTORY}/${filename.replace(/^\/+/, "")}` : "";
 }
 
 export const projectsData: Project[] = [
@@ -180,6 +189,73 @@ export const projectsData: Project[] = [
       "6 dual-head ChargePoint Power Links"
     ],
     resultsSignificance: "The completed charging network became the centerpiece of Chuck Hutton Toyota’s Electri-CITY Park and demonstrates Positive Energy’s ability to deliver complex, high-power EV charging infrastructure from major electrical distribution through commissioning and lifecycle support.",
-    projectImportance: "This project demonstrates capability beyond installing charging dispensers. Positive Energy delivered the electrical and civil infrastructure required to move power from the site transformer through centralized DC power equipment and underground distribution to the final charging points."
+    projectImportance: "This project demonstrates capability beyond installing charging dispensers. Positive Energy delivered the electrical and civil infrastructure required to move power from the site transformer through centralized DC power equipment and underground distribution to the final charging points.",
+    images: [
+      {
+        role: "hero",
+        src: "",
+        placeholderLabel: "Hero image / finished site or strongest drone",
+        caption: "",
+        alt: "",
+        sortOrder: 0,
+      },
+      {
+        role: "sitework",
+        src: "",
+        placeholderLabel: "Sitework / trenching",
+        caption: "",
+        alt: "",
+        sortOrder: 1,
+      },
+      {
+        role: "electrical-infrastructure",
+        src: "",
+        placeholderLabel: "Electrical infrastructure",
+        caption: "",
+        alt: "",
+        sortOrder: 2,
+      },
+      {
+        role: "power-block-installation",
+        src: "",
+        placeholderLabel: "Power Block installation",
+        caption: "",
+        alt: "",
+        sortOrder: 3,
+      },
+      {
+        role: "technical-detail",
+        src: "",
+        placeholderLabel: "Technical detail",
+        caption: "",
+        alt: "",
+        sortOrder: 4,
+      },
+      {
+        role: "crew-action",
+        src: "",
+        placeholderLabel: "Crew / field work",
+        caption: "",
+        alt: "",
+        sortOrder: 5,
+      },
+      {
+        role: "completed-drone",
+        src: "",
+        placeholderLabel: "Completed drone view",
+        caption: "",
+        alt: "",
+        sortOrder: 6,
+      },
+      {
+        role: "active-charging",
+        src: "",
+        placeholderLabel: "Active charging / finished system",
+        caption: "",
+        alt: "",
+        sortOrder: 7,
+      },
+    ],
+    sortOrder: 0,
   }
 ];
