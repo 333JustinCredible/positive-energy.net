@@ -1,0 +1,79 @@
+Create or upgrade the existing Luck Reunion project into a Remote Power / Event Energy case study using the current Projects / Case Study framework.
+
+Important:
+- First check whether a Luck Reunion record already exists.
+- If one exists, upgrade it in place rather than creating a duplicate.
+- Prefer a data-only change in `projects.ts`.
+- Do not modify shared layout code unless genuinely required.
+- Do not modify Gallery, navigation, Chuck Hutton, Toyota/Lexus, Hurricane Helene, or unrelated projects.
+
+Project:
+Title: Luck Reunion — Battery-Powered Event Infrastructure
+Type: case-study
+Sort order: 4
+Location: Luck, Texas
+Event: 13th Luck Reunion
+Partners / Context: OverDrive Energy Solutions / OVRDRV and Music Sustainability Alliance
+
+FRAMING:
+Positive Energy supported and documented OverDrive’s battery-powered event infrastructure. Do not present Positive Energy as solely responsible for the overall festival energy deployment.
+
+Approved Summary:
+Positive Energy participated in Willie Nelson’s Luck Reunion with support from the Music Sustainability Alliance to document and evaluate OverDrive Energy Solutions’ expanding battery-powered event infrastructure.
+
+In the field, Positive Energy helped configure small- and medium-scale microgrids serving stages and other festival areas while interviewing production personnel and documenting the operational impact of replacing conventional generator infrastructure with distributed battery systems.
+
+Positive Energy Role:
+- Built and configured distributed battery microgrids
+- Supported power deployment across stages and production areas
+- Observed and documented system operation
+- Interviewed production staff, vendors, and operators
+- Evaluated power quality, logistics, safety, and usability
+- Documented lessons learned and improvement opportunities
+- Produced the post-event deployment report for the Music Sustainability Alliance
+
+Operational Findings:
+The deployment demonstrated:
+- Clean, consistent power
+- Extremely quiet operation
+- Less cabling and fewer cable ramps
+- Reduced refueling and maintenance requirements
+- Smaller, modular equipment footprints
+- Ability to position battery systems closer to loads
+- Centralized/live system monitoring
+- Faster and safer setup
+- Greater flexibility for changing and last-minute power needs
+
+Why It Matters:
+This project demonstrates Positive Energy’s ability to work beyond conventional electrical construction by combining temporary microgrids, battery systems, monitoring, field deployment, operational analysis, and stakeholder education in a live production environment.
+
+Create these future image slots using the existing reusable image structure:
+1. Hero — festival / full-site scale
+2. Microgrid build
+3. Battery equipment
+4. Stage power
+5. Monitoring / controls
+6. Production crew / field work
+7. Nighttime festival operation
+8. Finished operating system
+
+Do not assign photography yet.
+
+Do not invent:
+- system counts
+- battery capacities
+- cost savings
+- emissions reductions
+- festival-wide performance claims
+- formal corporate relationships
+- outcomes beyond the approved content
+
+If an existing Luck Reunion slug is already public, preserve it or add the smallest safe redirect if a new preferred slug is required. Never create two public Luck Reunion cards.
+
+Return only:
+1. Whether an existing record was found
+2. Proposed record/slug handling
+3. Exact files that need to change
+4. Confirmation that this can remain data-only
+
+Do not build until approved.
