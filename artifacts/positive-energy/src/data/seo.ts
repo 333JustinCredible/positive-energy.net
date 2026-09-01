@@ -1,3 +1,5 @@
+import { projectsData } from '@/data/projects';
+
 export interface SeoConfig {
   title: string;
   description: string;
@@ -77,5 +79,24 @@ export const notFoundSeo: SeoConfig = {
 };
 
 export function getSeoForPath(path: string): SeoConfig {
-  return seoByPath[path] ?? notFoundSeo;
+  if (seoByPath[path]) {
+    return seoByPath[path];
+  }
+
+  const projectSlug = path.startsWith('/projects/')
+    ? path.slice('/projects/'.length)
+    : null;
+  const project = projectSlug
+    ? projectsData.find((item) => item.slug === projectSlug)
+    : undefined;
+
+  if (project) {
+    return {
+      title: `${project.title} | Positive Energy`,
+      description: project.summary,
+      image: project.coverImage?.src ?? project.image,
+    };
+  }
+
+  return notFoundSeo;
 }

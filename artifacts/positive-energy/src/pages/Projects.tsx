@@ -1,12 +1,22 @@
 import React from 'react';
 import { Layout } from '@/components/layout/Layout';
-import { projectsData } from '@/data/projects';
+import { projectsData, type ProjectContentType } from '@/data/projects';
 import { MapPin, Calendar, ArrowUpRight, Images } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { galleryPhotos } from '@/data/gallery';
 
+const contentTypeLabels: Record<ProjectContentType, string> = {
+  'case-study': 'Case Study',
+  'program-experience': 'Program Experience',
+  capability: 'Capability',
+};
+
 export default function Projects() {
+  const orderedProjects = [...projectsData].sort(
+    (a, b) => (a.sortOrder ?? Number.MAX_SAFE_INTEGER) - (b.sortOrder ?? Number.MAX_SAFE_INTEGER),
+  );
+
   return (
     <Layout>
       {/* Header */}
@@ -24,7 +34,7 @@ export default function Projects() {
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {projectsData.map((project, idx) => (
+            {orderedProjects.map((project) => (
               <div 
                 key={project.id} 
                 className="group bg-card border border-border hover:border-primary/50 transition-colors duration-300 flex flex-col h-full"
@@ -32,8 +42,8 @@ export default function Projects() {
                 {/* Project Image */}
                 <div className="aspect-video bg-background relative overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
+                    src={project.coverImage?.src ?? project.image}
+                    alt={project.coverImage?.alt ?? project.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     onError={(e) => {
                       const target = e.currentTarget;
@@ -69,9 +79,20 @@ export default function Projects() {
                 {/* Content */}
                 <div className="p-8 flex flex-col flex-1">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold font-heading uppercase group-hover:text-primary transition-colors leading-tight">
-                      {project.title}
-                    </h3>
+                    <div>
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="inline-flex items-start gap-2 text-2xl font-bold font-heading uppercase group-hover:text-primary transition-colors leading-tight"
+                      >
+                        <span>{project.title}</span>
+                        <ArrowUpRight className="h-5 w-5 shrink-0 mt-1.5" />
+                      </Link>
+                      {project.contentType && (
+                        <p className="text-xs text-primary uppercase tracking-widest font-bold mt-3">
+                          {contentTypeLabels[project.contentType]}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6">

@@ -1,5 +1,17 @@
+export type ProjectContentType =
+  | "case-study"
+  | "program-experience"
+  | "capability";
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Project {
   id: string;
+  slug: string;
   title: string;
   category: string[];
   location: string;
@@ -7,11 +19,21 @@ export interface Project {
   summary: string;
   metrics: string[];
   image: string;
+  contentType?: ProjectContentType;
+  challenge?: string;
+  solution?: string;
+  servicesProvided?: string[];
+  equipmentTechnology?: string[];
+  resultsSignificance?: string;
+  coverImage?: ProjectImage;
+  supportingImages?: ProjectImage[];
+  sortOrder?: number;
 }
 
 export const projectsData: Project[] = [
   {
     id: "bonnaroo",
+    slug: "bonnaroo",
     title: "Bonnaroo Music & Arts Festival",
     category: ["Resilient Power", "Commercial EV"],
     location: "Great Stage Park, TN",
@@ -22,6 +44,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "luck-reunion",
+    slug: "luck-reunion",
     title: "Willie Nelson's Luck Reunion",
     category: ["Distributed Energy", "Remote Power"],
     location: "Luck Ranch, TX",
@@ -32,6 +55,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "nashville-tornado",
+    slug: "nashville-tornado",
     title: "Nashville Tornado Recovery",
     category: ["Field Services", "Emergency Response"],
     location: "Nashville, TN",
@@ -42,6 +66,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "hurricane-helene",
+    slug: "hurricane-helene",
     title: "Hurricane Helene Recovery",
     category: ["Disaster Response", "Resilient Power"],
     location: "Western NC",
@@ -52,6 +77,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "off-grid-fest",
+    slug: "off-grid-fest",
     title: "Off-Grid Fest",
     category: ["Remote Power", "Distributed Energy"],
     location: "Southeast US",
@@ -62,6 +88,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "deep-tropics",
+    slug: "deep-tropics",
     title: "Deep Tropics Festival",
     category: ["Remote Power", "Solar + Storage"],
     location: "Nashville, TN",
@@ -72,6 +99,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "nashville-earth-day",
+    slug: "nashville-earth-day",
     title: "Nashville Earth Day",
     category: ["Commercial EV"],
     location: "Centennial Park, Nashville",
@@ -82,6 +110,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "kia-dealership",
+    slug: "kia-dealership",
     title: "Kia Dealership DCFC Install",
     category: ["Commercial EV", "Commercial Infrastructure"],
     location: "Nashville, TN",
@@ -92,6 +121,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "lexus-greenville",
+    slug: "lexus-greenville",
     title: "Lexus of Greenville EV Charging",
     category: ["Commercial EV", "Dealership"],
     location: "Greenville, SC",

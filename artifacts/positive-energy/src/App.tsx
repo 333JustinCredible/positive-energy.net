@@ -7,6 +7,7 @@ import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 import Home from '@/pages/Home';
 import Services from '@/pages/Services';
 import Projects from '@/pages/Projects';
+import ProjectDetail from '@/pages/ProjectDetail';
 import Gallery from '@/pages/Gallery';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
@@ -30,6 +31,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/projects/:slug" component={ProjectDetail} />
       <Route path="/projects" component={Projects} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/about" component={About} />
