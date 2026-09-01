@@ -1,0 +1,61 @@
+Task #20 — Add approved Toyota & Lexus program details
+
+Update only the existing `toyota-lexus-multi-site` program record.
+
+Keep this as a data-only change in `artifacts/positive-energy/src/data/projects.ts` if possible.
+
+Preserve:
+- Slug: `toyota-lexus-multi-site`
+- Type: `program-experience`
+- Sort order: 2
+- Existing image slots
+- Existing project framework
+- Existing Chuck Hutton content
+- Gallery, navigation, and unrelated projects
+
+Do not modify layout code unless absolutely required.
+Do not invent or infer a Toyota/Lexus corporate mandate, formal corporate relationship, unsupported metrics, dates, or outcomes.
+
+Use the following approved content:
+
+Title:
+Toyota & Lexus Multi-Site EV Charging Experience
+
+Program Scale:
+Positive Energy has supported EV charging installations at approximately 45 Toyota dealerships and 11 Lexus dealerships across Tennessee, Georgia, South Carolina, North Carolina, Kentucky, Alabama, Mississippi, and Florida.
+
+Typical Scope:
+Working primarily on retrofit projects, Positive Energy served as the EV charging specialist from the existing electrical distribution system through final charger commissioning.
+
+Services Provided:
+- Breaker-to-charger electrical installation
+- Conduit, conductors, disconnects, and related electrical infrastructure
+- Charger installation and configuration
+- Networking and monitoring integration
+- Testing and commissioning
+- Dealership owner and staff instruction on EVs, charger operation, and charger benefits
+
+Equipment / Technology:
+- ChargePoint
+- ABB
+- Blink
+- EVgo
+- eConnect
+
+Program Delivery:
+Lane Valente Industries served as the primary general contractor for much of this work. Repeated dealership deployments allowed Positive Energy to develop substantial experience working within active automotive facilities and adapting EV charging infrastructure to existing electrical systems.
+
+Results / Significance:
+This program experience demonstrates repeatability across dozens of active dealership environments, multiple states, charger manufacturers, electrical conditions, and retrofit scenarios.
+
+Keep the copy concise and visually scannable through the existing project-detail framework.
+
+After implementation:
+1. Run typecheck.
+2. Run the production build.
+3. Confirm the program card remains second on the Projects page.
+4. Confirm the slug route resolves.
+5. Report the exact file(s) changed.
+6. Stop.
+
+Do not make any other changes.
