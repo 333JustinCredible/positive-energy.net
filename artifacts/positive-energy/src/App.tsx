@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
+import { Redirect, Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 
 import Home from '@/pages/Home';
 import Services from '@/pages/Services';
@@ -31,6 +31,9 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/projects/hurricane-helene">
+        <Redirect to="/projects/hurricane-helene-response" replace />
+      </Route>
       <Route path="/projects/:slug" component={ProjectDetail} />
       <Route path="/projects" component={Projects} />
       <Route path="/gallery" component={Gallery} />
