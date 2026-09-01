@@ -1,0 +1,67 @@
+Create a new Hurricane Helene disaster-response case study using the existing Projects / Case Study framework.
+
+Keep this as data-only as possible. Do not redesign the framework or modify Gallery, navigation, Chuck Hutton, Toyota/Lexus, or unrelated projects.
+
+Project:
+Title: Hurricane Helene Disaster Response
+Slug: hurricane-helene-response
+Type: case-study
+Sort order: 3
+Location: Western North Carolina
+Timeline: Fall 2024
+Partner: FootPrint Project
+
+IMPORTANT FRAMING:
+Positive Energy acted as part of the larger FootPrint Project response team. Do not present Positive Energy as independently responsible for FootPrint Project’s overall disaster-response accomplishments. Make clear that PE’s field work was enabled by and contributed to the broader FootPrint Project team effort.
+
+Approved Summary:
+Within two days of Hurricane Helene, Positive Energy deployed to western North Carolina as part of the FootPrint Project response team. Working within FootPrint’s broader disaster-response effort, Positive Energy helped identify communities facing extended outages and supported deployment of solar, battery, and satellite-communications resources where they could provide the greatest impact.
+
+Challenge:
+Catastrophic flooding and infrastructure damage left communities without reliable electrical power, communications, refrigeration, and other essential services. Conditions and needs changed rapidly across isolated communities throughout western North Carolina.
+
+Positive Energy’s Role Within the FootPrint Team:
+- Coordinated with local utility representatives to help identify areas expected to experience prolonged outages
+- Supported community resource centers with power and communications assessments
+- Helped deploy small solar and battery systems
+- Helped deploy and support Starlink communications
+- Troubleshot temporary microgrids
+- Assisted residents with essential-power needs
+- Worked with local officials and other emergency-response organizations to identify additional resource needs
+- Worked with the Pensacola Fire Department and National Guard in support of Camp Miller, a temporary relief and staging location serving displaced residents and responding personnel
+
+Collaboration:
+Positive Energy’s work was part of FootPrint Project’s larger response effort, which brought together volunteers, clean-energy equipment, logistics, local officials, emergency services, community organizations, and other response partners.
+
+Positive Energy worked alongside or interacted with organizations and resources including:
+- FootPrint Project
+- Local utility representatives
+- Pensacola Fire Department
+- National Guard / Air National Guard personnel
+- SpaceX / Starlink
+- Tesla
+- Solar-industry volunteers and organizations
+- Samaritan’s Purse
+- Red Cross
+- Other state and local emergency-response organizations
+
+Why It Matters:
+This experience demonstrates Positive Energy’s ability to contribute effectively within a larger emergency-response organization, rapidly assess unfamiliar infrastructure, troubleshoot distributed-energy systems in the field, coordinate across multiple organizations, and help deploy practical power and communications solutions under difficult conditions.
+
+Create these future image slots using the existing reusable image structure:
+1. Hero — community response / deployment
+2. Utility and site assessment
+3. Solar + battery deployment
+4. Starlink / communications
+5. Microgrid troubleshooting
+6. Camp Miller
+7. Team / multi-agency collaboration
+8. Community delivery / resident support
+
+Do not assign photographs yet.
+
+Do not add press/interview claims or broader FootPrint response statistics at this stage. Those can be added later as sourced external validation.
+
+Return the smallest implementation plan only.
+Prefer a data-only change to projects.ts using the existing framework.
+Do not build until approved.
