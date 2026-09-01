@@ -1,0 +1,49 @@
+Update Chuck Hutton Toyota case study content only.
+
+Use the existing chuck-hutton-toyota record and existing project-detail framework. Do not redesign, add routes, modify Gallery, or touch unrelated projects.
+
+Use exactly the following approved content:
+
+Title: Chuck Hutton Toyota — Electri-CITY Park
+Location: Memphis, Tennessee
+Timeline: Early 2024 – Late 2024
+Contracted By: Land Valente Industries
+Type: Case Study
+
+Summary:
+Positive Energy delivered the complete EV charging network installation for Chuck Hutton Toyota’s Electri-CITY Park in Memphis, including the electrical infrastructure from the utility transformer through the ChargePoint Express Plus Power Blocks and underground distribution to the charging dispensers.
+
+Challenge:
+Chuck Hutton Toyota was developing a large-scale public EV charging destination requiring significantly more infrastructure than a typical dealership charging installation. The system required high-power 480V electrical distribution, centralized DC power conversion, underground distribution, multiple charging dispensers, networking, commissioning, and coordination with the broader energy infrastructure at the site.
+
+Positive Energy Scope / Solution:
+Positive Energy was responsible for the complete installation of the EV charging network. Power was provided to the site transformer, and Positive Energy installed the charging infrastructure from the transformer through the main 400A, 480V disconnects, ChargePoint Express Plus Power Blocks, underground distribution, Power Links, and charging dispensers.
+
+Services Provided:
+
+480V electrical distribution
+Conduit and feeder installation
+Underground electrical infrastructure
+Equipment placement and installation
+ChargePoint Express Plus installation
+Power Link installation
+Networking and commissioning
+Operations & maintenance support
+Assistance with solar design
+Battery/microgrid planning support
+
+Charging Infrastructure:
+
+12 ChargePoint Express Plus Power Blocks
+Up to 200 kW per Power Block
+6 dual-head ChargePoint Power Links
+
+Results / Significance:
+The completed charging network became the centerpiece of Chuck Hutton Toyota’s Electri-CITY Park and demonstrates Positive Energy’s ability to deliver complex, high-power EV charging infrastructure from major electrical distribution through commissioning and lifecycle support.
+
+Project Importance:
+This project demonstrates capability beyond installing charging dispensers. Positive Energy delivered the electrical and civil infrastructure required to move power from the site transformer through centralized DC power equipment and underground distribution to the final charging points.
+
+Keep the page concise and visually scannable. Use existing project-detail styling. Do not add photography yet; retain the current no-image fallback until confirmed Chuck Hutton images are supplied.
+
+Make the minimum data changes necessary, run typecheck/build, report files changed, then stop.

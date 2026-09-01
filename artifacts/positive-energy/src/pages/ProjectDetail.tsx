@@ -1,6 +1,13 @@
 import React from 'react';
 import { Link, useRoute } from 'wouter';
-import { ArrowLeft, ArrowUpRight, Calendar, Images, MapPin } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Building2,
+  Calendar,
+  Images,
+  MapPin,
+} from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import {
   projectsData,
@@ -44,10 +51,14 @@ function DetailList({ items }: { items: string[] }) {
 }
 
 function ProjectHero({ project }: { project: Project }) {
-  const coverImage = project.coverImage ?? {
-    src: project.image,
-    alt: project.title,
-  };
+  const coverImage = project.coverImage ?? (
+    project.image
+      ? {
+          src: project.image,
+          alt: project.title,
+        }
+      : undefined
+  );
 
   return (
     <section className="bg-card border-b border-border">
@@ -60,7 +71,9 @@ function ProjectHero({ project }: { project: Project }) {
           Back to Projects
         </Link>
 
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+        <div className={coverImage
+          ? 'grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center'
+          : 'max-w-4xl'}>
           <div>
             {project.contentType && (
               <p className="text-sm text-primary uppercase tracking-[0.2em] font-bold mb-4">
@@ -83,20 +96,30 @@ function ProjectHero({ project }: { project: Project }) {
                   <span>{project.year}</span>
                 </div>
               )}
+              {project.contractedBy && (
+                <div className="flex items-center gap-1.5">
+                  <Building2 className="h-4 w-4" />
+                  <span>Contracted by {project.contractedBy}</span>
+                </div>
+              )}
             </div>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              {project.summary}
-            </p>
+            {project.summary && (
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                {project.summary}
+              </p>
+            )}
           </div>
 
-          <div className="aspect-[4/3] bg-background relative overflow-hidden">
-            <img
-              src={coverImage.src}
-              alt={coverImage.alt}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-          </div>
+          {coverImage && (
+            <div className="aspect-[4/3] bg-background relative overflow-hidden">
+              <img
+                src={coverImage.src}
+                alt={coverImage.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -151,7 +174,7 @@ export default function ProjectDetail() {
               {project.metrics.map((metric) => (
                 <div key={metric} className="bg-card border border-border p-6">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                    Impact
+                    {project.metricsLabel ?? 'Impact'}
                   </p>
                   <p className="font-bold text-secondary">{metric}</p>
                 </div>
@@ -184,7 +207,7 @@ export default function ProjectDetail() {
               )}
 
               {project.equipmentTechnology && project.equipmentTechnology.length > 0 && (
-                <DetailSection title="Equipment / technology">
+                <DetailSection title="Charging infrastructure">
                   <DetailList items={project.equipmentTechnology} />
                 </DetailSection>
               )}
@@ -192,6 +215,12 @@ export default function ProjectDetail() {
               {project.resultsSignificance && (
                 <DetailSection title="Results / significance">
                   <p>{project.resultsSignificance}</p>
+                </DetailSection>
+              )}
+
+              {project.projectImportance && (
+                <DetailSection title="Project importance">
+                  <p>{project.projectImportance}</p>
                 </DetailSection>
               )}
             </div>
@@ -241,6 +270,24 @@ export default function ProjectDetail() {
               </Link>
             </div>
           )}
+
+          <section className="mt-16 border-t border-border pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <div>
+              <p className="text-sm text-primary uppercase tracking-[0.2em] font-bold mb-2">
+                Start a conversation
+              </p>
+              <h2 className="text-2xl font-bold font-heading uppercase">
+                Discuss your project
+              </h2>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+            >
+              Contact Positive Energy
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </section>
         </div>
       </section>
     </Layout>

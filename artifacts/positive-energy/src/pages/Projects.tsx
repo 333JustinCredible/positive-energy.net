@@ -41,21 +41,26 @@ export default function Projects() {
               >
                 {/* Project Image */}
                 <div className="aspect-video bg-background relative overflow-hidden">
-                  <img
-                    src={project.coverImage?.src ?? project.image}
-                    alt={project.coverImage?.alt ?? project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
-                      const placeholder = target.nextElementSibling as HTMLElement | null;
-                      if (placeholder) placeholder.style.display = 'flex';
-                    }}
-                  />
-                  {/* Fallback placeholder shown when image fails to load */}
+                  {(project.coverImage?.src ?? project.image) && (
+                    <img
+                      src={project.coverImage?.src ?? project.image}
+                      alt={project.coverImage?.alt ?? project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        const placeholder = target.nextElementSibling as HTMLElement | null;
+                        if (placeholder) placeholder.style.display = 'flex';
+                      }}
+                    />
+                  )}
+                  {/* Fallback placeholder shown when a project has no confirmed image */}
                   <div
-                    className="absolute inset-0 hidden items-center justify-center"
-                    style={{ background: 'linear-gradient(135deg, hsl(163 56% 15%) 0%, hsl(220 15% 18%) 100%)', display: 'none' }}
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, hsl(163 56% 15%) 0%, hsl(220 15% 18%) 100%)',
+                      display: (project.coverImage?.src ?? project.image) ? 'none' : 'flex',
+                    }}
                   >
                     <div className="text-center px-4">
                       <div className="w-12 h-12 mx-auto mb-3 opacity-40">
@@ -96,19 +101,25 @@ export default function Projects() {
                   </div>
 
                   <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6">
-                    <div className="flex items-center gap-1.5">
-                      <MapPin className="h-4 w-4" />
-                      <span>{project.location}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Calendar className="h-4 w-4" />
-                      <span>{project.year}</span>
-                    </div>
+                    {project.location && (
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="h-4 w-4" />
+                        <span>{project.location}</span>
+                      </div>
+                    )}
+                    {project.year && (
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="h-4 w-4" />
+                        <span>{project.year}</span>
+                      </div>
+                    )}
                   </div>
 
-                  <p className="text-foreground/80 mb-8 flex-1 leading-relaxed">
-                    {project.summary}
-                  </p>
+                  {project.summary && (
+                    <p className="text-foreground/80 mb-8 flex-1 leading-relaxed">
+                      {project.summary}
+                    </p>
+                  )}
 
                   <div className="pt-6 border-t border-border mt-auto">
                     <div className="grid grid-cols-2 gap-4">

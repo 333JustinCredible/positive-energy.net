@@ -93,8 +93,8 @@ export function getSeoForPath(path: string): SeoConfig {
   if (project) {
     return {
       title: `${project.title} | Positive Energy`,
-      description: project.summary,
-      image: project.coverImage?.src ?? project.image,
+      description: project.summary || defaultSeo.description,
+      image: project.coverImage?.src ?? project.image ?? defaultSeo.image,
     };
   }
 

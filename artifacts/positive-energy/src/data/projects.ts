@@ -14,17 +14,20 @@ export interface Project {
   slug: string;
   title: string;
   category: string[];
-  location: string;
-  year: string;
+  location?: string;
+  year?: string;
   summary: string;
   metrics: string[];
-  image: string;
+  image?: string;
   contentType?: ProjectContentType;
+  contractedBy?: string;
+  metricsLabel?: string;
   challenge?: string;
   solution?: string;
   servicesProvided?: string[];
   equipmentTechnology?: string[];
   resultsSignificance?: string;
+  projectImportance?: string;
   coverImage?: ProjectImage;
   supportingImages?: ProjectImage[];
   sortOrder?: number;
@@ -129,5 +132,43 @@ export const projectsData: Project[] = [
     summary: "Designed and installed a multi-unit ChargePoint Level 2 charging array and ABB wall charger at the Lexus of Greenville dealership, delivering a branded EV charging experience for customers and inventory.",
     metrics: ["6 Charging Stations", "ChargePoint + ABB Hardware"],
     image: "/photos/lexus-greenville-exterior-chargepoint-row.jpg"
+  },
+  {
+    id: "chuck-hutton-toyota",
+    slug: "chuck-hutton-toyota",
+    title: "Chuck Hutton Toyota",
+    category: [],
+    location: "Memphis, Tennessee",
+    year: "Early 2024 – Late 2024",
+    summary: "Positive Energy delivered the complete EV charging network installation for Chuck Hutton Toyota’s Electri-CITY Park in Memphis, including the electrical infrastructure from the utility transformer through the ChargePoint Express Plus Power Blocks and underground distribution to the charging dispensers.",
+    metrics: [
+      "12 ChargePoint Express Plus Power Blocks",
+      "Up to 200 kW per Power Block",
+      "6 dual-head ChargePoint Power Links"
+    ],
+    contentType: "case-study",
+    contractedBy: "Land Valente Industries",
+    metricsLabel: "System scale",
+    challenge: "Chuck Hutton Toyota was developing a large-scale public EV charging destination requiring significantly more infrastructure than a typical dealership charging installation. The system required high-power 480V electrical distribution, centralized DC power conversion, underground distribution, multiple charging dispensers, networking, commissioning, and coordination with the broader energy infrastructure at the site.",
+    solution: "Positive Energy was responsible for the complete installation of the EV charging network. Power was provided to the site transformer, and Positive Energy installed the charging infrastructure from the transformer through the main 400A, 480V disconnects, ChargePoint Express Plus Power Blocks, underground distribution, Power Links, and charging dispensers.",
+    servicesProvided: [
+      "480V electrical distribution",
+      "Conduit and feeder installation",
+      "Underground electrical infrastructure",
+      "Equipment placement and installation",
+      "ChargePoint Express Plus installation",
+      "Power Link installation",
+      "Networking and commissioning",
+      "Operations & maintenance support",
+      "Assistance with solar design",
+      "Battery/microgrid planning support"
+    ],
+    equipmentTechnology: [
+      "12 ChargePoint Express Plus Power Blocks",
+      "Up to 200 kW per Power Block",
+      "6 dual-head ChargePoint Power Links"
+    ],
+    resultsSignificance: "The completed charging network became the centerpiece of Chuck Hutton Toyota’s Electri-CITY Park and demonstrates Positive Energy’s ability to deliver complex, high-power EV charging infrastructure from major electrical distribution through commissioning and lifecycle support.",
+    projectImportance: "This project demonstrates capability beyond installing charging dispensers. Positive Energy delivered the electrical and civil infrastructure required to move power from the site transformer through centralized DC power equipment and underground distribution to the final charging points."
   }
 ];
