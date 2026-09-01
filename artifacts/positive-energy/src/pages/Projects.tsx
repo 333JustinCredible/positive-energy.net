@@ -39,47 +39,24 @@ export default function Projects() {
                 key={project.id} 
                 className="group bg-card border border-border hover:border-primary/50 transition-colors duration-300 flex flex-col h-full"
               >
-                {/* Project Image */}
-                <div className="aspect-video bg-background relative overflow-hidden">
-                  {(project.coverImage?.src ?? project.image) && (
+                {(project.coverImage?.src ?? project.image) && (
+                  /* Project Image */
+                  <div className="aspect-video bg-background relative overflow-hidden">
                     <img
                       src={project.coverImage?.src ?? project.image}
                       alt={project.coverImage?.alt ?? project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.style.display = 'none';
-                        const placeholder = target.nextElementSibling as HTMLElement | null;
-                        if (placeholder) placeholder.style.display = 'flex';
-                      }}
                     />
-                  )}
-                  {/* Fallback placeholder shown when a project has no confirmed image */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{
-                      background: 'linear-gradient(135deg, hsl(163 56% 15%) 0%, hsl(220 15% 18%) 100%)',
-                      display: (project.coverImage?.src ?? project.image) ? 'none' : 'flex',
-                    }}
-                  >
-                    <div className="text-center px-4">
-                      <div className="w-12 h-12 mx-auto mb-3 opacity-40">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-primary w-full h-full">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                        </svg>
-                      </div>
-                      <p className="text-xs text-white/40 uppercase tracking-widest font-bold">{project.title}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
+                      {project.category.map((cat, i) => (
+                        <span key={i} className="bg-background/80 backdrop-blur text-xs font-bold uppercase px-2 py-1 text-primary border border-primary/20">
+                          {cat}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
-                    {project.category.map((cat, i) => (
-                      <span key={i} className="bg-background/80 backdrop-blur text-xs font-bold uppercase px-2 py-1 text-primary border border-primary/20">
-                        {cat}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                )}
 
                 {/* Content */}
                 <div className="p-8 flex flex-col flex-1">

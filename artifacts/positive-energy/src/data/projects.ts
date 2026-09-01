@@ -3,9 +3,20 @@ export type ProjectContentType =
   | "program-experience"
   | "capability";
 
+export type ProjectImageRole =
+  | "hero"
+  | "scale/drone"
+  | "construction"
+  | "technical detail"
+  | "crew/action"
+  | "finished system"
+  | "active charging";
+
 export interface ProjectImage {
   src: string;
   alt: string;
+  role: ProjectImageRole;
+  sortOrder: number;
   caption?: string;
 }
 

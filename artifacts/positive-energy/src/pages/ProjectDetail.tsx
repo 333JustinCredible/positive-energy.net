@@ -13,6 +13,7 @@ import {
   projectsData,
   type Project,
   type ProjectContentType,
+  type ProjectImageRole,
 } from '@/data/projects';
 import { galleryPhotos } from '@/data/gallery';
 
@@ -20,6 +21,16 @@ const contentTypeLabels: Record<ProjectContentType, string> = {
   'case-study': 'Case Study',
   'program-experience': 'Program Experience',
   capability: 'Capability',
+};
+
+const imageRoleLabels: Record<ProjectImageRole, string> = {
+  hero: 'Hero',
+  'scale/drone': 'Scale / Drone',
+  construction: 'Construction',
+  'technical detail': 'Technical Detail',
+  'crew/action': 'Crew / Action',
+  'finished system': 'Finished System',
+  'active charging': 'Active Charging',
 };
 
 function DetailSection({
@@ -56,6 +67,8 @@ function ProjectHero({ project }: { project: Project }) {
       ? {
           src: project.image,
           alt: project.title,
+          role: 'hero' as const,
+          sortOrder: 0,
         }
       : undefined
   );
@@ -239,7 +252,9 @@ export default function ProjectDetail() {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.supportingImages.map((image) => (
+                {[...project.supportingImages]
+                  .sort((a, b) => a.sortOrder - b.sortOrder)
+                  .map((image) => (
                   <figure key={`${image.src}-${image.caption ?? image.alt}`} className="bg-card border border-border">
                     <img
                       src={image.src}
@@ -249,11 +264,14 @@ export default function ProjectDetail() {
                     />
                     {image.caption && (
                       <figcaption className="p-4 text-sm text-muted-foreground">
+                        <span className="block text-xs text-primary uppercase tracking-wider font-bold mb-1">
+                          {imageRoleLabels[image.role]}
+                        </span>
                         {image.caption}
                       </figcaption>
                     )}
                   </figure>
-                ))}
+                  ))}
               </div>
             </section>
           )}
