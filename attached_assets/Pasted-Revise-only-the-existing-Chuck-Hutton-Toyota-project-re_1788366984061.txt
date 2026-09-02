@@ -1,0 +1,70 @@
+Revise only the existing Chuck Hutton Toyota project record and its primary imagery.
+
+Use the attached completed-project image as the new primary image for this project.
+
+Required changes:
+
+1. Project title
+Change the public title to:
+`Chuck Hutton Toyota — Electri-CITY Park`
+
+Preserve the existing slug:
+`chuck-hutton-toyota`
+
+2. Sort order
+Change the Chuck Hutton record to:
+`sortOrder: 1`
+
+This should preserve the intended showcase order:
+1. Chuck Hutton Toyota — Electri-CITY Park
+2. Toyota & Lexus Multi-Site EV Charging Experience
+3. Hurricane Helene Disaster Response
+4. Luck Reunion — Battery-Powered Event Infrastructure
+5. Residential Energy & Distributed Power
+6. EV Charging Service, O&M & Technical Support
+
+3. Primary image
+Use the attached completed-project photo as:
+- the Projects card image
+- the Chuck Hutton case-study hero image
+- the primary/featured image anywhere the existing project-data structure already uses the Chuck Hutton primary image
+
+Store the image with the other permanent website project assets using a clear descriptive filename such as:
+`chuck-hutton-toyota-electricity-park-completed.webp`
+
+Do not crop or modify the source image unnecessarily.
+
+This image is currently a lower-resolution copy, so treat it as the approved provisional primary image. Do not artificially upscale it. We may replace it later with a higher-resolution original using the same image role.
+
+4. Existing case-study imagery
+Preserve all existing Chuck Hutton supporting image slots and placeholders.
+
+If the current hero slot is one of those reusable slots, assign this image to the hero slot only. Do not assign it to multiple supporting slots.
+
+5. Content preservation
+Do not rewrite or alter the approved Chuck Hutton case-study narrative, scope, equipment details, timeline, Lane Valente attribution, or other verified content.
+
+Do not modify:
+- Toyota/Lexus
+- Hurricane Helene
+- Luck Reunion
+- Residential Energy
+- Service/O&M
+- Gallery
+- navigation
+- shared layouts
+- unrelated homepage content
+
+The Home featured-project section may naturally inherit the updated Chuck Hutton title/image from project data; do not redesign Home.
+
+After implementation, return a concise completion report confirming:
+- files changed
+- final title
+- sortOrder = 1
+- attached image is used for both project card and case-study hero
+- supporting image slots remain intact
+- exactly six Projects cards still exist
+- project order remains 1–6 as approved
+- typecheck passed
+- production build passed
+- no unintended changes
