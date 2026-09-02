@@ -1,0 +1,87 @@
+Create or upgrade the existing residential energy project into a capability page using the current Projects / Case Study framework.
+
+Important:
+- First check whether a residential energy / solar / off-grid record already exists.
+- If one exists, upgrade it in place rather than creating a duplicate.
+- Prefer a data-only change in `projects.ts`.
+- Do not modify shared layout code unless genuinely required.
+- Do not modify Gallery, navigation, Chuck Hutton, Toyota/Lexus, Hurricane Helene, Luck Reunion, or unrelated projects.
+
+Project:
+Title: Residential Energy & Distributed Power
+Type: capability
+Sort order: 5
+Primary market: Tennessee
+Positioning: premium residential energy systems for complex homes and properties
+
+FRAMING:
+Present Positive Energy as a company with capability in integrated residential energy systems. Do not write this as a founder biography or personal resume. Do not imply unverified employee counts, in-house departments, or a large residential solar installation portfolio.
+
+Approved Summary:
+Positive Energy develops integrated residential energy systems that combine battery storage, solar, EV charging, backup power, electrical infrastructure, and energy management.
+
+Our approach considers the property as a complete energy system — how power is generated, stored, distributed, monitored, and used — with a focus on resilience, flexibility, freedom, and energy independence.
+
+Capabilities:
+- Whole-home and partial-home battery backup
+- Solar + battery storage integration
+- EV charging integration
+- Energy monitoring and load management
+- Electrical service and distribution upgrades
+- Off-grid and remote power systems
+- System design and equipment coordination
+- Commissioning and ongoing technical support
+
+Project Approach:
+Positive Energy is best suited for technically complex residential projects where multiple systems must work together. This may include large homes, custom residences, estates, high electrical demand, multiple EVs, backup-power requirements, or properties seeking greater energy freedom and independence.
+
+For specialized projects, Positive Energy can coordinate with experienced solar designers, engineers, battery specialists, manufacturers, and other industry partners as required.
+
+SEO / CUSTOMER POSITIONING:
+Use natural language that supports high-intent searches related to:
+- whole-home battery backup Tennessee
+- residential battery storage Tennessee
+- solar and battery integration
+- residential microgrid contractor
+- EV charger and battery integration
+- energy monitoring for large homes
+- backup power for custom homes
+- premium residential energy systems
+
+Do not keyword-stuff. The visible copy should read naturally and professionally.
+
+IMAGERY:
+Do not require a rooftop solar-heavy visual story.
+
+Create these future image slots using the existing reusable image structure:
+1. Hero — premium residential electrical / energy system
+2. Whole-home electrical panel or service equipment
+3. Residential EV charging
+4. Energy monitoring / controls
+5. Battery storage / backup power
+6. Solar / off-grid equipment
+7. Technical installation detail
+8. Completed integrated residential system
+
+Leave image sources empty unless an existing verified image reference already belongs to the current residential record.
+
+Personal-house photography may be used later, but do not assign it now.
+
+Do not invent:
+- number of residential solar installations
+- number of battery systems installed
+- employee/team size
+- certifications not already verified
+- manufacturer partnerships
+- performance savings
+- energy-bill reductions
+- outage-duration guarantees
+
+Return only:
+1. Whether an existing record was found
+2. Proposed record/slug handling
+3. Exact files that need to change
+4. Confirmation whether this can remain data-only
+5. Any existing imagery reference you recommend preserving
+
+Do not build until approved.
