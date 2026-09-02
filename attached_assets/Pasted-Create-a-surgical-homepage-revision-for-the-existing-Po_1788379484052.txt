@@ -1,0 +1,249 @@
+Create a surgical homepage revision for the existing Positive Energy website.
+
+GOAL
+Keep the current premium industrial design language, but make the homepage feel more like a proven commercial contractor: real work, clear buyers, concise copy, strong hierarchy, and intentional imagery.
+
+Do not redesign the site from scratch.
+
+BRAND / DESIGN DIRECTION
+- Premium, technical, grounded contractor feel
+- Commercial-first
+- High-end clientele without “luxury lifestyle” styling
+- Real infrastructure should provide the visual credibility
+- Preserve the existing black / teal / yellow identity, typography, grid texture, squared geometry, and restrained motion
+- Use generous whitespace, but reduce unnecessary empty space
+- Avoid generic AI-looking layouts and marketing copy
+- Do not add stock photography
+
+COPY RULES
+Keep copy short, specific, and natural.
+Avoid generic phrases such as:
+- innovative solutions
+- seamless
+- future-ready
+- empower
+- take control of your power
+- industry-leading
+- consultancy + field crew marketing slogans
+
+Do not invent new claims, statistics, partnerships, certifications, employee counts, guarantees, or performance results.
+
+HOMEPAGE STRUCTURE
+
+1. HERO
+
+Eyebrow:
+Tennessee • Southeast • Select Nationwide Projects
+
+Headline:
+Commercial EV Charging & Energy Infrastructure
+
+Supporting copy:
+Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.
+
+Primary CTA:
+Discuss Your Project
+
+Secondary CTA:
+View Projects
+
+Add a named visual slot:
+`Homepage Hero — Large Commercial Energy Infrastructure`
+
+Do not populate it yet unless an existing approved project image is intentionally selected.
+
+Layout:
+Use the currently underused right side of the desktop hero for the future image.
+Keep the hero strong but slightly tighter vertically.
+Fix the existing mobile headline overflow/clipping.
+Do not allow “Infrastructure” or other headline text to extend outside the mobile viewport.
+
+2. PROOF
+
+Keep the existing four proof points, but clean up presentation:
+
+200+ — EV Chargers Installed
+40+ — Years Combined Construction Experience
+12+ — Years Energy & Sustainability Experience
+2020 — Founded
+
+Do not add new statistics.
+
+3. WHO WE WORK WITH
+
+Add a compact, visually restrained audience strip.
+
+General Contractors
+Property Owners & Developers
+Fleet Operators
+Government & Institutional
+Architects & Engineers
+Complex Residential
+
+Commercial audiences should remain visually primary. Complex residential is secondary.
+
+4. CORE CAPABILITIES
+
+Use five concise capability areas:
+
+Commercial EV Charging
+High-power DC fast charging, fleet, dealership, public and commercial charging infrastructure.
+
+Distributed Energy & Monitoring
+Solar, battery storage, energy monitoring, load management and integrated power systems.
+
+Service & O&M
+Commissioning, troubleshooting, repairs, upgrades and lifecycle support.
+
+Design-Build & Project Delivery
+Site assessment, design coordination, electrical infrastructure, construction and commissioning.
+
+Resilient & Remote Power
+Temporary microgrids, battery power, event infrastructure and emergency-response applications.
+
+Remove any existing unsupported “24/7 dispatch” claim.
+
+Keep these concise. Do not turn them into large text blocks.
+
+5. FEATURED PROJECTS
+
+Preserve the existing three featured projects and explicit order:
+
+1. Chuck Hutton Toyota — Electri-CITY Park
+2. Toyota & Lexus Multi-Site EV Charging Experience
+3. Hurricane Helene Disaster Response
+
+Add a consistent image area to each project card.
+
+Image handling:
+- Chuck Hutton: use its existing approved primary project image.
+- Toyota/Lexus: use its approved hero if one exists; otherwise show:
+  `Featured Project — Toyota / Lexus`
+- Hurricane Helene: use an approved hero if one exists; otherwise show:
+  `Featured Project — Hurricane Helene`
+
+Do not invent or assign other photos.
+
+Keep project cards linked to their existing detail pages.
+
+6. HOW WE WORK
+
+Add a compact process section:
+
+Assess & Plan
+Design & Coordinate
+Build
+Commission
+Support
+
+Keep supporting copy minimal.
+
+This should communicate that Positive Energy can stay involved from early planning through operating support without implying services or staff that have not been verified.
+
+7. RESILIENT & REMOTE POWER
+
+Create a short dedicated section using actual project experience as proof.
+
+Headline:
+Power Where the Grid Can’t.
+
+Supporting direction:
+Reference Positive Energy’s experience supporting temporary microgrids, battery-powered events, and disaster-response deployments.
+
+Use Hurricane Helene and Luck Reunion as proof points rather than making generic sustainability claims.
+
+Add named image slot:
+`Remote Power — Event / Disaster Microgrid`
+
+Do not assign imagery yet unless an approved image already clearly fits.
+
+8. GEOGRAPHIC REACH
+
+Keep this compact:
+
+Tennessee
+Primary market
+
+Southeast
+Regional project experience
+
+Select Nationwide Projects
+Specialized projects and program support
+
+Do not exaggerate geographic coverage.
+
+9. FINAL CTA
+
+Headline:
+Let’s Talk About Your Project.
+
+Copy:
+Planning an EV charging, distributed energy, resilient power, or complex electrical project? Let’s look at the site, the requirements, and the best path forward.
+
+CTA:
+Discuss Your Project
+
+DESIGN / UX REQUIREMENTS
+- Preserve the current visual identity rather than replacing it
+- Desktop and mobile must both feel intentionally designed
+- Strong scanning hierarchy
+- Avoid excessive all-caps copy
+- Avoid oversized sections with little content
+- Keep one dominant CTA language: `Discuss Your Project`
+- Use images as credibility/proof, not decoration
+- Do not add unnecessary animations, carousels, sliders, or new dependencies
+- Maintain accessibility and responsive behavior
+
+IMAGE ROLES TO SUPPORT
+
+Create only these homepage image roles/placeholders:
+
+1. `Homepage Hero — Large Commercial Energy Infrastructure`
+2. Chuck Hutton featured image — use existing approved project image
+3. `Featured Project — Toyota / Lexus`
+4. `Featured Project — Hurricane Helene`
+5. `Remote Power — Event / Disaster Microgrid`
+
+Do not create additional image requirements.
+
+SEO / CUSTOMER INTENT
+
+Without keyword stuffing, the homepage should clearly establish Positive Energy as a Tennessee-based contractor working in:
+- commercial EV charging
+- DC fast charging infrastructure
+- distributed energy
+- battery storage
+- energy monitoring
+- EV charging service and maintenance
+- resilient / remote power
+- complex residential energy systems
+
+Write for the customers we want next, not merely the projects already completed.
+
+SCOPE CONTROL
+
+Prefer changes limited to the homepage and existing homepage-supporting data/styles.
+
+Do not modify:
+- individual project narratives
+- project routes
+- Gallery
+- Services page
+- About page
+- Contact page
+- navigation structure
+- unrelated SEO infrastructure
+- approved project data except where Home reads existing information
+
+RETURN PLAN ONLY BEFORE BUILDING
+
+Return:
+1. Current sections that will be modified
+2. New sections that will be added
+3. Exact files expected to change
+4. How the five image roles will be implemented
+5. Mobile fixes included
+6. Any conflict with the existing framework
+7. Confirmation that no unsupported claims will be introduced
+
+Do not build until approved.
