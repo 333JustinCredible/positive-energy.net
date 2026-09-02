@@ -120,7 +120,7 @@ export default function Home() {
                 Tennessee • Southeast • Select Nationwide Projects
               </div>
 
-              <h1 className="mb-8 max-w-4xl break-words text-4xl font-bold uppercase leading-[0.94] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl">
+              <h1 className="mb-8 max-w-4xl break-normal text-4xl font-bold uppercase leading-[0.94] tracking-tight sm:text-5xl md:text-7xl lg:text-6xl xl:text-7xl">
                 Commercial EV Charging &amp; Energy Infrastructure
               </h1>
 
@@ -151,7 +151,7 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn
-              className="hidden min-h-[300px] items-center justify-center border border-dashed border-primary/40 bg-card/60 p-8 lg:flex"
+              className="flex min-h-[220px] items-center justify-center border border-dashed border-primary/40 bg-card/60 p-8 lg:min-h-[300px]"
               direction="up"
             >
               <div className="text-center">
