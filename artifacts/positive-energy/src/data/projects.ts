@@ -254,10 +254,11 @@ export const projectsData: Project[] = [
   {
     id: "chuck-hutton-toyota",
     slug: "chuck-hutton-toyota",
-    title: "Chuck Hutton Toyota",
+    title: "Chuck Hutton Toyota — Electri-CITY Park",
     category: [],
     location: "Memphis, Tennessee",
     year: "Early 2024 – Late 2024",
+    image: "/photos/chuck-hutton-toyota-electricity-park-completed.webp",
     summary: "Positive Energy delivered the complete EV charging network installation for Chuck Hutton Toyota’s Electri-CITY Park in Memphis, including the electrical infrastructure from the utility transformer through the ChargePoint Express Plus Power Blocks and underground distribution to the charging dispensers.",
     metrics: [
       "12 ChargePoint Express Plus Power Blocks",
@@ -291,7 +292,7 @@ export const projectsData: Project[] = [
     images: [
       {
         role: "hero",
-        src: "",
+        src: "/photos/chuck-hutton-toyota-electricity-park-completed.webp",
         placeholderLabel: "Hero image / finished site or strongest drone",
         caption: "",
         alt: "",
@@ -354,7 +355,7 @@ export const projectsData: Project[] = [
         sortOrder: 7,
       },
     ],
-    sortOrder: 0,
+    sortOrder: 1,
   },
   {
     id: "toyota-lexus-multi-site",
