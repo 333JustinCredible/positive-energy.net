@@ -1,0 +1,81 @@
+Create or upgrade the existing EV charging service / O&M / technical support record into a capability page using the current Projects / Case Study framework.
+
+Important:
+- First check whether a similar O&M, service, maintenance, commissioning, troubleshooting, or monitoring record already exists.
+- If one exists, upgrade it in place rather than creating a duplicate.
+- Prefer a data-only change in `projects.ts`.
+- Do not modify shared layout code unless genuinely required.
+- Do not modify Gallery, navigation, Chuck Hutton, Toyota/Lexus, Hurricane Helene, Luck Reunion, Residential Energy, or unrelated projects.
+
+Project:
+Title: EV Charging Service, O&M & Technical Support
+Type: capability
+Sort order: 6
+Primary market: Tennessee and the Southeast, with select nationwide support
+
+FRAMING:
+Present Positive Energy as a company that supports EV charging and distributed-energy systems throughout their operating life, not just during installation.
+
+Approved Summary:
+Positive Energy helps owners, operators, contractors, and facility teams keep complex energy infrastructure working. From commissioning new equipment to diagnosing failed chargers, correcting electrical issues, upgrading existing systems, and supporting ongoing maintenance, we provide practical field expertise across the full equipment lifecycle.
+
+Capabilities:
+- EV charger troubleshooting and repair
+- DC fast charger diagnostics
+- Preventive maintenance and O&M
+- Commissioning and recommissioning
+- Networking and connectivity troubleshooting
+- NACS cable replacement and equipment upgrades
+- Electrical diagnostics and corrective work
+- Energy monitoring systems
+- Site assessments and system evaluations
+- Manufacturer and technical-support coordination
+- Design and engineering support
+- Existing-system upgrades and corrections
+
+Customer / SEO Positioning:
+Use natural language that supports high-intent searches related to:
+- commercial EV charger repair Tennessee
+- EV charging maintenance
+- DC fast charger troubleshooting
+- ChargePoint service Tennessee
+- NACS cable replacement
+- EV charger commissioning
+- energy monitoring systems
+- EV infrastructure service and support
+
+Do not keyword-stuff. The visible copy should remain professional and natural.
+
+IMAGERY:
+Create these future image slots using the existing reusable image structure:
+1. Hero — commercial EV equipment service
+2. DC fast charger diagnostics
+3. Internal charger / electrical troubleshooting
+4. NACS or charging-cable replacement
+5. Commissioning / testing
+6. Energy monitoring system
+7. Commercial electrical troubleshooting
+8. Site assessment / field documentation
+
+Leave image sources empty unless an existing verified image reference clearly belongs to this capability.
+
+Do not invent:
+- service contract counts
+- response-time guarantees
+- 24/7 availability
+- manufacturer-authorized service status
+- formal manufacturer partnerships
+- employee/team size
+- geographic coverage beyond the approved positioning
+- uptime guarantees
+- repair success rates
+- unsupported certifications
+
+Return only:
+1. Whether an existing record was found
+2. Proposed record/slug handling
+3. Exact files that need to change
+4. Confirmation whether this can remain data-only
+5. Any existing imagery reference worth preserving
+
+Do not build until approved.
