@@ -7,6 +7,20 @@ import { projectsData } from '@/data/projects';
 import { statsData } from '@/data/company';
 import { FadeIn, Stagger, StaggerItem } from '@/components/ui/fade-in';
 
+const featuredProjectSlugs = [
+  'chuck-hutton-toyota',
+  'toyota-lexus-multi-site',
+  'hurricane-helene-response',
+] as const;
+
+const featuredProjects = featuredProjectSlugs.map((slug) => {
+  const project = projectsData.find((item) => item.slug === slug);
+  if (!project) {
+    throw new Error(`Featured project not found: ${slug}`);
+  }
+  return project;
+});
+
 export default function Home() {
   return (
     <Layout>
@@ -133,7 +147,7 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {projectsData.slice(0, 3).map((project) => (
+            {featuredProjects.map((project) => (
               <div key={project.id} className="group bg-background border border-border hover:border-primary/50 transition-all flex flex-col">
                 <div className="p-8 flex-1">
                   <div className="flex gap-2 flex-wrap mb-4">
