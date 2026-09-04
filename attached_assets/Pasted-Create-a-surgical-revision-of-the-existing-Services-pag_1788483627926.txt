@@ -1,0 +1,122 @@
+Create a surgical revision of the existing Services page.
+
+GOAL
+Align Services with the current homepage positioning: commercial-first, premium, technical, grounded contractor tone. Keep the existing alternating image/content layout and overall visual system.
+
+Do not redesign the page.
+
+SERVICE AREAS
+
+Rename and align the five primary services to:
+
+1. Commercial EV Charging
+High-power DC fast charging, fleet, dealership, public and commercial charging infrastructure.
+
+2. Distributed Energy & Monitoring
+Solar, battery storage, energy monitoring, load management and integrated power systems.
+
+3. Service & O&M
+Commissioning, troubleshooting, repairs, upgrades and lifecycle support.
+
+4. Design-Build & Project Delivery
+Site assessment, design coordination, electrical infrastructure, construction and commissioning.
+
+5. Resilient & Remote Power
+Temporary microgrids, battery power, event infrastructure and emergency-response applications.
+
+HEADER COPY
+
+Use:
+Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.
+
+REMOVE / CLEAN UP
+
+Remove:
+- 24/7 dispatch claims
+- “clients who can’t afford downtime”
+- “solutions that don’t quit when the grid does”
+- generic consulting language
+- unverified partner / credential chips unless already confirmed and strategically useful
+
+Do not invent new claims.
+
+CTA LANGUAGE
+
+Change repeated service CTAs to:
+Discuss Your Project
+
+FINAL CTA
+
+Headline:
+Let’s Talk About Your Project.
+
+Copy:
+Planning an EV charging, distributed energy, resilient power, or complex electrical project? Let’s look at the site, the requirements, and the best path forward.
+
+CTA:
+Discuss Your Project
+
+COMPLEX RESIDENTIAL
+
+Add one compact secondary callout after the five primary services:
+
+Title:
+Complex Residential Energy
+
+Copy:
+Integrated battery backup, solar, EV charging, energy monitoring, and electrical infrastructure for large homes and technically demanding properties.
+
+Keep this visually secondary to the commercial service areas.
+
+Link it to the existing Residential Energy & Distributed Power capability page.
+
+IMAGERY
+
+Keep existing service images for now unless clearly poor or broken.
+
+Create named replacement roles for future curation only:
+
+- Service — Commercial EV Charging
+- Service — Design-Build / Project Delivery
+- Service — Resilient / Remote Power
+
+Do not add stock images or replace imagery automatically.
+
+DESIGN / UX
+
+Preserve:
+- current black / teal / yellow system
+- typography
+- alternating service layout
+- spacing language
+- mobile responsiveness
+
+Reduce visual noise where possible.
+Avoid duplicated service titles on desktop if they currently appear twice.
+Keep mobile scan-friendly.
+
+SCOPE
+
+Expected change:
+- Services page only
+
+Treat service data/styles as read-only unless actually required.
+
+Do not modify:
+- Home
+- Projects
+- Gallery
+- About
+- Contact
+- navigation
+- project data
+- routes
+
+RETURN PLAN ONLY BEFORE BUILDING
+
+Return:
+1. exact file(s) expected to change
+2. sections/copy to be revised
+3. whether duplicated desktop titles can be removed cleanly
+4. how the Complex Residential callout will be added
+5. confirmation that no unsupported claims will remain
