@@ -1,0 +1,97 @@
+Perform a final read-only QA audit of the entire Positive Energy website.
+
+DO NOT MODIFY ANY FILES.
+DO NOT CREATE TASKS OR FOLLOW-UP TASKS YET.
+
+Review the current running site at desktop and mobile sizes.
+
+Audit these areas:
+
+1. NAVIGATION / ROUTES
+- Test Home, Services, Projects, Gallery, About, Contact
+- Test all six Project detail pages
+- Find broken links, bad routes, dead buttons, or accidental Coming Soon/stub exposure
+- Confirm all primary CTAs use `Discuss Your Project`
+
+2. COPY / CONSISTENCY
+Find:
+- stale copy from earlier versions
+- unsupported claims
+- 24/7 / emergency-response promises
+- “crew that shows up” language
+- inconsistent service names
+- inconsistent geographic claims
+- outdated Get a Quote language
+- references to unconfirmed email addresses
+- obvious AI-sounding or generic marketing copy
+- typos or awkward headings
+
+Do not rewrite anything yet. Report the exact issue and location.
+
+3. PLACEHOLDERS / IMAGERY
+List every visible named image placeholder.
+Report:
+- page
+- placeholder name
+- intended image role
+
+Also flag:
+- low-resolution images
+- poor crops
+- broken images
+- obvious stock photography
+- duplicated imagery
+- images that do not match the surrounding content
+
+Do not replace images.
+
+4. RESPONSIVE / VISUAL QA
+Check desktop and mobile for:
+- text overflow
+- awkward heading wraps
+- excessive blank space
+- inconsistent spacing
+- cards with mismatched heights
+- image aspect-ratio problems
+- buttons or links that are difficult to use
+- horizontal scrolling
+- footer/nav issues
+
+5. ACCESSIBILITY BASICS
+Check:
+- missing/weak image alt text
+- obvious contrast problems
+- unlabeled form controls
+- keyboard/navigation issues that can be identified
+- heading hierarchy problems
+
+6. CONTACT FORM
+Confirm:
+- validation works
+- form does NOT pretend to send
+- phone fallback is correct
+- no unconfirmed email is visible
+- all seven Service Interest options are current
+
+7. TECHNICAL
+Check:
+- browser console errors
+- broken asset requests
+- TypeScript/typecheck
+- production build
+- obvious unused or broken page dependencies
+- current existing build warnings
+
+Do not fix warnings yet.
+
+RETURN ONE CONCISE REPORT:
+
+A. Launch blockers — must fix
+B. Important polish — should fix
+C. Image placeholders / assets needed
+D. Minor issues — can wait
+E. Items verified clean
+F. Exact files likely involved in any recommended fixes
+
+Do not make changes.
+Do not create new tasks.
