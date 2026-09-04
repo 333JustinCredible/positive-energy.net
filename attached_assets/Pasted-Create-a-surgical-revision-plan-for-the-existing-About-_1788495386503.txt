@@ -1,0 +1,162 @@
+Create a surgical revision plan for the existing About page.
+
+GOAL
+Present Positive Energy as an established Tennessee energy-infrastructure company, not a founder biography and not a large in-house team we cannot substantiate.
+
+Keep the current visual system and overall page structure where practical. Do not redesign the site.
+
+HERO
+
+Replace the current “The Crew That Shows Up” / anti-consultant positioning.
+
+Preferred direction:
+
+Headline:
+Built for Complex Energy Projects.
+
+Copy:
+Positive Energy is a Tennessee-based energy infrastructure contractor focused on EV charging, distributed energy, resilient power, and complex electrical projects.
+
+Do not use language implying a large internal staff of engineers, electricians, or project managers.
+
+COMPANY EVOLUTION
+
+Add one concise history/evolution section.
+
+Approved direction:
+
+Positive Energy began in 2020 with a focus on EV charging infrastructure. As projects became larger and more complex, the work expanded into distributed energy, monitoring, battery storage, resilient power, service and project delivery.
+
+Today, EV charging remains a core specialty while the company continues building toward a broader electric-energy future.
+
+Keep this company-focused. Do not turn it into a founder resume.
+
+HOW WE WORK
+
+Reuse the existing three-card format, but replace the current crew/consultant language with:
+
+1. Field Experience
+We approach projects with installation, commissioning, service, and long-term operation in mind.
+
+2. Integrated Systems
+We look beyond individual equipment to the electrical infrastructure, controls, communications, and energy systems around it.
+
+3. Extended Capability
+When a project needs specialized engineering, equipment, logistics, or field support, Positive Energy can draw from an established network of experienced organizations and specialists.
+
+RELATIONSHIPS / NETWORK
+
+Replace “Hardware Partners & Affiliations” with:
+
+Relationships That Extend Our Reach
+
+Intro copy:
+Positive Energy works with manufacturers, distributors, engineers, contractors, and energy organizations to bring the right expertise, equipment, and resources to each project.
+
+Use a compact logo/name wall or similar restrained presentation.
+
+Include these selected relationships:
+
+- New Use Energy
+- Schneider Electric
+- Radiant Engineering
+- CED
+- Greentech Renewables
+- Lane Valente Industries
+- ChargePoint
+- ABB
+- FootPrint Project
+- OVRDRV
+- Music Sustainability Alliance
+- Drive Electric Tennessee
+
+IMPORTANT:
+These organizations represent different types of relationships. Do not describe all of them as formal partners, certified partners, customers, or affiliates.
+
+Do not use “Certified Installers” or “Trusted Partners” as blanket language.
+
+Remove the current mixed list of vehicle brands, credentials, manufacturers, and organizations unless separately justified.
+
+CREDENTIALS
+
+Do not mix USGBC, IFMA, CSI, or other memberships/credentials into the relationship wall.
+
+Leave them off this revision unless their exact status is already clearly verified.
+
+STATS
+
+Preserve the existing four stats for now:
+
+200+ — EV Chargers Installed
+40+ — Years Combined Construction Experience
+12+ — Years Energy & Sustainability Experience
+2020 — Founded
+
+Do not add new statistics.
+
+IMAGERY
+
+The current About hero uses a generic Unsplash worker image.
+
+Do not add new stock photography.
+
+Replace it with a named placeholder if removal can be done cleanly:
+
+`About Hero — Positive Energy Field / Infrastructure`
+
+We will provide an approved real image later.
+
+CTA
+
+Replace the current anti-consultant language.
+
+Headline:
+Let’s Talk About Your Project.
+
+Copy:
+EV charging, distributed energy, resilient power, or a complex electrical project — start with the site, the requirements, and the goal.
+
+CTA:
+Discuss Your Project
+
+Link to the existing contact route.
+
+VOICE
+
+- concise
+- factual
+- company-level
+- contractor grounded
+- technically credible
+- no generic AI marketing language
+- no attacks on consultants or competitors
+- no invented employees, departments, partnerships, certifications, or capabilities
+
+SCOPE
+
+Prefer changes limited to:
+- About.tsx
+- company.ts only if necessary
+
+Do not modify:
+- Home
+- Services
+- Projects
+- Gallery
+- Contact
+- navigation
+- routes
+- global styles
+
+RETURN PLAN ONLY
+
+Return:
+1. exact files expected to change
+2. current sections being reused
+3. new/revised section order
+4. how the relationship network will be represented
+5. how the current stock hero image will be handled
+6. any claims that need clarification before Build
+7. confirmation that no unsupported team or partnership claims will remain
+
+Do not build until approved.
