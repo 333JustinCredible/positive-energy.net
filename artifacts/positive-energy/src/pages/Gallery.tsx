@@ -43,9 +43,6 @@ export default function Gallery() {
 
   return (
     <Layout>
-      {/* Page head meta is handled via the title element below */}
-      <title>EV Charging &amp; Solar Installation Gallery — Positive Energy, Nashville TN</title>
-
       {/* Header */}
       <section className="pt-24 pb-16 bg-card border-b border-border">
         <div className="container mx-auto px-4 md:px-6">

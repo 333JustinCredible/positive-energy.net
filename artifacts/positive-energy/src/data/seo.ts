@@ -4,6 +4,7 @@ export interface SeoConfig {
   title: string;
   description: string;
   image: string;
+  robots?: 'index, follow' | 'noindex, follow';
 }
 
 const defaultSeo: SeoConfig = {
@@ -45,37 +46,13 @@ export const seoByPath: Record<string, SeoConfig> = {
       'Planning an EV charging, distributed energy, resilient power, or complex electrical project? Tell us about the site, requirements, and goals.',
     image: defaultSeo.image,
   },
-  '/markets': {
-    title: 'Markets | Positive Energy',
-    description: "We're currently wiring up this section. Check back soon for updates.",
-    image: defaultSeo.image,
-  },
-  '/case-studies': {
-    title: 'Case Studies | Positive Energy',
-    description: "We're currently wiring up this section. Check back soon for updates.",
-    image: defaultSeo.image,
-  },
-  '/faq': {
-    title: 'FAQ | Positive Energy',
-    description: "We're currently wiring up this section. Check back soon for updates.",
-    image: defaultSeo.image,
-  },
-  '/financing': {
-    title: 'Financing | Positive Energy',
-    description: "We're currently wiring up this section. Check back soon for updates.",
-    image: defaultSeo.image,
-  },
-  '/resources': {
-    title: 'Resources | Positive Energy',
-    description: "We're currently wiring up this section. Check back soon for updates.",
-    image: defaultSeo.image,
-  },
 };
 
 export const notFoundSeo: SeoConfig = {
   title: 'Page Not Found | Positive Energy',
   description: "The page you're looking for doesn't exist or has been moved.",
   image: defaultSeo.image,
+  robots: 'noindex, follow',
 };
 
 export function getSeoForPath(path: string): SeoConfig {

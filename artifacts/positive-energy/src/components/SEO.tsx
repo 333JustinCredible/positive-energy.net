@@ -25,7 +25,7 @@ export function SEO() {
     const seo = getSeoForPath(routePath);
     const siteUrl = import.meta.env.VITE_SITE_URL?.replace(/\/+$/, '');
     const imageUrl = siteUrl
-      ? new URL(`${basePath}${seo.image}`, `${siteUrl}/`).toString()
+      ? new URL(seo.image, `${siteUrl}/`).toString()
       : seo.image;
 
     document.title = seo.title;
@@ -34,11 +34,12 @@ export function SEO() {
       .forEach((element) => element.remove());
 
     addMeta('name', 'description', seo.description);
-    addMeta('name', 'robots', 'index, follow');
+    addMeta('name', 'robots', seo.robots ?? 'index, follow');
     addMeta('property', 'og:title', seo.title);
     addMeta('property', 'og:description', seo.description);
     addMeta('property', 'og:image', imageUrl);
     addMeta('property', 'og:type', 'website');
+    addMeta('property', 'og:site_name', 'Positive Energy');
     addMeta('name', 'twitter:card', 'summary_large_image');
     addMeta('name', 'twitter:title', seo.title);
     addMeta('name', 'twitter:description', seo.description);
@@ -48,7 +49,7 @@ export function SEO() {
       const canonical = document.createElement('link');
       canonical.rel = 'canonical';
       canonical.href = new URL(
-        `${basePath}${routePath === '/' ? '' : routePath}`,
+        routePath === '/' ? '/' : routePath,
         `${siteUrl}/`,
       ).toString();
       canonical.setAttribute(managedAttribute, 'true');
