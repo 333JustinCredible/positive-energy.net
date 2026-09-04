@@ -1,0 +1,76 @@
+Create a surgical post-QA cleanup task.
+
+Do not change approved statistics, project facts, page layouts, imagery, or positioning beyond the items below.
+
+1. LUCK REUNION MOBILE OVERFLOW
+Fix the mobile overflow/clipping on the Luck Reunion project detail page.
+
+The fix should safely handle long project titles and summaries on all project detail pages, not just Luck Reunion.
+
+Do not change desktop typography or project copy unless required for responsive wrapping.
+
+2. CTA CONSISTENCY
+Change:
+- Projects page `Start the Conversation`
+- Project detail `Contact Positive Energy`
+
+To:
+`Discuss Your Project`
+
+Keep existing /contact destinations.
+
+3. SEO METADATA CLEANUP
+Update stale SEO metadata so it matches the currently approved page positioning.
+
+Remove outdated phrases including:
+- The Crew That Shows Up
+- field-hardened crew
+- Get a Quote
+- clients who can’t afford downtime
+- hardened electrical infrastructure
+- we’re ready to deploy
+
+Use concise factual descriptions based on the current visible page copy.
+
+Do not invent new claims or keywords.
+
+4. MOBILE NAV ACCESSIBILITY
+Add appropriate accessible state/labels to the mobile menu button:
+- aria-label
+- aria-expanded
+- aria-controls where appropriate
+
+Do not redesign the Navbar.
+
+5. UNUSED COMING-SOON ROUTES
+Remove public route registrations for unfinished:
+- /markets
+- /case-studies
+- /financing
+- /faq
+- /resources
+
+They are already hidden from navigation.
+
+Unknown routes should use the site's existing normal not-found behavior.
+
+IMPORTANT:
+Keep these approved stats unchanged:
+- 200+ EV Chargers Installed
+- 40+ Years Combined Construction Experience
+- 12+ Years Energy & Sustainability Experience
+- 2020 Founded
+
+Do not address image placeholders or the provisional Chuck Hutton image in this task.
+
+RETURN PLAN ONLY FIRST.
+
+Report:
+1. Exact files expected to change
+2. Responsive fix approach
+3. SEO entries that will change
+4. Route cleanup approach
+5. Confirmation approved stats remain untouched
+6. Any unexpected dependency
+
+Do not build until approved.
