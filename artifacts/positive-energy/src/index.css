@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -102,7 +102,7 @@
   --sidebar-ring: 164 63% 48%;
 
   --app-font-sans: 'Plus Jakarta Sans', sans-serif;
-  --app-font-heading: 'Bricolage Grotesque', sans-serif;
+  --app-font-heading: 'Archivo', sans-serif;
   --radius: 0rem; /* Industrial, squared edges */
 
   --button-outline: rgba(0, 0, 0, 0.12);
