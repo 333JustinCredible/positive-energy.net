@@ -16,7 +16,7 @@ export default function Services() {
             Our Services
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            We deliver hardened electrical infrastructure for clients who can't afford downtime. From fleet charging hubs to off-grid microgrids.
+            Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.
           </p>
         </div>
       </section>
@@ -40,7 +40,6 @@ export default function Services() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/20 to-transparent group-hover:from-black/50 transition-opacity duration-700" />
                   <div className="absolute bottom-6 left-6">
                     <div className="h-1 w-12 bg-primary mb-3" />
-                    <p className="text-white/90 text-sm font-bold uppercase tracking-widest">{service.title}</p>
                   </div>
                 </div>
 
@@ -83,7 +82,7 @@ export default function Services() {
                   <div className="mt-10">
                     <Link href="/contact">
                       <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground group">
-                        DISCUSS A PROJECT
+                        DISCUSS YOUR PROJECT
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -95,18 +94,38 @@ export default function Services() {
         </div>
       </section>
 
+      <section className="border-y border-border bg-card py-14">
+        <div className="container mx-auto px-4 md:px-6">
+          <Link
+            href="/projects/residential-energy-distributed-power"
+            className="group flex flex-col gap-6 border border-border bg-background p-7 transition-colors hover:border-primary/50 md:flex-row md:items-center md:justify-between md:gap-10 md:p-9"
+            aria-label="View Complex Residential Energy capability"
+          >
+            <div className="max-w-3xl">
+              <h2 className="mb-3 text-3xl font-bold uppercase tracking-tight font-heading">
+                Complex Residential Energy
+              </h2>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Integrated battery backup, solar, EV charging, energy monitoring, and electrical infrastructure for large homes and technically demanding properties.
+              </p>
+            </div>
+            <ArrowRight className="h-6 w-6 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 uppercase">
-            Ready to break ground?
+            Let’s Talk About Your Project.
           </h2>
           <p className="text-xl mb-10 opacity-90">
-            Our crews are dispatched from Nashville across the Southeast. Let's talk about your infrastructure needs.
+            Planning an EV charging, distributed energy, resilient power, or complex electrical project? Let’s look at the site, the requirements, and the best path forward.
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-background text-foreground hover:bg-card rounded-none h-14 px-8 text-lg font-bold border-2 border-transparent">
-              GET A PROPOSAL
+              Discuss Your Project
             </Button>
           </Link>
         </div>
