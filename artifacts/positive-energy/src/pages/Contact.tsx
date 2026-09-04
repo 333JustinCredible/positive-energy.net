@@ -22,7 +22,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { contactData } from '@/data/company';
-import { Phone, Mail, MapPin, AlertCircle } from 'lucide-react';
+import { Phone, MapPin, AlertCircle } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -59,10 +59,10 @@ export default function Contact() {
       <section className="pt-24 pb-16 bg-card border-b border-border">
         <div className="container mx-auto px-4 md:px-6">
           <h1 className="text-5xl md:text-7xl font-bold uppercase mb-6 font-heading">
-            Get a Quote
+            Let’s Talk About Your Project.
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            Whether it's a multi-site EV rollout or emergency response power, we're ready to deploy. Tell us about your project.
+            Planning an EV charging, distributed energy, resilient power, or complex electrical project? Tell us about the site, the requirements, and what you’re trying to accomplish.
           </p>
         </div>
       </section>
@@ -89,17 +89,6 @@ export default function Contact() {
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
-                      <Mail className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Email Us</p>
-                      <a href={`mailto:${contactData.email}`} className="text-lg font-medium hover:text-primary transition-colors block break-all">
-                        {contactData.email}
-                      </a>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
                       <MapPin className="h-6 w-6" />
                     </div>
                     <div>
@@ -112,17 +101,6 @@ export default function Contact() {
                 </ul>
               </div>
 
-              <div className="bg-primary/10 border border-primary/20 p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <AlertCircle className="text-primary h-6 w-6" />
-                  <h4 className="font-bold text-lg uppercase tracking-wide text-primary">Emergency Service</h4>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Require immediate disaster response or emergency power restoration?
-                </p>
-                <p className="font-bold text-xl text-foreground">Call {contactData.phone}</p>
-                <p className="text-sm text-primary uppercase font-bold mt-2 tracking-wider">24/7 Dispatch</p>
-              </div>
             </div>
 
             {/* Form */}
@@ -132,7 +110,7 @@ export default function Contact() {
                   <AlertCircle className="h-20 w-20 text-primary mb-6" />
                   <h3 className="text-3xl font-bold uppercase font-heading mb-4">Request Not Sent</h3>
                   <p className="text-xl text-muted-foreground max-w-md mb-8">
-                    Email delivery is not connected yet. Please call {contactData.phone} or email {contactData.email} directly.
+                    Online delivery is not connected yet. Please call {contactData.phone}.
                   </p>
                   <Button 
                     onClick={() => setSubmissionState('idle')}
@@ -218,11 +196,12 @@ export default function Contact() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent className="rounded-none border-border">
-                                <SelectItem value="commercial-ev">Commercial EV Infrastructure</SelectItem>
-                                <SelectItem value="distributed-energy">Distributed Energy (Solar/Storage)</SelectItem>
-                                <SelectItem value="field-services">Field Services & Maintenance</SelectItem>
-                                <SelectItem value="engineering">Engineering & Consulting</SelectItem>
-                                <SelectItem value="resilient-power">Resilient & Off-Grid Power</SelectItem>
+                                <SelectItem value="commercial-ev">Commercial EV Charging</SelectItem>
+                                <SelectItem value="distributed-energy">Distributed Energy &amp; Monitoring</SelectItem>
+                                <SelectItem value="service-om">Service &amp; O&amp;M</SelectItem>
+                                <SelectItem value="design-build">Design-Build &amp; Project Delivery</SelectItem>
+                                <SelectItem value="resilient-power">Resilient &amp; Remote Power</SelectItem>
+                                <SelectItem value="residential-energy">Complex Residential Energy</SelectItem>
                                 <SelectItem value="other">Other / Not Sure</SelectItem>
                               </SelectContent>
                             </Select>
@@ -253,7 +232,7 @@ export default function Contact() {
                         type="submit" 
                         className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg rounded-none uppercase tracking-wide"
                       >
-                        Submit Request
+                        Discuss Your Project
                       </Button>
                     </form>
                   </Form>

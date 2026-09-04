@@ -39,7 +39,7 @@ export function Navbar() {
           ))}
           <Link href="/contact" data-testid="link-nav-quote">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none">
-              GET A QUOTE
+                DISCUSS YOUR PROJECT
             </Button>
           </Link>
         </nav>
@@ -69,7 +69,7 @@ export function Navbar() {
           ))}
           <Link href="/contact" onClick={() => setIsOpen(false)}>
             <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none py-6 text-lg mt-2">
-              GET A QUOTE
+              DISCUSS YOUR PROJECT
             </Button>
           </Link>
         </div>
