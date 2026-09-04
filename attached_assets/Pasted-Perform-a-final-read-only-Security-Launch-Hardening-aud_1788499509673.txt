@@ -1,0 +1,112 @@
+Perform a final read-only Security & Launch Hardening audit of the Positive Energy website.
+
+DO NOT MODIFY FILES.
+DO NOT CREATE FOLLOW-UP TASKS YET.
+
+The production plan is:
+- GitHub = source of truth
+- Cloudflare = production hosting/DNS
+- positive-energy.net = production domain
+- Replit = temporary development/build environment
+
+Audit the current website and repository for:
+
+1. SECRETS / CREDENTIALS
+- Search application/config files for API keys, tokens, passwords, SMTP credentials, private keys, webhook secrets, or other sensitive values.
+- Check .env usage and gitignore behavior.
+- Identify any VITE_* variables that appear to contain information that should actually remain secret.
+- Do not print secret values in the report; report only file/location/type.
+
+2. FRONTEND ATTACK SURFACE
+- Review the Contact form for unsafe input handling.
+- Confirm it currently performs no server-side action.
+- Check for unsafe HTML rendering, eval-like behavior, dangerous URL handling, exposed debug tools, or obvious XSS risks.
+- Check external links for safe behavior where applicable.
+
+3. DEPENDENCIES
+- Review package dependencies for obvious unnecessary packages, stale packages, or known security concerns visible from the current project environment.
+- Do not upgrade anything yet.
+- Distinguish actual security concerns from routine version drift.
+
+4. STATIC-SITE SECURITY
+Evaluate what security headers should be configured for the eventual Cloudflare production deployment, including:
+- HTTPS enforcement
+- HSTS
+- Content-Security-Policy
+- X-Content-Type-Options
+- Referrer-Policy
+- Permissions-Policy
+- frame protection / frame-ancestors
+
+Recommend conservative settings compatible with the current site.
+Do not implement Cloudflare settings in this task.
+
+5. THIRD-PARTY RESOURCES
+Inventory externally loaded resources:
+- fonts
+- scripts
+- analytics
+- embeds
+- images
+- APIs
+
+Flag anything unnecessary, insecure, privacy-sensitive, or likely to complicate Content Security Policy.
+
+6. GITHUB / REPOSITORY READINESS
+Report:
+- whether generated/build files are appropriately ignored
+- whether environment files are excluded
+- whether anything sensitive appears committed
+- whether dependency lockfiles are present
+- any repository hygiene issue relevant to production security
+
+Do not change GitHub settings from Replit.
+
+7. CLOUDFLARE LAUNCH CHECKLIST
+Provide the recommended Cloudflare-side security configuration for this specific static site:
+- SSL/TLS mode
+- Always Use HTTPS
+- minimum TLS version
+- HSTS timing recommendation
+- WAF/basic bot protections
+- DNSSEC
+- rate limiting needs
+- caching considerations
+
+Be conservative. Do not recommend paid features unless they provide material value.
+
+8. FUTURE CONTACT FORM
+The form is intentionally not connected yet.
+
+Recommend a secure future architecture using Cloudflare where practical, including:
+- server-side processing
+- Turnstile
+- rate limiting
+- input validation
+- secret storage
+- spam prevention
+
+Do not implement the form.
+
+9. FUTURE CMS / ADMIN
+Briefly identify security requirements if we later add an admin/CMS layer:
+- authentication
+- MFA where supported
+- least-privilege access
+- R2/D1 permissions
+- no public write access
+
+10. LAUNCH RISK
+
+Return one concise report:
+
+A. Must fix in the code/repo before launch
+B. Cloudflare settings required at launch
+C. GitHub/account security actions for the owner
+D. Future contact-form security plan
+E. Future CMS/admin security considerations
+F. Items already verified safe
+G. Exact files likely involved if code changes are recommended
+
+DO NOT EDIT ANY FILES.
+DO NOT CREATE TASKS.
