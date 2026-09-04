@@ -1,0 +1,151 @@
+Create a surgical revision plan for Contact, Navbar, and Footer only.
+
+GOAL
+Align the remaining contact/navigation surfaces with the current Positive Energy positioning: concise, commercial-first, technically credible, and consistent with the rest of the site.
+
+Do not redesign the site.
+
+CONTACT PAGE
+
+Hero headline:
+Let’s Talk About Your Project.
+
+Hero copy:
+Planning an EV charging, distributed energy, resilient power, or complex electrical project? Tell us about the site, the requirements, and what you’re trying to accomplish.
+
+Remove:
+- 24/7 Dispatch
+- emergency-restoration promises
+- “ready to deploy” language
+- other urgency or response-time claims we have not verified
+
+Keep the direct phone number prominent:
+(615) 308-0622
+
+EMAIL
+Do not present `Info@positive-energy.net` as a confirmed working contact method yet.
+
+For this revision:
+- remove it from visible Contact and Footer contact instructions if currently shown
+- do not replace it with another public email address
+- keep phone as the reliable direct-contact fallback
+
+We will restore the positive-energy.net email address after Google Workspace setup is confirmed.
+
+FORM
+
+Keep the existing form and validation.
+
+Update Service Interest options to:
+
+- Commercial EV Charging
+- Distributed Energy & Monitoring
+- Service & O&M
+- Design-Build & Project Delivery
+- Resilient & Remote Power
+- Complex Residential Energy
+- Other / Not Sure
+
+The form is still not connected to actual delivery.
+
+Keep that truthful.
+
+On attempted successful submission, clearly state that online delivery is not connected yet and direct the user to call:
+(615) 308-0622
+
+Do not imply that a quote, request, or email was successfully submitted.
+
+Form button:
+Discuss Your Project
+
+NAVBAR
+
+Change desktop and mobile primary CTA:
+
+FROM:
+Get a Quote
+
+TO:
+Discuss Your Project
+
+Keep destination:
+/contact
+
+Do not change primary navigation structure.
+
+FOOTER
+
+Remove the old:
+“The crew that shows up”
+positioning.
+
+Replace with concise company-level language:
+
+Positive Energy provides commercial EV charging, distributed energy, resilient power, and complex electrical project support from Tennessee.
+
+Keep footer navigation simple and aligned with the real site:
+
+- Services
+- Projects
+- Gallery
+- About
+- Contact
+
+Hide/remove visible links to unfinished pages:
+- Markets
+- Case Studies
+- Financing
+- FAQ
+
+Do not expose Resources if it is still unfinished.
+
+Remove visible Privacy Policy and Terms of Service links if they currently point only to `#`.
+
+Do not create fake legal pages in this task.
+
+DESIGN
+
+Preserve:
+- existing visual system
+- current typography
+- black / teal / yellow palette
+- responsive navigation
+- current Contact layout where practical
+- existing footer structure where practical
+
+No new dependencies.
+No new animations.
+No redesign.
+
+VOICE
+
+Keep all new copy:
+- concise
+- factual
+- contractor-grounded
+- natural
+- not generic AI marketing copy
+
+Do not add new claims, credentials, geographic promises, partnerships, staffing claims, response-time promises, or guarantees.
+
+SCOPE
+
+Expected implementation files:
+- Contact.tsx
+- Navbar.tsx
+- Footer.tsx
+
+Treat company.ts, routes, global styles, and other pages as read-only unless a genuine blocker is discovered.
+
+RETURN PLAN ONLY BEFORE BUILDING
+
+Return:
+1. exact files expected to change
+2. Contact changes
+3. Navbar changes
+4. Footer links/content to remove or retain
+5. how the currently nonfunctional email will be handled
+6. confirmation that form delivery remains truthful
+7. any unexpected dependency or risk
+
+Do not build until approved.
