@@ -1,0 +1,159 @@
+Create a technical SEO hardening plan for the current Positive Energy React/Vite site.
+
+GOAL
+Prepare the current site for launch on https://positive-energy.net without redesigning pages, changing visible copy, or adding unnecessary dependencies.
+
+Do not migrate frameworks or add prerendering in this task.
+
+1. PRODUCTION SITE URL
+
+Keep canonical/social URL generation based on VITE_SITE_URL.
+
+Production expectation:
+VITE_SITE_URL=https://positive-energy.net
+
+Do not hardcode the Replit preview URL.
+
+If VITE_SITE_URL is absent in development, preserve safe development behavior.
+
+2. STATIC HTML FALLBACK METADATA
+
+Clean the stale metadata in index.html.
+
+Remove outdated phrases such as:
+- clients who can’t afford downtime
+- hardened electrical infrastructure
+- old pre-revision positioning
+
+Use a concise company-level fallback title and description consistent with the current homepage.
+
+Preferred fallback title:
+Positive Energy | EV Charging & Energy Infrastructure
+
+Preferred description:
+Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.
+
+This is fallback metadata only; preserve route-specific SEO behavior.
+
+3. SITEMAP
+
+Add public/sitemap.xml.
+
+Include only approved canonical public pages:
+
+/
+ /services
+ /projects
+ /gallery
+ /about
+ /contact
+
+And the six canonical project detail URLs.
+
+Exclude:
+- removed Coming Soon routes
+- redirects
+- 404 pages
+- Gallery filter query variants
+- /projects/hurricane-helene compatibility URL
+
+Use https://positive-energy.net as the canonical origin.
+
+4. ROBOTS
+
+Update robots.txt to retain normal crawling and include:
+
+Sitemap: https://positive-energy.net/sitemap.xml
+
+Do not block approved pages.
+
+5. 404 / NOINDEX
+
+Update the existing SEO behavior so:
+- unknown routes
+- invalid project slugs
+
+receive:
+noindex, follow
+
+Remove obsolete SEO records for:
+- markets
+- case-studies
+- financing
+- faq
+- resources
+
+Do not recreate those routes.
+
+6. GALLERY SEO
+
+Remove the duplicate/conflicting Gallery title implementation if centralized SEO already handles it.
+
+Preserve the visible Gallery page heading.
+
+7. STRUCTURED DATA
+
+Add conservative JSON-LD using only verified information.
+
+Use Organization and/or WebSite schema where appropriate.
+
+Approved facts:
+- Name: Positive Energy
+- Business focus: commercial EV charging, distributed energy, resilient power, complex electrical project support
+- Tennessee-based
+- Website: https://positive-energy.net
+
+Do not add:
+- employee counts
+- ratings
+- fake addresses
+- unsupported certifications
+- formal partnership claims
+- unsupported service areas
+
+Prefer one centralized implementation rather than duplicating schema across pages.
+
+8. SOCIAL METADATA
+
+Keep existing Open Graph and Twitter support.
+
+Add og:site_name if cleanly supported:
+Positive Energy
+
+Ensure absolute canonical/social URLs resolve correctly when VITE_SITE_URL is set.
+
+Do not create a new social-share image in this task.
+
+9. SEARCH CONSOLE / BING
+
+Do not add verification tokens yet.
+
+Prefer DNS verification later through Cloudflare.
+
+No placeholder verification codes.
+
+SCOPE
+
+Likely implementation files:
+- src/components/SEO.tsx
+- src/data/seo.ts
+- index.html
+- public/robots.txt
+- public/sitemap.xml
+- src/pages/Gallery.tsx
+
+Treat routes, visible page copy, project data, and global styles as read-only unless a real blocker is discovered.
+
+RETURN PLAN ONLY BEFORE BUILDING
+
+Return:
+1. exact files expected to change
+2. canonical/site-url approach
+3. sitemap URLs
+4. 404/noindex approach
+5. structured-data approach
+6. Gallery duplicate-title fix
+7. anything that must wait for Cloudflare/domain setup
+8. confirmation that no framework migration or new dependency is required
+
+Do not build until approved.
