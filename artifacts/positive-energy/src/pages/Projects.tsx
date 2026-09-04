@@ -131,7 +131,7 @@ export default function Projects() {
             </p>
             <Link href="/contact">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none font-bold uppercase tracking-wide">
-                Start the Conversation
+                Discuss Your Project
               </Button>
             </Link>
           </div>

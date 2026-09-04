@@ -9,7 +9,7 @@ export interface SeoConfig {
 const defaultSeo: SeoConfig = {
   title: 'Positive Energy | Commercial Power Infrastructure',
   description:
-    "We engineer, build, and maintain EV charging, solar, and resilient power systems for clients who can't afford downtime.",
+    'Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.',
   image: '/logos/pe-logo-wide.png',
 };
 
@@ -18,7 +18,7 @@ export const seoByPath: Record<string, SeoConfig> = {
   '/services': {
     title: 'EV Charging & Resilient Power Services | Positive Energy',
     description:
-      "We deliver hardened electrical infrastructure for clients who can't afford downtime. From fleet charging hubs to off-grid microgrids.",
+      'Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.',
     image: defaultSeo.image,
   },
   '/projects': {
@@ -34,15 +34,15 @@ export const seoByPath: Record<string, SeoConfig> = {
     image: defaultSeo.image,
   },
   '/about': {
-    title: 'The Crew That Shows Up | Positive Energy',
+    title: 'About Positive Energy | Energy Infrastructure',
     description:
-      'We are a field-hardened crew of electricians, engineers, and project managers building the infrastructure for the energy transition.',
+      'Positive Energy is a Tennessee-based energy infrastructure contractor focused on EV charging, distributed energy, resilient power, and complex electrical projects.',
     image: defaultSeo.image,
   },
   '/contact': {
-    title: 'Get a Quote | Positive Energy',
+    title: 'Discuss Your Project | Positive Energy',
     description:
-      "Whether it's a multi-site EV rollout or emergency response power, we're ready to deploy. Tell us about your project.",
+      'Planning an EV charging, distributed energy, resilient power, or complex electrical project? Tell us about the site, requirements, and goals.',
     image: defaultSeo.image,
   },
   '/markets': {

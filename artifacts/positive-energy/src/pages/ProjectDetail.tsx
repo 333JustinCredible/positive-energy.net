@@ -160,7 +160,7 @@ function ProjectHero({ project }: { project: Project }) {
                 {contentTypeLabels[project.contentType]}
               </p>
             )}
-            <h1 className="text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-7">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-7">
               {project.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-7">
@@ -348,7 +348,7 @@ export default function ProjectDetail() {
               href="/contact"
               className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
             >
-              Contact Positive Energy
+              Discuss Your Project
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </section>

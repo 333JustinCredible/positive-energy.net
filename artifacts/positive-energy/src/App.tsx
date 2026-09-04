@@ -11,7 +11,6 @@ import ProjectDetail from '@/pages/ProjectDetail';
 import Gallery from '@/pages/Gallery';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
-import { ComingSoon } from '@/pages/ComingSoon';
 import NotFound from '@/pages/not-found';
 
 const queryClient = new QueryClient();
@@ -39,24 +38,6 @@ function Router() {
       <Route path="/gallery" component={Gallery} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
-      
-      {/* Stub Routes */}
-      <Route path="/markets">
-        <ComingSoon title="Markets" />
-      </Route>
-      <Route path="/case-studies">
-        <ComingSoon title="Case Studies" />
-      </Route>
-      <Route path="/faq">
-        <ComingSoon title="FAQ" />
-      </Route>
-      <Route path="/financing">
-        <ComingSoon title="Financing" />
-      </Route>
-      <Route path="/resources">
-        <ComingSoon title="Resources" />
-      </Route>
-
       <Route component={NotFound} />
     </Switch>
   );
