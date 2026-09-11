@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useRoute } from 'wouter';
 import {
   ArrowLeft,
@@ -62,14 +62,14 @@ function ProjectImageCard({
 }: {
   image: ProjectImage;
   hero?: boolean;
-  onOpen: () => void;
+  onOpen: (triggerElement: HTMLElement) => void;
 }) {
   return (
     <figure className="bg-card border border-border overflow-hidden">
       <div className={`${hero ? 'aspect-[4/3]' : 'aspect-video'} bg-muted/30 relative overflow-hidden`}>
         <button
           type="button"
-          onClick={onOpen}
+          onClick={(event) => onOpen(event.currentTarget)}
           className="absolute inset-0 block h-full w-full cursor-zoom-in border-0 p-0 text-left"
           aria-label={`Open ${image.alt} in image viewer`}
         >
@@ -128,7 +128,7 @@ function ProjectHero({
 }: {
   project: Project;
   heroImageIndex: number;
-  onOpenImage: (index: number) => void;
+  onOpenImage: (index: number, triggerElement: HTMLElement) => void;
 }) {
   const heroImage = getProjectImages(project).find((image) => image.role === 'hero');
 
@@ -186,7 +186,7 @@ function ProjectHero({
             <ProjectImageCard
               image={heroImage}
               hero
-              onOpen={() => onOpenImage(heroImageIndex)}
+              onOpen={(triggerElement) => onOpenImage(heroImageIndex, triggerElement)}
             />
           )}
         </div>
@@ -234,6 +234,7 @@ export default function ProjectDetail() {
   const projectImages = getProjectImages(project);
   const supportingImages = projectImages.filter((image) => image.role !== 'hero');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxTriggerRef = useRef<HTMLElement | null>(null);
   const lightboxImages: LightboxImage[] = projectImages.map((image) => ({
     src: image.src,
     alt: image.alt,
@@ -245,7 +246,10 @@ export default function ProjectDetail() {
       <ProjectHero
         project={project}
         heroImageIndex={projectImages.findIndex((image) => image.role === 'hero')}
-        onOpenImage={setLightboxIndex}
+        onOpenImage={(index, triggerElement) => {
+          lightboxTriggerRef.current = triggerElement;
+          setLightboxIndex(index);
+        }}
       />
 
       <section className="py-16 md:py-20">
@@ -324,7 +328,10 @@ export default function ProjectDetail() {
                   <ProjectImageCard
                     key={`${image.role}-${image.sortOrder}`}
                     image={image}
-                    onOpen={() => setLightboxIndex(projectImages.indexOf(image))}
+                    onOpen={(triggerElement) => {
+                      lightboxTriggerRef.current = triggerElement;
+                      setLightboxIndex(projectImages.indexOf(image));
+                    }}
                   />
                 ))}
               </div>
@@ -366,6 +373,7 @@ export default function ProjectDetail() {
       <Lightbox
         images={lightboxImages}
         initialIndex={lightboxIndex}
+        triggerElement={lightboxTriggerRef.current}
         onClose={() => setLightboxIndex(null)}
       />
     </Layout>

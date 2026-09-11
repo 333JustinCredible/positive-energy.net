@@ -12,9 +12,10 @@ interface LightboxProps {
   images: LightboxImage[];
   initialIndex: number | null;
   onClose: () => void;
+  triggerElement: HTMLElement | null;
 }
 
-export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
+export function Lightbox({ images, initialIndex, onClose, triggerElement }: LightboxProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
@@ -23,16 +24,16 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
 
   useEffect(() => {
     const activeElement = document.activeElement;
-    if (activeElement instanceof HTMLElement) {
-      triggerRef.current = activeElement;
-    }
+    triggerRef.current =
+      triggerElement ??
+      (activeElement instanceof HTMLElement ? activeElement : null);
 
     return () => {
       if (triggerRef.current && document.contains(triggerRef.current)) {
         triggerRef.current.focus();
       }
     };
-  }, []);
+  }, [triggerElement]);
 
   useEffect(() => {
     if (initialIndex !== null) {
@@ -65,7 +66,15 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
           dialog.querySelectorAll<HTMLElement>(
             'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
           ),
-        );
+        ).filter((element) => {
+          const styles = window.getComputedStyle(element);
+          return (
+            element.getClientRects().length > 0 &&
+            styles.display !== 'none' &&
+            styles.visibility !== 'hidden' &&
+            element.getAttribute('aria-hidden') !== 'true'
+          );
+        });
         if (focusableElements.length === 0) return;
 
         const firstElement = focusableElements[0];

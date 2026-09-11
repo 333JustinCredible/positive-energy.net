@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { galleryPhotos, allTags } from '@/data/gallery';
 import { useSearch } from 'wouter';
@@ -14,6 +14,7 @@ export default function Gallery() {
   const [activeProject, setActiveProject] = useState<string | null>(initialProject);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const [lightboxPhotoId, setLightboxPhotoId] = useState<string | null>(null);
+  const lightboxTriggerRef = useRef<HTMLElement | null>(null);
 
   // Sync project filter from URL changes
   useEffect(() => {
@@ -157,7 +158,10 @@ export default function Gallery() {
                   <div className="relative overflow-hidden bg-background">
                     <button
                       type="button"
-                      onClick={() => setLightboxPhotoId(photo.id)}
+                      onClick={(event) => {
+                        lightboxTriggerRef.current = event.currentTarget;
+                        setLightboxPhotoId(photo.id);
+                      }}
                       className="relative block w-full cursor-zoom-in border-0 p-0 text-left"
                       aria-label={`Open ${photo.alt} in image viewer`}
                     >
@@ -222,6 +226,7 @@ export default function Gallery() {
       <Lightbox
         images={lightboxImages}
         initialIndex={lightboxIndex !== null && lightboxIndex >= 0 ? lightboxIndex : null}
+        triggerElement={lightboxTriggerRef.current}
         onClose={() => setLightboxPhotoId(null)}
       />
     </Layout>
