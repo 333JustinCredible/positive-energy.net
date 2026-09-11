@@ -145,10 +145,10 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn className="relative min-h-[220px] overflow-hidden border border-border bg-card/60 lg:min-h-[300px]" direction="up">
+            <FadeIn className="relative min-h-[220px] overflow-hidden border border-border bg-card/60 lg:min-h-[360px]" direction="up">
               <img
-                src="/images/projects/manheim-mt-juliet-tn-ev-charger-bank-install-1-09-23.jpg"
-                alt="Commercial EV charging bank installed at Manheim in Mt. Juliet, Tennessee."
+                src="/images/projects/chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-8-04-24.jpg"
+                alt="Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee."
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="eager"
               />
