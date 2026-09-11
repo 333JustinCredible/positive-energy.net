@@ -115,7 +115,7 @@ export default function Home() {
                 Tennessee • Southeast • Select Nationwide Projects
               </div>
 
-              <h1 className="mb-8 max-w-4xl break-normal max-[359px]:break-all text-4xl font-bold uppercase leading-[0.94] tracking-tight sm:text-5xl md:text-7xl lg:text-6xl xl:text-7xl">
+              <h1 className="mb-8 max-w-4xl break-normal max-[359px]:text-[2.125rem] text-4xl font-bold uppercase leading-[0.94] tracking-tight sm:text-5xl md:text-7xl lg:text-6xl xl:text-7xl">
                 Commercial EV Charging &amp; Energy Infrastructure
               </h1>
 

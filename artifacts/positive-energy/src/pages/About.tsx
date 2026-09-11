@@ -39,6 +39,9 @@ export default function About() {
                 src="/images/projects/denver-co-commercial-building-site-csi-sustainable-design.jpg"
                 alt="Commercial building site in Denver, Colorado associated with sustainable design planning."
                 className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="sync"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <p className="absolute bottom-5 left-5 max-w-sm font-heading text-xl font-bold uppercase text-white">

@@ -69,6 +69,8 @@ function ProjectImageCard({
           alt={image.alt}
           className="absolute inset-0 w-full h-full object-cover"
           loading={hero ? 'eager' : 'lazy'}
+          fetchPriority={hero ? 'high' : undefined}
+          decoding={hero ? 'sync' : 'async'}
         />
         {hero && (
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -117,7 +119,7 @@ function ProjectHero({ project }: { project: Project }) {
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-16">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors mb-10"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors mb-10"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Projects
@@ -132,7 +134,7 @@ function ProjectHero({ project }: { project: Project }) {
                 {contentTypeLabels[project.contentType]}
               </p>
             )}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-7 break-words">
+            <h1 className="text-4xl max-[359px]:text-[2.125rem] sm:text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-7 break-normal">
               {project.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-7">
@@ -298,7 +300,7 @@ export default function ProjectDetail() {
             <div className="mt-16 pt-8 border-t border-border">
               <Link
                 href={`/gallery?project=${project.id}`}
-                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
               >
                 <Images className="h-4 w-4" />
                 View all project photos
@@ -318,7 +320,7 @@ export default function ProjectDetail() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
             >
               Discuss Your Project
               <ArrowUpRight className="h-4 w-4" />
