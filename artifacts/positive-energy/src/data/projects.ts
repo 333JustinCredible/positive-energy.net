@@ -443,7 +443,7 @@ export const projectsData: Project[] = [
     ],
     images: [
       projectPhoto(
-        "tesla-wall-charger-nema-weather-box-install-residential.jpg",
+        "sungoldpower-12k-off-grid-solar-battery-microgrid-cabin-homestead-2.jpg",
         "hero",
         "Premium residential electrical / energy system",
         0,
@@ -455,7 +455,7 @@ export const projectsData: Project[] = [
         1,
       ),
       projectPhoto(
-        "sungoldpower-12k-off-grid-solar-battery-microgrid-cabin-homestead-2.jpg",
+        "tesla-wall-charger-nema-weather-box-install-residential.jpg",
         "completed-drone",
         "Completed integrated residential system",
         2,
