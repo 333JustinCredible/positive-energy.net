@@ -331,6 +331,7 @@ export const projectsData: Project[] = [
     slug: "toyota-lexus-multi-site",
     title: "Toyota & Lexus Multi-Site EV Charging Experience",
     category: ["Commercial EV", "Dealership"],
+    image: "/images/projects/lexus-greenville-sc-chargepoint-ct4000-pedestal-install-2-02-23.jpg",
     summary: "Positive Energy has supported EV charging installations at approximately 45 Toyota dealerships and 11 Lexus dealerships across Tennessee, Georgia, South Carolina, North Carolina, Kentucky, Alabama, Mississippi, and Florida.",
     metrics: [
       "Approximately 45 Toyota dealerships",
