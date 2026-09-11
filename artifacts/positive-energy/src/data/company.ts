@@ -1,10 +1,3 @@
-export const statsData = [
-  { value: "200+", label: "EV Chargers Installed" },
-  { value: "40+", label: "Years Combined Construction Exp" },
-  { value: "12+", label: "Years Sustainability Expertise" },
-  { value: "2020", label: "Year Founded" }
-];
-
 export const partnersData = [
   { name: "ChargePoint" },
   { name: "ABB" },

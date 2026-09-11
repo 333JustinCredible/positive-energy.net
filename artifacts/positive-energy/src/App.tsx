@@ -12,6 +12,7 @@ import Gallery from '@/pages/Gallery';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
 import NotFound from '@/pages/not-found';
+import DevResponsivePreview from '@/pages/DevResponsivePreview';
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ function ScrollToTop() {
 function Router() {
   return (
     <Switch>
+      {import.meta.env.DEV && <Route path="/__responsive-preview" component={DevResponsivePreview} />}
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
       <Route path="/projects/hurricane-helene">

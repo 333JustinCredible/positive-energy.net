@@ -5,6 +5,7 @@ import { MapPin, Calendar, ArrowUpRight, Images } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { galleryPhotos } from '@/data/gallery';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 const contentTypeLabels: Record<ProjectContentType, string> = {
   'case-study': 'Case Study',
@@ -26,7 +27,7 @@ export default function Projects() {
             Field Proven
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            We don't just draft plans; we build them. In boardrooms and muddy fields. Explore our track record of critical infrastructure delivery.
+            Explore Positive Energy’s work across commercial EV charging, distributed energy, resilient power, and field service.
           </p>
         </div>
       </section>
@@ -42,17 +43,18 @@ export default function Projects() {
                 {(project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image) && (
                   /* Project Image */
                   <div className="aspect-video bg-background relative overflow-hidden">
-                    <img
+                    <ResponsiveImage
                       src={project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image}
                       alt={project.images?.find((image) => image.role === 'hero')?.alt || project.coverImage?.alt || project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(min-width: 768px) 50vw, 100vw"
                       loading="lazy"
                       decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
                       {project.category.map((cat, i) => (
-                        <span key={i} className="bg-background/80 backdrop-blur text-xs font-bold uppercase px-2 py-1 text-primary border border-primary/20">
+                          <span key={i} className="bg-background/80 backdrop-blur text-xs font-bold uppercase px-2 py-1 text-foreground border border-foreground/20">
                           {cat}
                         </span>
                       ))}
@@ -96,7 +98,7 @@ export default function Projects() {
 
                   {project.summary && (
                     <p className="text-foreground/80 mb-8 flex-1 leading-relaxed">
-                      {project.summary}
+                           {project.indexSummary ?? project.summary}
                     </p>
                   )}
 
@@ -104,8 +106,8 @@ export default function Projects() {
                     <div className="grid grid-cols-2 gap-4">
                       {project.metrics.map((metric, i) => (
                         <div key={i}>
-                          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Impact</p>
-                          <p className="font-bold text-sm text-secondary">{metric}</p>
+                           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{project.metricsLabel ?? 'Project context'}</p>
+                           <p className="font-bold text-sm text-foreground">{metric}</p>
                         </div>
                       ))}
                     </div>
@@ -131,11 +133,11 @@ export default function Projects() {
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
               This is just a selection of our public work. We handle confidential commercial deployments across the region.
             </p>
-            <Link href="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none font-bold uppercase tracking-wide">
+             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none font-bold uppercase tracking-wide">
+               <Link href="/contact">
                 Discuss Your Project
-              </Button>
-            </Link>
+               </Link>
+             </Button>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { servicesData } from '@/data/services';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 export default function Services() {
   return (
@@ -32,10 +33,11 @@ export default function Services() {
               >
                 {/* Service Image */}
                 <div className="w-full lg:w-1/2 aspect-[4/3] bg-card border border-border relative group overflow-hidden">
-                  <img
+                  <ResponsiveImage
                     src={`/images/services/${service.id}.jpg`}
-                    alt={service.title}
+                    alt={service.imageAlt}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     loading="lazy"
                     decoding="async"
                   />
@@ -82,12 +84,12 @@ export default function Services() {
                   )}
 
                   <div className="mt-10">
-                    <Link href="/contact">
-                      <Button variant="outline" className="min-h-11 rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground group">
+                    <Button asChild variant="outline" className="min-h-11 rounded-none border-primary text-foreground hover:bg-primary hover:text-foreground group">
+                      <Link href="/contact">
                         DISCUSS YOUR PROJECT
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -125,11 +127,11 @@ export default function Services() {
           <p className="text-xl mb-10 opacity-90">
             Planning an EV charging, distributed energy, resilient power, or complex electrical project? Let’s look at the site, the requirements, and the best path forward.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-background text-foreground hover:bg-card rounded-none h-14 px-8 text-lg font-bold border-2 border-transparent">
+          <Button asChild size="lg" className="bg-background text-foreground hover:bg-card rounded-none h-14 px-8 text-lg font-bold border-2 border-transparent">
+            <Link href="/contact">
               Discuss Your Project
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </Layout>

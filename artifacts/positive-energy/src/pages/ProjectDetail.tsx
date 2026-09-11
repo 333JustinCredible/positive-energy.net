@@ -17,6 +17,7 @@ import {
   type ProjectImage,
 } from '@/data/projects';
 import { galleryPhotos } from '@/data/gallery';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 const contentTypeLabels: Record<ProjectContentType, string> = {
   'case-study': 'Case Study',
@@ -73,13 +74,14 @@ function ProjectImageCard({
           className="absolute inset-0 block h-full w-full cursor-zoom-in border-0 p-0 text-left"
           aria-label={`Open ${image.alt} in image viewer`}
         >
-          <img
+          <ResponsiveImage
             src={image.src}
             alt={image.alt}
             className="absolute inset-0 h-full w-full object-cover"
+            sizes={hero ? '(min-width: 1024px) 45vw, 100vw' : '(min-width: 768px) 50vw, 100vw'}
             loading={hero ? 'eager' : 'lazy'}
             fetchPriority={hero ? 'high' : undefined}
-            decoding={hero ? 'sync' : 'async'}
+            decoding="async"
           />
         </button>
         {hero && (
@@ -148,7 +150,7 @@ function ProjectHero({
           : 'max-w-4xl'}>
           <div>
             {project.contentType && (
-              <p className="text-sm text-primary uppercase tracking-[0.2em] font-bold mb-4">
+              <p className="text-sm text-foreground uppercase tracking-[0.2em] font-bold mb-4">
                 {contentTypeLabels[project.contentType]}
               </p>
             )}

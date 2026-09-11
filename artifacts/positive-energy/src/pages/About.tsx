@@ -1,8 +1,8 @@
 import { Layout } from '@/components/layout/Layout';
-import { statsData } from '@/data/company';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { HardHat, ShieldCheck, Zap } from 'lucide-react';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 const relationshipNames = [
   "New Use Energy",
@@ -35,13 +35,14 @@ export default function About() {
             </p>
             </div>
             <div className="relative min-h-[260px] overflow-hidden border border-border bg-background lg:min-h-[340px]">
-              <img
+              <ResponsiveImage
                 src="/images/projects/denver-co-commercial-building-site-csi-sustainable-design.jpg"
-                alt="Commercial building site in Denver, Colorado associated with sustainable design planning."
+                alt="Workers in hard hats and safety vests gather for a site walk inside a glass-walled commercial construction floor."
                 className="absolute inset-0 h-full w-full object-cover"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 loading="eager"
                 fetchPriority="high"
-                decoding="sync"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <p className="absolute bottom-5 left-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
@@ -52,19 +53,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-12 border-b border-border bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
-            {statsData.map((stat, idx) => (
-              <div key={idx} className="text-center px-4">
-                <div className="text-4xl md:text-5xl font-black font-heading text-secondary mb-2">{stat.value}</div>
-                <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Company Evolution */}
       <section className="py-24 bg-card border-b border-border">
@@ -145,11 +133,11 @@ export default function About() {
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             EV charging, distributed energy, resilient power, or a complex electrical project — start with the site, the requirements, and the goal.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none h-14 px-8 text-lg font-bold uppercase">
+          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none h-14 px-8 text-lg font-bold uppercase">
+            <Link href="/contact">
               Discuss Your Project
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </Layout>

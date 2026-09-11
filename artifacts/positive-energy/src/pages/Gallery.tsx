@@ -4,6 +4,7 @@ import { galleryPhotos, allTags } from '@/data/gallery';
 import { useSearch } from 'wouter';
 import { Camera, Tag, X } from 'lucide-react';
 import { Lightbox, type LightboxImage } from '@/components/Lightbox';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 export default function Gallery() {
   const search = useSearch();
@@ -83,8 +84,8 @@ export default function Gallery() {
               onClick={clearFilters}
               className={`min-h-11 text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
                 !hasFilter
-                  ? 'bg-primary text-primary-foreground border-primary'
-                  : 'border-border text-muted-foreground hover:border-primary hover:text-primary'
+                   ? 'bg-primary text-foreground border-primary'
+                   : 'border-border text-muted-foreground hover:border-primary hover:text-foreground'
               }`}
             >
               All ({galleryPhotos.length})
@@ -101,8 +102,8 @@ export default function Gallery() {
                   }}
                 className={`min-h-11 text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
                     isActive
-                      ? 'bg-primary text-primary-foreground border-primary'
-                      : 'border-border text-muted-foreground hover:border-primary hover:text-primary'
+                       ? 'bg-primary text-foreground border-primary'
+                       : 'border-border text-muted-foreground hover:border-primary hover:text-foreground'
                   }`}
                 >
                   {tag} ({count})
@@ -126,10 +127,10 @@ export default function Gallery() {
       {activeProject && (
         <div className="bg-primary/10 border-b border-primary/20 py-2">
           <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-            <span className="text-sm text-primary font-medium">
+            <span className="text-sm text-foreground font-medium">
               Showing photos for project: <strong>{activeProject.replace(/-/g, ' ')}</strong>
             </span>
-            <button onClick={clearFilters} className="text-xs text-primary hover:underline">
+             <button onClick={clearFilters} className="text-xs text-foreground hover:underline">
               Show all
             </button>
           </div>
@@ -156,7 +157,7 @@ export default function Gallery() {
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden bg-background">
-                    <button
+                     <button
                       type="button"
                       onClick={(event) => {
                         lightboxTriggerRef.current = event.currentTarget;
@@ -165,9 +166,10 @@ export default function Gallery() {
                       className="relative block w-full cursor-zoom-in border-0 p-0 text-left"
                       aria-label={`Open ${photo.alt} in image viewer`}
                     >
-                      <img
+                       <ResponsiveImage
                         src={photo.src}
                         alt={photo.alt}
+                         sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
                         loading="lazy"
                         decoding="async"
                         onLoad={() => handleImageLoad(photo.id)}
@@ -208,8 +210,8 @@ export default function Gallery() {
                           }}
                         className={`min-h-11 text-xs px-2 py-0.5 border transition-colors ${
                             activeTag === tag
-                              ? 'bg-primary text-primary-foreground border-primary'
-                              : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                               ? 'bg-primary text-foreground border-primary'
+                               : 'border-primary/30 text-foreground hover:bg-primary hover:text-foreground'
                           }`}
                         >
                           {tag}

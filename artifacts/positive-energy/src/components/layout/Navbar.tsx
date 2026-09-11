@@ -31,17 +31,17 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${location === link.href ? 'text-primary' : 'text-muted-foreground'}`}
+              className={`text-sm font-medium transition-colors hover:text-foreground ${location === link.href ? 'text-foreground' : 'text-muted-foreground'}`}
               data-testid={`link-${link.label.toLowerCase()}`}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" data-testid="link-nav-quote">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none">
+          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none">
+            <Link href="/contact" data-testid="link-nav-quote">
                 DISCUSS YOUR PROJECT
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </nav>
 
         {/* Mobile Toggle */}
@@ -70,11 +70,11 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" onClick={() => setIsOpen(false)}>
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none py-6 text-lg mt-2">
+            <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none py-6 text-lg mt-2">
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
               DISCUSS YOUR PROJECT
+              </Link>
             </Button>
-          </Link>
         </div>
       )}
     </header>

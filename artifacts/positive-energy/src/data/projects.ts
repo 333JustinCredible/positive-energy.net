@@ -32,6 +32,7 @@ export interface Project {
   location?: string;
   year?: string;
   summary: string;
+  indexSummary?: string;
   metrics: string[];
   image?: string;
   contentType?: ProjectContentType;
@@ -83,14 +84,14 @@ export const projectsData: Project[] = [
     title: "Luck Reunion — Battery-Powered Event Infrastructure",
     category: ["Remote Power", "Event Energy"],
     location: "Luck, Texas",
-    year: "2023",
     summary:
       "Positive Energy participated in Willie Nelson’s Luck Reunion with support from the Music Sustainability Alliance to document and evaluate OverDrive Energy Solutions’ expanding battery-powered event infrastructure.\n\nIn the field, Positive Energy helped configure small- and medium-scale microgrids serving stages and other festival areas while interviewing production personnel and documenting the operational impact of replacing conventional generator infrastructure with distributed battery systems.",
     metrics: [
-      "13th Luck Reunion",
       "OverDrive Energy Solutions / OVRDRV",
       "Music Sustainability Alliance",
     ],
+    indexSummary:
+      "Battery-powered event infrastructure and temporary microgrids supporting stages and production areas at Luck Reunion.",
     image: "/images/projects/willie-nelson-luck-reunion-tx-overdrive-battery-bank-stage-1-03-25.jpg",
     contentType: "case-study",
     metricsLabel: "Event context",
@@ -251,7 +252,7 @@ export const projectsData: Project[] = [
       "6 dual-head ChargePoint Power Links"
     ],
     contentType: "case-study",
-    contractedBy: "Land Valente Industries",
+    contractedBy: "Lane Valente Industries",
     metricsLabel: "System scale",
     challenge: "Chuck Hutton Toyota was developing a large-scale public EV charging destination requiring significantly more infrastructure than a typical dealership charging installation. The system required high-power 480V electrical distribution, centralized DC power conversion, underground distribution, multiple charging dispensers, networking, commissioning, and coordination with the broader energy infrastructure at the site.",
     solution: "Positive Energy was responsible for the complete installation of the EV charging network. Power was provided to the site transformer, and Positive Energy installed the charging infrastructure from the transformer through the main 400A, 480V disconnects, ChargePoint Express Plus Power Blocks, underground distribution, Power Links, and charging dispensers.",
@@ -342,6 +343,8 @@ export const projectsData: Project[] = [
     ],
     contentType: "program-experience",
     metricsLabel: "Program scale",
+    indexSummary:
+      "Repeatable EV charging delivery across Toyota and Lexus dealership environments in eight southeastern states.",
     solution: "Working primarily on retrofit projects, Positive Energy served as the EV charging specialist from the existing electrical distribution system through final charger commissioning. At Lexus of Greenville, this included a multi-unit ChargePoint Level 2 charging array and ABB wall charger; a confirmed Toyota dealership deployment used a ChargePoint DC fast charger.",
     servicesProvided: [
       "Breaker-to-charger electrical installation",
@@ -429,6 +432,8 @@ export const projectsData: Project[] = [
     metrics: ["Tennessee"],
     contentType: "capability",
     metricsLabel: "Primary market",
+    indexSummary:
+      "Integrated battery, solar, EV charging, and energy-management systems for technically complex homes.",
     solution:
       "Positive Energy is best suited for technically complex residential projects where multiple systems must work together. This may include large homes, custom residences, estates, high electrical demand, multiple EVs, backup-power requirements, or properties seeking greater energy freedom and independence.\n\nFor specialized projects, Positive Energy can coordinate with experienced solar designers, engineers, battery specialists, manufacturers, and other industry partners as required.",
     servicesProvided: [
@@ -474,6 +479,8 @@ export const projectsData: Project[] = [
     metrics: ["Tennessee and the Southeast", "Select nationwide support"],
     contentType: "capability",
     metricsLabel: "Primary market",
+    indexSummary:
+      "Field service, commissioning, diagnostics, and lifecycle support for EV charging and distributed-energy systems.",
     solution:
       "Positive Energy supports EV charging and distributed-energy systems throughout their operating life, not just during installation.",
     servicesProvided: [

@@ -26,7 +26,7 @@ import { Phone, MapPin, AlertCircle } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
-  company: z.string().min(2, 'Company is required'),
+  company: z.string().optional(),
   email: z.string().email('Invalid email address'),
   phone: z.string().optional(),
   serviceInterest: z.string().min(1, 'Please select a service'),
@@ -144,7 +144,7 @@ export default function Contact() {
                           name="company"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Company</FormLabel>
+                              <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Company (Optional)</FormLabel>
                               <FormControl>
                                 <Input placeholder="Acme Logistics" className="bg-background border-border rounded-none h-12" {...field} />
                               </FormControl>
