@@ -25,16 +25,24 @@ export default function About() {
       {/* Hero */}
       <section className="pt-24 pb-20 bg-card border-b border-border relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-3xl">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:gap-20">
+            <div className="max-w-3xl">
             <h1 className="text-5xl md:text-7xl font-bold uppercase mb-6 font-heading">
               Built for Complex Energy Projects.
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               Positive Energy is a Tennessee-based energy infrastructure contractor focused on EV charging, distributed energy, resilient power, and complex electrical projects.
             </p>
-            <div className="mt-10 max-w-md border border-dashed border-primary/60 bg-background/40 p-5">
-              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                About Hero — Positive Energy Field / Infrastructure
+            </div>
+            <div className="relative min-h-[260px] overflow-hidden border border-border bg-background lg:min-h-[340px]">
+              <img
+                src="/images/projects/denver-co-commercial-building-site-csi-sustainable-design.jpg"
+                alt="Commercial building site in Denver, Colorado associated with sustainable design planning."
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <p className="absolute bottom-5 left-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
+                Field experience for complex energy projects.
               </p>
             </div>
           </div>

@@ -93,15 +93,10 @@ const processSteps = [
   { icon: Wrench, title: 'Support' },
 ];
 
-const featuredImagePlaceholders: Record<string, string> = {
-  'toyota-lexus-multi-site': 'Featured Project — Toyota / Lexus',
-  'hurricane-helene-response': 'Featured Project — Hurricane Helene',
-};
-
 function getProjectImage(project: (typeof projectsData)[number]) {
   return (
-    project.image ||
     project.images?.find((image) => image.role === 'hero' && image.src)?.src ||
+    project.image ||
     ''
   );
 }
@@ -150,18 +145,17 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn
-              className="flex min-h-[220px] items-center justify-center border border-dashed border-primary/40 bg-card/60 p-8 lg:min-h-[300px]"
-              direction="up"
-            >
-              <div className="text-center">
-                <div className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">
-                  Image placeholder
-                </div>
-                <p className="font-heading text-2xl font-bold uppercase text-foreground">
-                  Homepage Hero — Large Commercial Energy Infrastructure
-                </p>
-              </div>
+            <FadeIn className="relative min-h-[220px] overflow-hidden border border-border bg-card/60 lg:min-h-[300px]" direction="up">
+              <img
+                src="/images/projects/manheim-mt-juliet-tn-ev-charger-bank-install-1-09-23.jpg"
+                alt="Commercial EV charging bank installed at Manheim in Mt. Juliet, Tennessee."
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+              <p className="absolute bottom-5 left-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
+                Commercial charging infrastructure, built for scale.
+              </p>
             </FadeIn>
           </div>
         </div>
@@ -263,7 +257,6 @@ export default function Home() {
           <Stagger className="grid gap-8 lg:grid-cols-3">
             {featuredProjects.map((project) => {
               const image = getProjectImage(project);
-              const placeholder = featuredImagePlaceholders[project.slug];
               return (
                 <StaggerItem
                   key={project.id}
@@ -281,13 +274,7 @@ export default function Home() {
                           alt={project.title}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                         />
-                      ) : (
-                        <div className="flex h-full items-center justify-center p-8 text-center">
-                          <span className="font-heading text-xl font-bold uppercase text-muted-foreground">
-                            {placeholder}
-                          </span>
-                        </div>
-                      )}
+                      ) : null}
                     </div>
                     <div className="p-7">
                       <div className="mb-4 flex flex-wrap gap-2">
@@ -380,18 +367,16 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn
-              className="flex min-h-[260px] items-center justify-center border border-dashed border-primary/40 bg-background p-8"
-              direction="up"
-            >
-              <div className="text-center">
-                <div className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">
-                  Image placeholder
-                </div>
-                <p className="font-heading text-2xl font-bold uppercase text-foreground">
-                  Remote Power — Event / Disaster Microgrid
-                </p>
-              </div>
+            <FadeIn className="relative min-h-[260px] overflow-hidden border border-border bg-background" direction="up">
+              <img
+                src="/images/projects/footprint-project-hurricane-helene-microgrid-camp-miller-2-10-24.jpg"
+                alt="Solar and battery microgrid providing temporary power at Camp Miller in Pensacola, North Carolina after Hurricane Helene."
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+              <p className="absolute bottom-5 left-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
+                Temporary microgrids for event and emergency power.
+              </p>
             </FadeIn>
           </div>
         </div>

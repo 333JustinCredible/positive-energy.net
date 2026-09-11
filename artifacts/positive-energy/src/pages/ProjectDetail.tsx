@@ -37,7 +37,9 @@ const imageRoleLabels: Record<ProjectImageRole, string> = {
 
 function getProjectImages(project: Project): ProjectImage[] {
   if (project.images && project.images.length > 0) {
-    return [...project.images].sort((a, b) => a.sortOrder - b.sortOrder);
+    return project.images
+      .filter((image) => Boolean(image.src))
+      .sort((a, b) => a.sortOrder - b.sortOrder);
   }
 
   const legacyImages: ProjectImage[] = [];
@@ -59,7 +61,9 @@ function getProjectImages(project: Project): ProjectImage[] {
     legacyImages.push(...project.supportingImages);
   }
 
-  return legacyImages.sort((a, b) => a.sortOrder - b.sortOrder);
+  return legacyImages
+    .filter((image) => Boolean(image.src))
+    .sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
 function ProjectImageCard({
@@ -69,33 +73,16 @@ function ProjectImageCard({
   image: ProjectImage;
   hero?: boolean;
 }) {
-  const hasSource = Boolean(image.src);
-
   return (
     <figure className="bg-card border border-border overflow-hidden">
       <div className={`${hero ? 'aspect-[4/3]' : 'aspect-video'} bg-muted/30 relative overflow-hidden`}>
-        {hasSource ? (
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="absolute inset-0 w-full h-full object-cover"
-            loading={hero ? 'eager' : 'lazy'}
-          />
-        ) : (
-          <div
-            role="img"
-            aria-label={`${image.placeholderLabel} placeholder`}
-            className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center bg-[linear-gradient(135deg,hsl(var(--muted)/0.55),hsl(var(--card)))]"
-          >
-            <span className="text-xs text-primary uppercase tracking-[0.2em] font-bold">
-              {imageRoleLabels[image.role]}
-            </span>
-            <span className="max-w-md text-lg md:text-xl font-heading font-bold uppercase leading-tight text-foreground/75">
-              {image.placeholderLabel}
-            </span>
-          </div>
-        )}
-        {hasSource && hero && (
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading={hero ? 'eager' : 'lazy'}
+        />
+        {hero && (
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         )}
       </div>
