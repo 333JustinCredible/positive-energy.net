@@ -81,7 +81,7 @@ export default function Services() {
 
                   <div className="mt-10">
                     <Link href="/contact">
-                      <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground group">
+                      <Button variant="outline" className="min-h-11 rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground group">
                         DISCUSS YOUR PROJECT
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>

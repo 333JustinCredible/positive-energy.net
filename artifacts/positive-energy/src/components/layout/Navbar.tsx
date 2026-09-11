@@ -46,7 +46,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden min-h-11 min-w-11 p-2 text-foreground"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}

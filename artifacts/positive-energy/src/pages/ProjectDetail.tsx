@@ -132,7 +132,7 @@ function ProjectHero({ project }: { project: Project }) {
                 {contentTypeLabels[project.contentType]}
               </p>
             )}
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-7">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-7 break-words">
               {project.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-7">

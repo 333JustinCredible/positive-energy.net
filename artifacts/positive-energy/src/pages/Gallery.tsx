@@ -70,7 +70,7 @@ export default function Gallery() {
             <Tag className="h-4 w-4 text-muted-foreground shrink-0" />
             <button
               onClick={clearFilters}
-              className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
+              className={`min-h-11 text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
                 !hasFilter
                   ? 'bg-primary text-primary-foreground border-primary'
                   : 'border-border text-muted-foreground hover:border-primary hover:text-primary'
@@ -88,7 +88,7 @@ export default function Gallery() {
                     setActiveProject(null);
                     setActiveTag(isActive ? null : tag);
                   }}
-                  className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
+                className={`min-h-11 text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
                     isActive
                       ? 'bg-primary text-primary-foreground border-primary'
                       : 'border-border text-muted-foreground hover:border-primary hover:text-primary'
@@ -184,7 +184,7 @@ export default function Gallery() {
                             setActiveProject(null);
                             setActiveTag(activeTag === tag ? null : tag);
                           }}
-                          className={`text-xs px-2 py-0.5 border transition-colors ${
+                        className={`min-h-11 text-xs px-2 py-0.5 border transition-colors ${
                             activeTag === tag
                               ? 'bg-primary text-primary-foreground border-primary'
                               : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
