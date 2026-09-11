@@ -14,7 +14,6 @@ import {
   type Project,
   type ProjectContentType,
   type ProjectImage,
-  type ProjectImageRole,
 } from '@/data/projects';
 import { galleryPhotos } from '@/data/gallery';
 
@@ -22,17 +21,6 @@ const contentTypeLabels: Record<ProjectContentType, string> = {
   'case-study': 'Case Study',
   'program-experience': 'Program Experience',
   capability: 'Capability',
-};
-
-const imageRoleLabels: Record<ProjectImageRole, string> = {
-  hero: 'Hero',
-  sitework: 'Sitework',
-  'electrical-infrastructure': 'Electrical Infrastructure',
-  'power-block-installation': 'Power Block Installation',
-  'technical-detail': 'Technical Detail',
-  'crew-action': 'Crew / Field Work',
-  'completed-drone': 'Completed Drone',
-  'active-charging': 'Active Charging / Finished System',
 };
 
 function getProjectImages(project: Project): ProjectImage[] {
@@ -87,9 +75,6 @@ function ProjectImageCard({
         )}
       </div>
       <figcaption className="p-4 text-sm text-muted-foreground">
-        <span className="block text-xs text-primary uppercase tracking-wider font-bold mb-1">
-          {imageRoleLabels[image.role]}
-        </span>
         {image.caption}
       </figcaption>
     </figure>

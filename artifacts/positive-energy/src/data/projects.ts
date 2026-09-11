@@ -91,7 +91,7 @@ export const projectsData: Project[] = [
       "OverDrive Energy Solutions / OVRDRV",
       "Music Sustainability Alliance",
     ],
-    image: "/images/projects/luck-reunion.jpg",
+    image: "/images/projects/willie-nelson-luck-reunion-tx-overdrive-battery-bank-stage-1-03-25.jpg",
     contentType: "case-study",
     metricsLabel: "Event context",
     solution:

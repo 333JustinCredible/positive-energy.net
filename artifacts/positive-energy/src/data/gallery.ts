@@ -64,12 +64,12 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     id: "lexus-greenville-install-day",
     src: "/photos/lexus-greenville-chargepoint-install-day.jpg",
-    alt: "Installation day at Lexus of Greenville with ChargePoint charger being set in place by the Positive Energy crew",
-    caption: "Lexus of Greenville — Install Day",
-    project: "lexus-greenville",
+    alt: "ChargePoint Level 2 EV charger installed at Lexus in Huntsville, Alabama.",
+    caption: "ChargePoint Level 2 EV charger installation at Lexus Huntsville.",
+    project: "lexus-huntsville",
     tags: ["Commercial EV", "ChargePoint", "Lexus", "Dealership", "Installation"],
     year: "2023",
-    location: "Greenville, SC",
+    location: "Huntsville, AL",
   },
 
   // Kia Dealership Nashville — ABB DCFC

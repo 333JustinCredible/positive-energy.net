@@ -6,51 +6,51 @@ export interface FinalPhotoMetadata {
 export const finalPhotoMetadata: Record<string, FinalPhotoMetadata> = {
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-1-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 1.",
+      "EV charging sitework and equipment foundations at Chuck Hutton Toyota in Memphis.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "EV charging sitework, conduit pathways, and equipment foundations at Chuck Hutton Toyota in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-2-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 2.",
+      "Underground conduit installation for the EV charging network at Chuck Hutton Toyota in Memphis.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "Underground conduit and charger-base installation for the EV charging network at Chuck Hutton Toyota in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-3-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 3.",
+      "ChargePoint Express Plus equipment bases and electrical enclosures at Chuck Hutton Toyota.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "ChargePoint Express Plus equipment bases and electrical enclosures staged at Chuck Hutton Toyota in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-4-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 4.",
+      "Open ChargePoint Express Plus Power Blocks at Chuck Hutton Toyota in Memphis.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "Open ChargePoint Express Plus Power Blocks showing internal power-conversion equipment at Chuck Hutton Toyota in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-5-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 5.",
+      "ChargePoint Express Plus Power Blocks installed inside the equipment enclosure at Chuck Hutton Toyota.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "ChargePoint Express Plus Power Blocks installed inside the electrical equipment enclosure at Chuck Hutton Toyota in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-6-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 6.",
+      "ChargePoint Power Links installed along new concrete paths at Chuck Hutton Toyota.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "ChargePoint Power Links installed along new concrete paths at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-7-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 7.",
+      "ChargePoint charging dispensers installed across Chuck Hutton Toyota's Electri-CITY Park.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "ChargePoint charging dispensers installed across Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee.",
   },
   "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-8-04-24.jpg": {
     caption:
-      "ChargePoint Express Plus installation at Chuck Hutton Toyota in Memphis — project photo 8.",
+      "Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota.",
     alt:
-      "ChargePoint Express Plus DC fast charging installation at Chuck Hutton Toyota in Memphis, Tennessee.",
+      "Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee.",
   },
   "denver-co-commercial-building-site-csi-sustainable-design.jpg": {
     caption: "Commercial building sustainable design site in Denver, Colorado.",
@@ -77,15 +77,15 @@ export const finalPhotoMetadata: Record<string, FinalPhotoMetadata> = {
   },
   "footprint-project-hurricane-helene-relief-barnardsville-1-10-24.jpg": {
     caption:
-      "Hurricane Helene relief work in Barnardsville, North Carolina — project photo 1.",
+      "Hurricane Helene relief response on a debris-lined road in Barnardsville, North Carolina.",
     alt:
-      "Hurricane Helene relief operations with FootPrint Project in Barnardsville, North Carolina.",
+      "Hurricane Helene relief vehicles traveling past flood debris on a road in Barnardsville, North Carolina.",
   },
   "footprint-project-hurricane-helene-relief-barnardsville-2-10-24.jpg": {
     caption:
-      "Hurricane Helene relief work in Barnardsville, North Carolina — project photo 2.",
+      "Hurricane Helene relief team and mobile solar equipment in Barnardsville, North Carolina.",
     alt:
-      "Hurricane Helene relief operations with FootPrint Project in Barnardsville, North Carolina.",
+      "Hurricane Helene relief team gathered beside a mobile solar-equipped trailer in Barnardsville, North Carolina.",
   },
   "footprint-project-hurricane-helene-relief-camp-miller-1-10-24.jpg": {
     caption:
@@ -135,7 +135,7 @@ export const finalPhotoMetadata: Record<string, FinalPhotoMetadata> = {
       "ChargePoint Level 2 EV charger installed at Lexus in Huntsville, Alabama.",
   },
   "manheim-mt-juliet-tn-ev-charger-bank-install-1-09-23.jpg": {
-    caption: "EV charger bank installation at Manheim Nashville.",
+    caption: "EV charger bank installation at Manheim in Mt. Juliet, Tennessee.",
     alt:
       "Commercial EV charging bank installed at Manheim in Mt. Juliet, Tennessee.",
   },
@@ -180,33 +180,33 @@ export const finalPhotoMetadata: Record<string, FinalPhotoMetadata> = {
   },
   "toyota-nashville-tn-chargepoint-cpe250-install-3-03-23.jpg": {
     caption:
-      "ChargePoint CPE250 installation at Toyota Nashville — project photo 3.",
+      "ChargePoint CPE250 delivery and equipment handling at Toyota Nashville.",
     alt:
-      "ChargePoint CPE250 DC fast charger installed at a Toyota dealership in Nashville, Tennessee.",
+      "ChargePoint CPE250 DC fast charger being delivered at a Toyota dealership in Nashville, Tennessee.",
   },
   "toyota-nashville-tn-chargepoint-cpe250-install-4-03-23.jpg": {
     caption:
-      "ChargePoint CPE250 installation at Toyota Nashville — project photo 4.",
+      "ChargePoint CPE250 DC fast chargers installed at Toyota Nashville.",
     alt:
-      "ChargePoint CPE250 DC fast charger installed at a Toyota dealership in Nashville, Tennessee.",
+      "ChargePoint CPE250 DC fast chargers installed outside a Toyota dealership in Nashville, Tennessee.",
   },
   "toyota-nashville-tn-chargepoint-cpf50-install-5-03-23.jpg": {
     caption:
-      "ChargePoint CPF50 EV charger installation at Toyota Nashville — project photo 5.",
+      "ChargePoint CPF50 Level 2 charger installed inside Toyota Nashville.",
     alt:
-      "ChargePoint CPF50 Level 2 EV charger installed at a Toyota dealership in Nashville, Tennessee.",
+      "ChargePoint CPF50 Level 2 EV charger installed inside a Toyota dealership service area in Nashville, Tennessee.",
   },
   "toyota-nashville-tn-chargepoint-ct4020-pedestal-install-1-03-23.jpg": {
     caption:
-      "ChargePoint CT4020 Level 2 pedestal installation at Toyota Nashville — project photo 1.",
+      "ChargePoint CT4020 Level 2 pedestal charger installation at Toyota Nashville.",
     alt:
-      "ChargePoint CT4020 dual-output Level 2 EV charger installed at a Toyota dealership in Nashville, Tennessee.",
+      "ChargePoint CT4020 Level 2 pedestal charger being installed outside a Toyota dealership in Nashville, Tennessee.",
   },
   "toyota-nashville-tn-chargepoint-ct4020-pedestal-install-2-03-23.jpg": {
     caption:
-      "ChargePoint CT4020 Level 2 pedestal installation at Toyota Nashville — project photo 2.",
+      "Technician installing a ChargePoint CT4020 Level 2 pedestal charger at Toyota Nashville.",
     alt:
-      "ChargePoint CT4020 dual-output Level 2 EV charger installed at a Toyota dealership in Nashville, Tennessee.",
+      "Technician installing a ChargePoint CT4020 Level 2 pedestal charger outside a Toyota dealership in Nashville, Tennessee.",
   },
   "willie-nelson-luck-reunion-tx-overdrive-battery-bank-stage-1-03-25.jpg": {
     caption:
