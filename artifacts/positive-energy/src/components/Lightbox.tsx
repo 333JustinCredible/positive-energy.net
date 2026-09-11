@@ -15,9 +15,24 @@ interface LightboxProps {
 }
 
 export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const [activeIndex, setActiveIndex] = useState(initialIndex ?? 0);
+
+  useEffect(() => {
+    const activeElement = document.activeElement;
+    if (activeElement instanceof HTMLElement) {
+      triggerRef.current = activeElement;
+    }
+
+    return () => {
+      if (triggerRef.current && document.contains(triggerRef.current)) {
+        triggerRef.current.focus();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (initialIndex !== null) {
@@ -34,11 +49,36 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        event.preventDefault();
         onClose();
       } else if (event.key === 'ArrowLeft' && images.length > 1) {
+        event.preventDefault();
         setActiveIndex((current) => (current - 1 + images.length) % images.length);
       } else if (event.key === 'ArrowRight' && images.length > 1) {
+        event.preventDefault();
         setActiveIndex((current) => (current + 1) % images.length);
+      } else if (event.key === 'Tab') {
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+
+        const focusableElements = Array.from(
+          dialog.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+          ),
+        );
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        const currentElement = document.activeElement;
+
+        if (event.shiftKey && (currentElement === firstElement || !dialog.contains(currentElement))) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && (currentElement === lastElement || !dialog.contains(currentElement))) {
+          event.preventDefault();
+          firstElement.focus();
+        }
       }
     };
 
@@ -99,13 +139,16 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
       onTouchEnd={handleTouchEnd}
     >
       <div
+        ref={dialogRef}
         className="relative flex max-h-full w-full max-w-7xl flex-col items-center"
-        onClick={(event) => event.stopPropagation()}
       >
         <button
           ref={closeButtonRef}
           type="button"
-          onClick={onClose}
+          onClick={(event) => {
+            event.stopPropagation();
+            onClose();
+          }}
           className="absolute right-0 top-0 z-10 flex min-h-14 min-w-14 items-center justify-center border border-white/40 bg-black/70 text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="Close image viewer"
         >
@@ -139,7 +182,10 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
           </>
         )}
 
-        <figure className="flex max-h-[calc(100vh-2rem)] max-w-full flex-col items-center sm:max-h-[calc(100vh-4rem)]">
+        <figure
+          className="flex max-h-[calc(100vh-2rem)] max-w-full flex-col items-center sm:max-h-[calc(100vh-4rem)]"
+          onClick={(event) => event.stopPropagation()}
+        >
           <img
             src={image.src}
             alt={image.alt}
