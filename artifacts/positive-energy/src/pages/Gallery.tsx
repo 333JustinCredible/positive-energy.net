@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { galleryPhotos, allTags } from '@/data/gallery';
 import { useSearch } from 'wouter';
 import { Camera, Tag, X } from 'lucide-react';
+import { Lightbox, type LightboxImage } from '@/components/Lightbox';
 
 export default function Gallery() {
   const search = useSearch();
@@ -12,6 +13,7 @@ export default function Gallery() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [activeProject, setActiveProject] = useState<string | null>(initialProject);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [lightboxPhotoId, setLightboxPhotoId] = useState<string | null>(null);
 
   // Sync project filter from URL changes
   useEffect(() => {
@@ -40,6 +42,14 @@ export default function Gallery() {
   };
 
   const hasFilter = activeTag !== null || activeProject !== null;
+  const lightboxImages: LightboxImage[] = filtered.map((photo) => ({
+    src: photo.src,
+    alt: photo.alt,
+    caption: photo.caption,
+  }));
+  const lightboxIndex = lightboxPhotoId
+    ? filtered.findIndex((photo) => photo.id === lightboxPhotoId)
+    : null;
 
   return (
     <Layout>
@@ -145,28 +155,35 @@ export default function Gallery() {
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden bg-background">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      loading="lazy"
-                      decoding="async"
-                      onLoad={() => handleImageLoad(photo.id)}
-                      className={`w-full h-auto object-cover transition-all duration-700 group-hover:scale-105 ${
-                        loadedImages.has(photo.id) ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    />
-                    {!loadedImages.has(photo.id) && (
-                      <div className="absolute inset-0 flex items-center justify-center min-h-[200px]"
-                        style={{ background: 'linear-gradient(135deg, hsl(163 56% 15%) 0%, hsl(220 15% 18%) 100%)' }}>
-                        <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                    <button
+                      type="button"
+                      onClick={() => setLightboxPhotoId(photo.id)}
+                      className="relative block w-full cursor-zoom-in border-0 p-0 text-left"
+                      aria-label={`Open ${photo.alt} in image viewer`}
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        loading="lazy"
+                        decoding="async"
+                        onLoad={() => handleImageLoad(photo.id)}
+                        className={`h-auto w-full object-cover transition-all duration-700 group-hover:scale-105 ${
+                          loadedImages.has(photo.id) ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      />
+                      {!loadedImages.has(photo.id) && (
+                        <div className="absolute inset-0 flex min-h-[200px] items-center justify-center"
+                          style={{ background: 'linear-gradient(135deg, hsl(163 56% 15%) 0%, hsl(220 15% 18%) 100%)' }}>
+                          <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                        </div>
+                      )}
+                      {/* Year badge */}
+                      <div className="absolute right-3 top-3">
+                        <span className="bg-black/70 px-2 py-1 text-xs font-bold text-white backdrop-blur">
+                          {photo.year}
+                        </span>
                       </div>
-                    )}
-                    {/* Year badge */}
-                    <div className="absolute top-3 right-3">
-                      <span className="bg-black/70 text-white text-xs font-bold px-2 py-1 backdrop-blur">
-                        {photo.year}
-                      </span>
-                    </div>
+                    </button>
                   </div>
 
                   {/* Caption & Tags */}
@@ -202,6 +219,11 @@ export default function Gallery() {
           )}
         </div>
       </section>
+      <Lightbox
+        images={lightboxImages}
+        initialIndex={lightboxIndex !== null && lightboxIndex >= 0 ? lightboxIndex : null}
+        onClose={() => setLightboxPhotoId(null)}
+      />
     </Layout>
   );
 }

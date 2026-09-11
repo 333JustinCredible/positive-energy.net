@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useRoute } from 'wouter';
 import {
   ArrowLeft,
@@ -9,6 +9,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { Lightbox, type LightboxImage } from '@/components/Lightbox';
 import {
   projectsData,
   type Project,
@@ -57,23 +58,32 @@ function getProjectImages(project: Project): ProjectImage[] {
 function ProjectImageCard({
   image,
   hero = false,
+  onOpen,
 }: {
   image: ProjectImage;
   hero?: boolean;
+  onOpen: () => void;
 }) {
   return (
     <figure className="bg-card border border-border overflow-hidden">
       <div className={`${hero ? 'aspect-[4/3]' : 'aspect-video'} bg-muted/30 relative overflow-hidden`}>
-        <img
-          src={image.src}
-          alt={image.alt}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading={hero ? 'eager' : 'lazy'}
-          fetchPriority={hero ? 'high' : undefined}
-          decoding={hero ? 'sync' : 'async'}
-        />
+        <button
+          type="button"
+          onClick={onOpen}
+          className="absolute inset-0 block h-full w-full cursor-zoom-in border-0 p-0 text-left"
+          aria-label={`Open ${image.alt} in image viewer`}
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading={hero ? 'eager' : 'lazy'}
+            fetchPriority={hero ? 'high' : undefined}
+            decoding={hero ? 'sync' : 'async'}
+          />
+        </button>
         {hero && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         )}
       </div>
       <figcaption className="p-4 text-sm text-muted-foreground">
@@ -111,7 +121,15 @@ function DetailList({ items }: { items: string[] }) {
   );
 }
 
-function ProjectHero({ project }: { project: Project }) {
+function ProjectHero({
+  project,
+  heroImageIndex,
+  onOpenImage,
+}: {
+  project: Project;
+  heroImageIndex: number;
+  onOpenImage: (index: number) => void;
+}) {
   const heroImage = getProjectImages(project).find((image) => image.role === 'hero');
 
   return (
@@ -164,7 +182,13 @@ function ProjectHero({ project }: { project: Project }) {
             )}
           </div>
 
-          {heroImage && <ProjectImageCard image={heroImage} hero />}
+          {heroImage && (
+            <ProjectImageCard
+              image={heroImage}
+              hero
+              onOpen={() => onOpenImage(heroImageIndex)}
+            />
+          )}
         </div>
       </div>
     </section>
@@ -209,10 +233,20 @@ export default function ProjectDetail() {
   const hasGalleryPhotos = galleryPhotos.some((photo) => photo.project === project.id);
   const projectImages = getProjectImages(project);
   const supportingImages = projectImages.filter((image) => image.role !== 'hero');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxImages: LightboxImage[] = projectImages.map((image) => ({
+    src: image.src,
+    alt: image.alt,
+    caption: image.caption,
+  }));
 
   return (
     <Layout>
-      <ProjectHero project={project} />
+      <ProjectHero
+        project={project}
+        heroImageIndex={projectImages.findIndex((image) => image.role === 'hero')}
+        onOpenImage={setLightboxIndex}
+      />
 
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
@@ -290,6 +324,7 @@ export default function ProjectDetail() {
                   <ProjectImageCard
                     key={`${image.role}-${image.sortOrder}`}
                     image={image}
+                    onOpen={() => setLightboxIndex(projectImages.indexOf(image))}
                   />
                 ))}
               </div>
@@ -328,6 +363,11 @@ export default function ProjectDetail() {
           </section>
         </div>
       </section>
+      <Lightbox
+        images={lightboxImages}
+        initialIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+      />
     </Layout>
   );
 }
