@@ -372,7 +372,7 @@ export default function Home() {
 
             <FadeIn className="relative min-h-[260px] overflow-hidden border border-border bg-background" direction="up">
               <img
-                src="/images/projects/footprint-project-hurricane-helene-microgrid-camp-miller-2-10-24.jpg"
+                src="/images/projects/willie-nelson-luck-reunion-tx-overdrive-battery-bank-stage-1-03-25.jpg"
                 alt="Solar and battery microgrid providing temporary power at Camp Miller in Pensacola, North Carolina after Hurricane Helene."
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
