@@ -46,6 +46,8 @@ export default function Projects() {
                       src={project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image}
                       alt={project.images?.find((image) => image.role === 'hero')?.alt || project.coverImage?.alt || project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">

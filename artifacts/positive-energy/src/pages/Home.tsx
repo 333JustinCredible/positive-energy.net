@@ -115,7 +115,7 @@ export default function Home() {
                 Tennessee • Southeast • Select Nationwide Projects
               </div>
 
-              <h1 className="mb-8 max-w-4xl break-words text-4xl font-bold uppercase leading-[0.94] tracking-tight sm:text-5xl md:text-7xl lg:text-6xl xl:text-7xl">
+              <h1 className="mb-8 max-w-4xl break-normal max-[359px]:break-all text-4xl font-bold uppercase leading-[0.94] tracking-tight sm:text-5xl md:text-7xl lg:text-6xl xl:text-7xl">
                 Commercial EV Charging &amp; Energy Infrastructure
               </h1>
 
@@ -151,6 +151,7 @@ export default function Home() {
                 alt="Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee."
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="eager"
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
               <p className="absolute bottom-5 left-5 right-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
@@ -273,6 +274,8 @@ export default function Home() {
                           src={image}
                           alt={project.title}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                          loading="lazy"
+                          decoding="async"
                         />
                       ) : null}
                     </div>
@@ -372,6 +375,8 @@ export default function Home() {
                 src="/images/projects/footprint-project-hurricane-helene-microgrid-camp-miller-2-10-24.jpg"
                 alt="Solar and battery microgrid providing temporary power at Camp Miller in Pensacola, North Carolina after Hurricane Helene."
                 className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
               <p className="absolute bottom-5 left-5 max-w-sm font-heading text-xl font-bold uppercase text-white">

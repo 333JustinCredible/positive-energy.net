@@ -36,6 +36,8 @@ export default function Services() {
                     src={`/images/services/${service.id}.jpg`}
                     alt={service.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/20 to-transparent group-hover:from-black/50 transition-opacity duration-700" />
                   <div className="absolute bottom-6 left-6">

@@ -149,6 +149,7 @@ export default function Gallery() {
                       src={photo.src}
                       alt={photo.alt}
                       loading="lazy"
+                      decoding="async"
                       onLoad={() => handleImageLoad(photo.id)}
                       className={`w-full h-auto object-cover transition-all duration-700 group-hover:scale-105 ${
                         loadedImages.has(photo.id) ? 'opacity-100' : 'opacity-0'
