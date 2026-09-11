@@ -183,11 +183,11 @@ export const projectsData: Project[] = [
     ],
     resultsSignificance: "Positive Energy worked alongside or interacted with organizations and resources including FootPrint Project, local utility representatives, Pensacola Fire Department, National Guard / Air National Guard personnel, SpaceX / Starlink, Tesla, solar-industry volunteers and organizations, Samaritan’s Purse, Red Cross, and other state and local emergency-response organizations.",
     projectImportance: "This experience demonstrates Positive Energy’s ability to contribute effectively within a larger emergency-response organization, rapidly assess unfamiliar infrastructure, troubleshoot distributed-energy systems in the field, coordinate across multiple organizations, and help deploy practical power and communications solutions under difficult conditions.",
-    image: "/images/projects/hurricane-helene.jpg",
+    image: "/images/projects/footprint-project-hurricane-helene-microgrid-camp-miller-2-10-24.jpg",
     images: [
       projectPhoto(
         "footprint-project-hurricane-helene-relief-barnardsville-1-10-24.jpg",
-        "hero",
+        "electrical-infrastructure",
         "Community response / deployment",
         0,
       ),
@@ -199,7 +199,7 @@ export const projectsData: Project[] = [
       ),
       projectPhoto(
         "footprint-project-hurricane-helene-microgrid-camp-miller-2-10-24.jpg",
-        "electrical-infrastructure",
+        "hero",
         "Solar + battery deployment",
         2,
       ),
@@ -243,7 +243,7 @@ export const projectsData: Project[] = [
     category: [],
     location: "Memphis, Tennessee",
     year: "Early 2024 – Late 2024",
-    image: "/photos/chuck-hutton-toyota-electricity-park-completed.webp",
+    image: "/images/projects/chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-7-04-24.jpg",
     summary: "Positive Energy delivered the complete EV charging network installation for Chuck Hutton Toyota’s Electri-CITY Park in Memphis, including the electrical infrastructure from the utility transformer through the ChargePoint Express Plus Power Blocks and underground distribution to the charging dispensers.",
     metrics: [
       "12 ChargePoint Express Plus Power Blocks",
@@ -277,7 +277,7 @@ export const projectsData: Project[] = [
     images: [
       projectPhoto(
         "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-1-04-24.jpg",
-        "hero",
+        "completed-drone",
         "Hero image / finished site or strongest drone",
         0,
       ),
@@ -313,7 +313,7 @@ export const projectsData: Project[] = [
       ),
       projectPhoto(
         "chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-7-04-24.jpg",
-        "completed-drone",
+        "hero",
         "Completed drone view",
         6,
       ),
@@ -368,7 +368,7 @@ export const projectsData: Project[] = [
     images: [
       projectPhoto(
         "lexus-greenville-sc-abb-dcfc-charger-install-1-02-23.jpg",
-        "hero",
+        "electrical-infrastructure",
         "Hero / representative dealership",
         0,
       ),
@@ -380,7 +380,7 @@ export const projectsData: Project[] = [
       ),
       projectPhoto(
         "lexus-greenville-sc-chargepoint-ct4000-pedestal-install-2-02-23.jpg",
-        "electrical-infrastructure",
+        "hero",
         "Charging equipment",
         2,
       ),
