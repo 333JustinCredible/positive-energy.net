@@ -42,7 +42,11 @@ export default function Projects() {
               >
                 {(project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image) && (
                   /* Project Image */
-                  <div className="aspect-video bg-background relative overflow-hidden">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="block aspect-video bg-background relative overflow-hidden"
+                    aria-label={`View ${project.title}`}
+                  >
                     <ResponsiveImage
                       src={project.images?.find((image) => image.role === 'hero')?.src || project.coverImage?.src || project.image}
                       alt={project.images?.find((image) => image.role === 'hero')?.alt || project.coverImage?.alt || project.title}
@@ -59,7 +63,7 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </Link>
                 )}
 
                 {/* Content */}

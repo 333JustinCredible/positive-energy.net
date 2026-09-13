@@ -20,7 +20,9 @@ export function Lightbox({ images, initialIndex, onClose, triggerElement }: Ligh
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
-  const [activeIndex, setActiveIndex] = useState(initialIndex ?? 0);
+  const [activeIndex, setActiveIndex] = useState(() => (
+    initialIndex === null ? 0 : Math.max(0, Math.min(initialIndex, images.length - 1))
+  ));
 
   useEffect(() => {
     const activeElement = document.activeElement;
@@ -37,9 +39,9 @@ export function Lightbox({ images, initialIndex, onClose, triggerElement }: Ligh
 
   useEffect(() => {
     if (initialIndex !== null) {
-      setActiveIndex(initialIndex);
+      setActiveIndex(Math.max(0, Math.min(initialIndex, images.length - 1)));
     }
-  }, [initialIndex]);
+  }, [images.length, initialIndex]);
 
   useEffect(() => {
     if (initialIndex === null) return;
@@ -172,7 +174,7 @@ export function Lightbox({ images, initialIndex, onClose, triggerElement }: Ligh
                 event.stopPropagation();
                 showPrevious();
               }}
-              className="absolute left-0 top-1/2 z-10 hidden min-h-14 min-w-14 -translate-y-1/2 items-center justify-center border border-white/40 bg-black/70 text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-primary md:flex"
+               className="absolute left-1 top-1/2 z-10 flex min-h-12 min-w-12 -translate-y-1/2 items-center justify-center border border-white/40 bg-black/70 text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-primary sm:left-0 sm:min-h-14 sm:min-w-14"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-8 w-8" />
@@ -183,7 +185,7 @@ export function Lightbox({ images, initialIndex, onClose, triggerElement }: Ligh
                 event.stopPropagation();
                 showNext();
               }}
-              className="absolute right-0 top-1/2 z-10 hidden min-h-14 min-w-14 -translate-y-1/2 items-center justify-center border border-white/40 bg-black/70 text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-primary md:flex"
+               className="absolute right-1 top-1/2 z-10 flex min-h-12 min-w-12 -translate-y-1/2 items-center justify-center border border-white/40 bg-black/70 text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-primary sm:right-0 sm:min-h-14 sm:min-w-14"
               aria-label="Next image"
             >
               <ChevronRight className="h-8 w-8" />
