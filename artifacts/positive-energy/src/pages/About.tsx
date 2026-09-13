@@ -64,7 +64,7 @@ export default function About() {
             <div className="h-1 w-20 bg-primary mb-8" />
             <div className="space-y-5 text-xl text-muted-foreground leading-relaxed">
               <p>
-                Positive Energy began in 2020 with a focus on EV charging infrastructure. As projects became larger and more complex, the work expanded into distributed energy, monitoring, battery storage, resilient power, service and project delivery.
+                Positive Energy began with a focus on EV charging infrastructure. As projects became larger and more complex, the work expanded into distributed energy, monitoring, battery storage, resilient power, service and project delivery.
               </p>
               <p>
                 Today, EV charging remains a core specialty while the company continues building toward a broader electric-energy future.

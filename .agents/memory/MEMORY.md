@@ -1,0 +1,1 @@
+- [Photo metadata boundaries](gallery-content-claims.md) — keep Gallery’s legacy records separate from workbook-backed project metadata and neutralize unsupported claims.

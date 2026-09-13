@@ -74,7 +74,7 @@ export default function Projects() {
                         <ArrowUpRight className="h-5 w-5 shrink-0 mt-1.5" />
                       </Link>
                       {project.contentType && (
-                        <p className="text-xs text-primary uppercase tracking-widest font-bold mt-3">
+                        <p className="text-xs text-foreground uppercase tracking-widest font-bold mt-3">
                           {contentTypeLabels[project.contentType]}
                         </p>
                       )}
@@ -115,7 +115,7 @@ export default function Projects() {
                       <div className="mt-4 pt-4 border-t border-border/50">
                         <Link
                           href={`/gallery?project=${project.id}`}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-foreground hover:text-primary transition-colors"
                         >
                           <Images className="h-3.5 w-3.5" />
                           View all photos →

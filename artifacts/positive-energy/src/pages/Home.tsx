@@ -14,8 +14,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { projectsData } from '@/data/projects';
-import { statsData } from '@/data/company';
 import { FadeIn, Stagger, StaggerItem } from '@/components/ui/fade-in';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 const featuredProjectSlugs = [
   'chuck-hutton-toyota',
@@ -30,18 +30,6 @@ const featuredProjects = featuredProjectSlugs.map((slug) => {
   }
   return project;
 });
-
-const proofLabels = [
-  'EV Chargers Installed',
-  'Years Combined Construction Experience',
-  'Years Energy & Sustainability Experience',
-  'Founded',
-];
-
-const proofPoints = statsData.map((stat, index) => ({
-  value: stat.value,
-  label: proofLabels[index],
-}));
 
 const audiences = [
   'General Contractors',
@@ -124,34 +112,36 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact">
-                  <Button
+                <Button asChild
                     size="lg"
                     className="h-14 w-full rounded-none bg-primary px-8 text-lg font-bold uppercase text-primary-foreground hover:bg-primary/90 sm:w-auto"
                   >
+                  <Link href="/contact">
                     Discuss Your Project
-                  </Button>
-                </Link>
-                <Link href="/projects">
-                  <Button
+                  </Link>
+                </Button>
+                <Button asChild
                     variant="outline"
                     size="lg"
                     className="group h-14 w-full rounded-none border-border px-8 text-lg font-bold uppercase hover:bg-muted sm:w-auto"
                   >
+                  <Link href="/projects">
                     View Projects
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </FadeIn>
 
             <FadeIn className="relative min-h-[220px] overflow-hidden border border-border bg-card/60 lg:min-h-[360px]" direction="up">
-              <img
+              <ResponsiveImage
                 src="/images/projects/chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-8-04-24.jpg"
                 alt="Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee."
                 className="absolute inset-0 h-full w-full object-cover"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 loading="eager"
                 fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
               <p className="absolute bottom-5 left-5 right-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
@@ -159,30 +149,6 @@ export default function Home() {
               </p>
             </FadeIn>
           </div>
-        </div>
-      </section>
-
-      <section className="border-b border-border bg-card" aria-labelledby="proof-heading">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 id="proof-heading" className="sr-only">
-            Proof
-          </h2>
-          <Stagger className="grid grid-cols-2 divide-x divide-border md:grid-cols-4">
-            {proofPoints.map((stat) => (
-              <StaggerItem
-                key={stat.label}
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                className="px-3 py-8 text-center md:px-4"
-              >
-                <div className="mb-1 font-heading text-3xl font-black text-secondary md:text-4xl">
-                  {stat.value}
-                </div>
-                <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  {stat.label}
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
         </div>
       </section>
 
@@ -215,7 +181,7 @@ export default function Home() {
                 Core Capabilities
               </h2>
             </div>
-            <Link href="/services" className="flex items-center gap-2 font-bold uppercase tracking-wider text-primary hover:underline">
+            <Link href="/services" className="flex items-center gap-2 font-bold uppercase tracking-wider text-foreground hover:text-primary hover:underline">
               All Services <ArrowRight className="h-4 w-4" />
             </Link>
           </FadeIn>
@@ -235,7 +201,7 @@ export default function Home() {
                     <Icon className="mb-5 h-10 w-10 text-primary" />
                     <h3 className="mb-3 font-heading text-2xl font-bold uppercase">{capability.title}</h3>
                     <p className="text-muted-foreground">{capability.description}</p>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+                    <div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase text-foreground">
                       Explore
                       <ArrowRight className="h-4 w-4 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
                     </div>
@@ -270,10 +236,11 @@ export default function Home() {
                   >
                     <div className="aspect-[4/3] overflow-hidden border-b border-border bg-muted">
                       {image ? (
-                        <img
+                        <ResponsiveImage
                           src={image}
                           alt={project.title}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                          sizes="(min-width: 1024px) 33vw, 100vw"
                           loading="lazy"
                           decoding="async"
                         />
@@ -300,14 +267,14 @@ export default function Home() {
           </Stagger>
 
           <div className="mt-10 text-center">
-            <Link href="/projects">
-              <Button
+            <Button asChild
                 variant="outline"
                 className="rounded-none border-primary font-bold uppercase text-primary hover:bg-primary hover:text-primary-foreground"
               >
+              <Link href="/projects">
                 View Full Portfolio
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -371,10 +338,11 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn className="relative min-h-[260px] overflow-hidden border border-border bg-background" direction="up">
-              <img
+              <ResponsiveImage
                 src="/images/projects/willie-nelson-luck-reunion-tx-overdrive-battery-bank-stage-1-03-25.jpg"
                 alt="Battery-powered event infrastructure beside a festival stage at Luck Reunion in Luck, Texas."
                 className="absolute inset-0 h-full w-full object-cover"
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 loading="lazy"
                 decoding="async"
               />
@@ -432,14 +400,14 @@ export default function Home() {
           <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-background/80 md:text-2xl">
             Planning an EV charging, distributed energy, resilient power, or complex electrical project? Let’s look at the site, the requirements, and the best path forward.
           </p>
-          <Link href="/contact">
-            <Button
+          <Button asChild
               size="lg"
               className="h-16 rounded-none bg-background px-10 text-xl font-bold uppercase text-foreground shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)] transition-all hover:-translate-y-1 hover:bg-card hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
             >
+            <Link href="/contact">
               Discuss Your Project
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </Layout>

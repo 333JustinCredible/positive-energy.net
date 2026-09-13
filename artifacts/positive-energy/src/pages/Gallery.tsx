@@ -113,7 +113,7 @@ export default function Gallery() {
             {hasFilter && (
               <button
                 onClick={clearFilters}
-                className="ml-auto flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+                 className="ml-auto flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 <X className="h-3 w-3" />
                 Clear filter
@@ -144,7 +144,7 @@ export default function Gallery() {
             <div className="text-center py-24">
               <Camera className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-muted-foreground">No photos match the selected filter.</p>
-              <button onClick={clearFilters} className="mt-4 text-primary hover:underline text-sm">
+               <button onClick={clearFilters} className="mt-4 text-foreground hover:underline text-sm">
                 Clear filter
               </button>
             </div>
@@ -184,11 +184,13 @@ export default function Gallery() {
                         </div>
                       )}
                       {/* Year badge */}
-                      <div className="absolute right-3 top-3">
-                        <span className="bg-black/70 px-2 py-1 text-xs font-bold text-white backdrop-blur">
-                          {photo.year}
-                        </span>
-                      </div>
+                       {photo.year && (
+                         <div className="absolute right-3 top-3">
+                           <span className="bg-black/70 px-2 py-1 text-xs font-bold text-white backdrop-blur">
+                             {photo.year}
+                           </span>
+                         </div>
+                       )}
                     </button>
                   </div>
 

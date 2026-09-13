@@ -139,7 +139,7 @@ function ProjectHero({
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-16">
         <Link
           href="/projects"
-          className="inline-flex min-h-11 items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors mb-10"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-bold uppercase tracking-wider text-foreground hover:text-primary transition-colors mb-10"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Projects
@@ -202,7 +202,7 @@ function ProjectNotFound() {
     <Layout>
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <p className="text-sm text-primary uppercase tracking-[0.2em] font-bold mb-4">
+          <p className="text-sm text-foreground uppercase tracking-[0.2em] font-bold mb-4">
             Projects
           </p>
           <h1 className="text-5xl md:text-7xl font-bold uppercase font-heading leading-[0.95] mb-6">

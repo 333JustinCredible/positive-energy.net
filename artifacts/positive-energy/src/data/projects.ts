@@ -345,7 +345,7 @@ export const projectsData: Project[] = [
     metricsLabel: "Program scale",
     indexSummary:
       "Repeatable EV charging delivery across Toyota and Lexus dealership environments in eight southeastern states.",
-    solution: "Working primarily on retrofit projects, Positive Energy served as the EV charging specialist from the existing electrical distribution system through final charger commissioning. At Lexus of Greenville, this included a multi-unit ChargePoint Level 2 charging array and ABB wall charger; a confirmed Toyota dealership deployment used a ChargePoint DC fast charger.",
+    solution: "Working primarily on retrofit projects, Positive Energy served as the EV charging specialist from the existing electrical distribution system through final charger commissioning. At Lexus of Greenville, this included a multi-unit ChargePoint Level 2 charging array and an ABB DC fast charger; a confirmed Toyota dealership deployment used a ChargePoint DC fast charger.",
     servicesProvided: [
       "Breaker-to-charger electrical installation",
       "Conduit, conductors, disconnects, and related electrical infrastructure",
@@ -354,7 +354,7 @@ export const projectsData: Project[] = [
       "Testing and commissioning",
       "Dealership owner and staff instruction on EVs, charger operation, and charger benefits",
       "ChargePoint Level 2 charging array installation",
-      "ABB Level 2 wall charger installation",
+      "ABB DC fast charger installation",
       "ChargePoint DC fast charger installation",
     ],
     equipmentTechnology: [
@@ -364,7 +364,7 @@ export const projectsData: Project[] = [
       "EVgo",
       "eConnect",
       "6 ChargePoint Level 2 charging stations at Lexus of Greenville",
-      "ABB Level 2 wall charger at Lexus of Greenville",
+      "ABB DC fast charger at Lexus of Greenville",
       "ChargePoint DC fast charger at a Toyota dealership",
     ],
     resultsSignificance: "Lane Valente Industries served as the primary general contractor for much of this work. Repeated dealership deployments allowed Positive Energy to develop substantial experience working within active automotive facilities and adapting EV charging infrastructure to existing electrical systems. These confirmed dealership deployments demonstrate a repeatable EV charging installation experience across Toyota and Lexus environments.",

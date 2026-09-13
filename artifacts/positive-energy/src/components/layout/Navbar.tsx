@@ -6,6 +6,22 @@ import { Button } from '@/components/ui/button';
 export function Navbar() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = React.useState(false);
+  const menuButtonRef = React.useRef<HTMLButtonElement>(null);
+
+  React.useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
   const navLinks = [
     { href: '/services', label: 'Services' },
@@ -46,8 +62,11 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
+          ref={menuButtonRef}
           className="md:hidden min-h-11 min-w-11 p-2 text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            setIsOpen((open) => !open);
+          }}
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
@@ -64,14 +83,23 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                menuButtonRef.current?.focus();
+              }}
               className={`text-lg font-medium p-2 ${location === link.href ? 'text-primary' : 'text-foreground'}`}
             >
               {link.label}
             </Link>
           ))}
             <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none py-6 text-lg mt-2">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
+              <Link
+                href="/contact"
+                onClick={() => {
+                  setIsOpen(false);
+                  menuButtonRef.current?.focus();
+                }}
+              >
               DISCUSS YOUR PROJECT
               </Link>
             </Button>
