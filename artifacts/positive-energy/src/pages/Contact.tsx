@@ -31,10 +31,22 @@ const formSchema = z.object({
   phone: z.string().optional(),
   serviceInterest: z.string().min(1, 'Please select a service'),
   message: z.string().min(10, 'Please provide more details'),
+  website: z.string().optional(),
 });
 
+type SubmissionState = 'idle' | 'sending' | 'success' | 'error' | 'not-connected';
+
+function createRequestId() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  return `request-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
 export default function Contact() {
-  const [submissionState, setSubmissionState] = React.useState<'idle' | 'not-connected'>('idle');
+  const [submissionState, setSubmissionState] = React.useState<SubmissionState>('idle');
+  const [submissionError, setSubmissionError] = React.useState<string | null>(null);
+  const requestIdRef = React.useRef(createRequestId());
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,12 +57,46 @@ export default function Contact() {
       phone: '',
       serviceInterest: '',
       message: '',
+      website: '',
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    void values;
-    setSubmissionState('not-connected');
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setSubmissionState('sending');
+    setSubmissionError(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...values,
+          requestId: requestIdRef.current,
+        }),
+      });
+      const body = (await response.json().catch(() => null)) as {
+        ok?: boolean;
+        code?: string;
+        message?: string;
+      } | null;
+
+      if (response.ok && body?.ok === true) {
+        setSubmissionState('success');
+        form.reset();
+        requestIdRef.current = createRequestId();
+        return;
+      }
+
+      if (body?.code === 'contact_delivery_not_configured') {
+        setSubmissionState('not-connected');
+      } else {
+        setSubmissionState('error');
+        setSubmissionError(body?.message ?? 'We could not send your request.');
+      }
+    } catch {
+      setSubmissionState('error');
+      setSubmissionError('We could not send your request.');
+    }
   }
 
   return (
@@ -116,7 +162,22 @@ export default function Contact() {
 
             {/* Form */}
             <div className="lg:col-span-8">
-              {submissionState === 'not-connected' ? (
+              {submissionState === 'success' ? (
+                <div className="h-full min-h-[400px] bg-card border border-border p-12 flex flex-col items-center justify-center text-center">
+                  <Mail className="h-20 w-20 text-primary mb-6" />
+                  <h3 className="text-3xl font-bold uppercase font-heading mb-4">Request Received</h3>
+                  <p className="text-xl text-muted-foreground max-w-md mb-8">
+                    We received your inquiry and will review it and be in touch.
+                  </p>
+                  <Button
+                    onClick={() => setSubmissionState('idle')}
+                    variant="outline"
+                    className="rounded-none border-primary text-primary hover:bg-primary/10"
+                  >
+                    RETURN TO FORM
+                  </Button>
+                </div>
+              ) : submissionState === 'not-connected' ? (
                 <div className="h-full min-h-[400px] bg-card border border-border p-12 flex flex-col items-center justify-center text-center">
                   <AlertCircle className="h-20 w-20 text-primary mb-6" />
                   <h3 className="text-3xl font-bold uppercase font-heading mb-4">Request Not Sent</h3>
@@ -137,10 +198,40 @@ export default function Contact() {
                     RETURN TO FORM
                   </Button>
                 </div>
+              ) : submissionState === 'error' ? (
+                <div className="h-full min-h-[400px] bg-card border border-border p-12 flex flex-col items-center justify-center text-center">
+                  <AlertCircle className="h-20 w-20 text-primary mb-6" />
+                  <h3 className="text-3xl font-bold uppercase font-heading mb-4">Request Not Sent</h3>
+                  <p className="text-xl text-muted-foreground max-w-md mb-8">
+                    {submissionError ?? 'We could not send your request.'} Your form entries are still here. Please try again or email us directly.
+                  </p>
+                  <a
+                    href={`mailto:${contactData.email}`}
+                    className="mb-8 text-lg font-medium text-primary hover:text-primary/80 transition-colors break-all"
+                  >
+                    {contactData.email}
+                  </a>
+                  <Button
+                    onClick={() => setSubmissionState('idle')}
+                    variant="outline"
+                    className="rounded-none border-primary text-primary hover:bg-primary/10"
+                  >
+                    RETURN TO FORM
+                  </Button>
+                </div>
               ) : (
                 <div className="bg-card border border-border p-8 md:p-12">
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                        <label htmlFor="website">Website</label>
+                        <input
+                          id="website"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          {...form.register('website')}
+                        />
+                      </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <FormField
@@ -247,9 +338,10 @@ export default function Contact() {
 
                       <Button 
                         type="submit" 
+                        disabled={submissionState === 'sending'}
                         className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg rounded-none uppercase tracking-wide"
                       >
-                        Discuss Your Project
+                        {submissionState === 'sending' ? 'SENDING...' : 'Discuss Your Project'}
                       </Button>
                     </form>
                   </Form>
