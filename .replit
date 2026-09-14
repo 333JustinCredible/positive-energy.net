@@ -18,3 +18,8 @@ expertMode = true
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 20000
+
+[userenv]
+
+[userenv.shared]
+GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbymwCbLD9-1XwvkfoH8KOFZG3DtaQVpk_rM-6CYvqfw2xGTAWR4n989R_4p5voFebGZXQ/exec"
