@@ -8,7 +8,8 @@
     "build": "node ./build.mjs",
     "start": "node --enable-source-maps ./dist/index.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test:contact": "node --experimental-strip-types --test test/contact-delivery.test.ts"
+    "test:contact": "node --experimental-strip-types --test test/contact-delivery.test.ts",
+    "test:apps-script": "node --test test/google-apps-script.test.cjs"
   },
   "dependencies": {
     "@workspace/api-zod": "workspace:*",
