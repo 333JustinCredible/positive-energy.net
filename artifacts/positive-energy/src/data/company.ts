@@ -24,7 +24,7 @@ export const partnersData = [
 ];
 
 export const contactData = {
-  email: "Info@positive-energy.net",
+  email: "contact@positive-energy.net",
   phone: "(615) 308-0622",
   serviceArea: "Middle Tennessee + Southeast US (Nashville-based, regional reach)",
   address: "Nashville, TN"

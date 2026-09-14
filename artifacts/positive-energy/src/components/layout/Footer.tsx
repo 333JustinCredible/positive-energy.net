@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'wouter';
 import { contactData } from '@/data/company';
-import { Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -44,6 +44,12 @@ export function Footer() {
                 <Phone className="h-5 w-5 text-primary shrink-0" />
                 <a href={`tel:${contactData.phone.replace(/[^0-9]/g, '')}`} className="hover:text-primary transition-colors">
                   {contactData.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-muted-foreground">
+                <Mail className="h-5 w-5 text-primary shrink-0" />
+                <a href={`mailto:${contactData.email}`} className="hover:text-primary transition-colors break-all">
+                  {contactData.email}
                 </a>
               </li>
             </ul>

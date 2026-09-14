@@ -22,7 +22,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { contactData } from '@/data/company';
-import { Phone, MapPin, AlertCircle } from 'lucide-react';
+import { Phone, MapPin, Mail, AlertCircle } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -89,6 +89,17 @@ export default function Contact() {
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Email Us</p>
+                      <a href={`mailto:${contactData.email}`} className="text-lg font-medium hover:text-primary transition-colors break-all">
+                        {contactData.email}
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="h-12 w-12 bg-card border border-border flex items-center justify-center shrink-0 text-primary">
                       <MapPin className="h-6 w-6" />
                     </div>
                     <div>
@@ -110,8 +121,14 @@ export default function Contact() {
                   <AlertCircle className="h-20 w-20 text-primary mb-6" />
                   <h3 className="text-3xl font-bold uppercase font-heading mb-4">Request Not Sent</h3>
                   <p className="text-xl text-muted-foreground max-w-md mb-8">
-                    Online delivery is not connected yet. Please call {contactData.phone}.
+                    Online delivery is not connected yet. Please call {contactData.phone} or email us directly.
                   </p>
+                  <a
+                    href={`mailto:${contactData.email}`}
+                    className="mb-8 text-lg font-medium text-primary hover:text-primary/80 transition-colors break-all"
+                  >
+                    {contactData.email}
+                  </a>
                   <Button 
                     onClick={() => setSubmissionState('idle')}
                     variant="outline"
