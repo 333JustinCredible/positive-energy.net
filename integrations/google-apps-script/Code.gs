@@ -33,9 +33,14 @@ var SERVICES = {
   other: true
 };
 
-var RECENT_REQUESTS_PROPERTY = "RECENT_REQUESTS";
+var LEGACY_RECENT_REQUESTS_PROPERTY = "RECENT_REQUESTS";
+var RECENT_REQUESTS_PROPERTY_PREFIX = "RECENT_REQUESTS_";
 var RECENT_REQUEST_TTL_MS = 24 * 60 * 60 * 1000;
 var MAX_RECENT_REQUESTS = 200;
+var RECENT_REQUEST_HISTORY_SHARDS = 8;
+var RECENT_REQUESTS_PER_SHARD = 25;
+var RECENT_REQUESTS_CACHE_PREFIX = "POSITIVE_ENERGY_CONTACT_";
+var RECENT_REQUESTS_CACHE_TTL_SECONDS = 6 * 60 * 60;
 
 function doPost(event) {
   var lock = LockService.getScriptLock();
@@ -72,25 +77,35 @@ function doPost(event) {
       return json_(validation);
     }
 
+    var requestFingerprint = fingerprint_(payload);
+    var cachedResponse = readCachedResponse_(
+      payload.requestId,
+      requestFingerprint
+    );
+    if (cachedResponse) {
+      return json_(cachedResponse);
+    }
+
     var now = new Date().getTime();
     var recent = readRecent_().filter(function(record) {
-      return record.createdAt > now - RECENT_REQUEST_TTL_MS;
+      return record[3] > now - RECENT_REQUEST_TTL_MS;
     });
 
     var duplicate = recent.filter(function(record) {
-      return record.requestId === payload.requestId ||
-        record.fingerprint === fingerprint_(payload);
+      return record[0] === payload.requestId ||
+        record[1] === requestFingerprint;
     })[0];
     if (duplicate) {
-      return json_(duplicate.response);
+      return json_(responseForRecord_(duplicate, true));
     }
 
+    var requestEmailHash = hash_(payload.email);
     var emailCount = recent.filter(function(record) {
-      return record.email === payload.email &&
-        record.createdAt > now - 60 * 60 * 1000;
+      return record[2] === requestEmailHash &&
+        record[3] > now - 60 * 60 * 1000;
     }).length;
     var totalCount = recent.filter(function(record) {
-      return record.createdAt > now - 60 * 1000;
+      return record[3] > now - 60 * 1000;
     }).length;
     if (emailCount >= 3 || totalCount >= 20) {
       return json_({
@@ -147,20 +162,31 @@ function doPost(event) {
       }
     }
 
-    var response = {
-      ok: true,
-      accepted: true,
-      acknowledgmentSent: acknowledgmentSent,
-      message: "Your inquiry was received. We will review your inquiry and be in touch."
-    };
-    recent.push({
-      requestId: payload.requestId,
-      fingerprint: fingerprint_(payload),
-      email: payload.email,
-      createdAt: now,
-      response: response
-    });
-    writeRecent_(recent);
+    var response = acceptedResponse_(acknowledgmentSent, false);
+    cacheResponse_(
+      payload.requestId,
+      requestFingerprint,
+      acknowledgmentSent
+    );
+
+    recent.push([
+      payload.requestId,
+      requestFingerprint,
+      requestEmailHash,
+      now,
+      acknowledgmentSent ? 1 : 0
+    ]);
+
+    var historySaved = false;
+    try {
+      historySaved = writeRecent_(recent);
+    } catch (error) {
+      // Mail was accepted. History maintenance must never turn it into a
+      // reported delivery failure; the cache above prevents immediate retry
+      // duplicates when the property write is unavailable.
+      historySaved = false;
+    }
+    response.historySaved = historySaved;
     return json_(response);
   } catch (error) {
     return json_({
@@ -269,15 +295,7 @@ function string_(value) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function fingerprint_(payload) {
-  var value = [
-    payload.name,
-    payload.company,
-    payload.email,
-    payload.phone,
-    payload.serviceInterest,
-    payload.message
-  ].join("\u001f");
+function hash_(value) {
   var digest = Utilities.computeDigest(
     Utilities.DigestAlgorithm.SHA_256,
     value,
@@ -289,23 +307,162 @@ function fingerprint_(payload) {
   }).join("");
 }
 
-function readRecent_() {
-  var raw = PropertiesService.getScriptProperties().getProperty(RECENT_REQUESTS_PROPERTY);
-  if (!raw) return [];
+function fingerprint_(payload) {
+  return hash_([
+    payload.name,
+    payload.company,
+    payload.email,
+    payload.phone,
+    payload.serviceInterest,
+    payload.message
+  ].join("\u001f"));
+}
+
+function acceptedResponse_(acknowledgmentSent, historySaved) {
+  return {
+    ok: true,
+    accepted: true,
+    acknowledgmentSent: acknowledgmentSent,
+    historySaved: historySaved,
+    message: "Your inquiry was received. We will review your inquiry and be in touch."
+  };
+}
+
+function responseForRecord_(record, historySaved) {
+  return acceptedResponse_(record[4] === 1, historySaved);
+}
+
+function cacheKey_(kind, value) {
+  return RECENT_REQUESTS_CACHE_PREFIX + kind + "_" + value;
+}
+
+function cacheResponse_(requestId, requestFingerprint, acknowledgmentSent) {
   try {
-    var parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
+    var cache = CacheService.getScriptCache();
+    var value = JSON.stringify({
+      acknowledgmentSent: acknowledgmentSent ? 1 : 0
+    });
+    cache.put(
+      cacheKey_("id", requestId),
+      value,
+      RECENT_REQUESTS_CACHE_TTL_SECONDS
+    );
+    cache.put(
+      cacheKey_("fingerprint", requestFingerprint),
+      value,
+      RECENT_REQUESTS_CACHE_TTL_SECONDS
+    );
   } catch (error) {
-    return [];
+    // Cache is a duplicate-prevention fallback, not a delivery dependency.
   }
+}
+
+function readCachedResponse_(requestId, requestFingerprint) {
+  try {
+    var cache = CacheService.getScriptCache();
+    var raw = cache.get(cacheKey_("id", requestId)) ||
+      cache.get(cacheKey_("fingerprint", requestFingerprint));
+    if (!raw) return null;
+    var parsed = JSON.parse(raw);
+    if (!parsed || (parsed.acknowledgmentSent !== 0 &&
+      parsed.acknowledgmentSent !== 1)) {
+      return null;
+    }
+    return acceptedResponse_(parsed.acknowledgmentSent === 1, false);
+  } catch (error) {
+    return null;
+  }
+}
+
+function readRecent_() {
+  var properties = PropertiesService.getScriptProperties();
+  var records = [];
+
+  for (var i = 0; i < RECENT_REQUEST_HISTORY_SHARDS; i += 1) {
+    try {
+      var shardRaw = properties.getProperty(
+        RECENT_REQUESTS_PROPERTY_PREFIX + i
+      );
+      if (shardRaw) {
+        appendStoredRecords_(records, JSON.parse(shardRaw));
+      }
+    } catch (error) {
+      // A history read failure should not turn a successful email into a
+      // reported failure. The cache remains available for immediate retries.
+    }
+  }
+
+  if (records.length === 0) {
+    try {
+      var legacyRaw = properties.getProperty(
+        LEGACY_RECENT_REQUESTS_PROPERTY
+      );
+      if (legacyRaw) {
+        appendStoredRecords_(records, JSON.parse(legacyRaw));
+      }
+    } catch (error) {
+      // Legacy history is best effort and is not required for delivery.
+    }
+  }
+
+  return records.slice(-MAX_RECENT_REQUESTS);
 }
 
 function writeRecent_(records) {
   var recent = records.slice(-MAX_RECENT_REQUESTS);
-  PropertiesService.getScriptProperties().setProperty(
-    RECENT_REQUESTS_PROPERTY,
-    JSON.stringify(recent)
-  );
+  var properties = PropertiesService.getScriptProperties();
+
+  for (var i = 0; i < RECENT_REQUEST_HISTORY_SHARDS; i += 1) {
+    var start = i * RECENT_REQUESTS_PER_SHARD;
+    var shard = recent.slice(
+      start,
+      start + RECENT_REQUESTS_PER_SHARD
+    );
+    properties.setProperty(
+      RECENT_REQUESTS_PROPERTY_PREFIX + i,
+      JSON.stringify(shard)
+    );
+  }
+
+  try {
+    properties.deleteProperty(LEGACY_RECENT_REQUESTS_PROPERTY);
+  } catch (error) {
+    // A leftover legacy property does not affect the sharded history.
+  }
+  return true;
+}
+
+function appendStoredRecords_(target, parsed) {
+  if (!Array.isArray(parsed)) return;
+  parsed.forEach(function(record) {
+    var normalized = normalizeStoredRecord_(record);
+    if (normalized) target.push(normalized);
+  });
+}
+
+function normalizeStoredRecord_(record) {
+  if (Array.isArray(record) && record.length >= 5) {
+    if (!record[0] || !record[1] || !record[2]) return null;
+    return [
+      string_(record[0]),
+      string_(record[1]),
+      string_(record[2]),
+      Number(record[3]) || 0,
+      record[4] === 1 ? 1 : 0
+    ];
+  }
+
+  if (!record || typeof record !== "object") return null;
+  var response = record.response || {};
+  var email = string_(record.email).toLowerCase();
+  if (!record.requestId || !record.fingerprint || !email) return null;
+  return [
+    string_(record.requestId),
+    string_(record.fingerprint),
+    hash_(email),
+    Number(record.createdAt) || 0,
+    response.acknowledgmentSent ? 1 : 0
+  ];
 }
 
 function json_(body) {
