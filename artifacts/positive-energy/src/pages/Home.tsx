@@ -98,7 +98,7 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto px-4 py-20 md:px-6 md:py-24 lg:py-28">
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:gap-20">
-            <FadeIn className="max-w-3xl" direction="up">
+            <FadeIn className="relative z-10 max-w-3xl" direction="up">
               <div className="mb-8 inline-flex items-center gap-2 border border-primary/30 bg-card px-3 py-1 text-sm font-bold uppercase tracking-wider text-primary">
                 Tennessee • Southeast • Select Nationwide Projects
               </div>
@@ -133,7 +133,10 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn className="relative min-h-[280px] overflow-hidden border border-border bg-card/60 md:min-h-[400px] lg:min-h-[500px]" direction="up">
+            <FadeIn
+              className="relative min-h-[280px] overflow-hidden border border-border bg-card/60 md:min-h-[400px] lg:-ml-48 lg:min-h-[500px] lg:w-[calc(100%+12rem)] lg:border-l-0 xl:-ml-64 xl:w-[calc(100%+16rem)]"
+              direction="up"
+            >
               <ResponsiveImage
                 src="/images/projects/chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-8-04-24.jpg"
                 alt="Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee."
@@ -143,8 +146,9 @@ export default function Home() {
                 fetchPriority="high"
                 decoding="async"
               />
+              <div className="absolute inset-y-0 left-0 hidden w-3/5 bg-gradient-to-r from-background via-background/85 to-transparent lg:block" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-              <p className="absolute bottom-5 left-5 right-5 max-w-sm font-heading text-xl font-bold uppercase text-white">
+              <p className="absolute bottom-5 left-5 right-5 max-w-sm font-heading text-xl font-bold uppercase text-white lg:left-auto lg:right-8 lg:max-w-xs">
                 Commercial charging infrastructure, built for scale.
               </p>
             </FadeIn>
