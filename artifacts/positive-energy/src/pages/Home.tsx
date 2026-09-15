@@ -133,7 +133,7 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn className="relative min-h-[220px] overflow-hidden border border-border bg-card/60 lg:min-h-[360px]" direction="up">
+            <FadeIn className="relative min-h-[280px] overflow-hidden border border-border bg-card/60 md:min-h-[400px] lg:min-h-[500px]" direction="up">
               <ResponsiveImage
                 src="/images/projects/chuck-hutton-toyota-memphis-tn-chargepoint-express-plus-8-04-24.jpg"
                 alt="Aerial view of ChargePoint charging dispensers and sitework at Chuck Hutton Toyota's Electri-CITY Park in Memphis, Tennessee."
