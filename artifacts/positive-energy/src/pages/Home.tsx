@@ -134,7 +134,7 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn
-              className="relative min-h-[280px] overflow-hidden border border-border bg-card/60 md:min-h-[400px] lg:-ml-48 lg:min-h-[500px] lg:w-[calc(100%+12rem)] lg:border-0 lg:bg-transparent xl:-ml-64 xl:w-[calc(100%+16rem)]"
+              className="relative min-h-[280px] overflow-hidden bg-transparent md:min-h-[400px] lg:-ml-48 lg:min-h-[500px] lg:w-[calc(100%+12rem)] xl:-ml-64 xl:w-[calc(100%+16rem)]"
               direction="up"
             >
               <ResponsiveImage
@@ -146,9 +146,8 @@ export default function Home() {
                 fetchPriority="high"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
               <div className="absolute inset-y-0 left-0 hidden w-3/5 bg-gradient-to-r from-background via-background/85 to-transparent lg:block" />
-              <p className="absolute bottom-5 left-5 right-5 max-w-sm font-heading text-xl font-bold uppercase text-white lg:left-auto lg:right-8 lg:max-w-xs">
+              <p className="absolute bottom-5 left-5 right-5 max-w-sm font-heading text-xl font-bold uppercase text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.55)] lg:left-auto lg:right-8 lg:max-w-xs">
                 Commercial charging infrastructure, built for scale.
               </p>
             </FadeIn>
