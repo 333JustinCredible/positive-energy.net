@@ -1,4 +1,4 @@
-modules = ["nodejs-24", "python-base-3.13"]
+modules = ["nodejs-20", "web", "bash"]
 
 [deployment]
 router = "application"
@@ -23,3 +23,6 @@ timeoutMs = 20000
 
 [userenv.shared]
 GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbymwCbLD9-1XwvkfoH8KOFZG3DtaQVpk_rM-6CYvqfw2xGTAWR4n989R_4p5voFebGZXQ/exec"
+
+[nix]
+channel = "stable-25_05"
