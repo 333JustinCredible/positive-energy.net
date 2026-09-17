@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/select';
 import { contactData } from '@/data/company';
 import { Phone, MapPin, Mail, AlertCircle } from 'lucide-react';
+import { TurnstileWidget } from '@/components/TurnstileWidget';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -46,7 +47,12 @@ function createRequestId() {
 export default function Contact() {
   const [submissionState, setSubmissionState] = React.useState<SubmissionState>('idle');
   const [submissionError, setSubmissionError] = React.useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = React.useState<string | null>(null);
+  const [turnstileResetNonce, setTurnstileResetNonce] = React.useState(0);
   const requestIdRef = React.useRef(createRequestId());
+  const handleTurnstileTokenChange = React.useCallback((token: string | null) => {
+    setTurnstileToken(token);
+  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,6 +68,12 @@ export default function Contact() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!turnstileToken) {
+      setSubmissionState('error');
+      setSubmissionError('Please complete the security check and try again.');
+      return;
+    }
+
     setSubmissionState('sending');
     setSubmissionError(null);
 
@@ -72,6 +84,7 @@ export default function Contact() {
         body: JSON.stringify({
           ...values,
           requestId: requestIdRef.current,
+          turnstileToken,
         }),
       });
       const body = (await response.json().catch(() => null)) as {
@@ -84,9 +97,13 @@ export default function Contact() {
         setSubmissionState('success');
         form.reset();
         requestIdRef.current = createRequestId();
+        setTurnstileToken(null);
+        setTurnstileResetNonce((value) => value + 1);
         return;
       }
 
+      setTurnstileToken(null);
+      setTurnstileResetNonce((value) => value + 1);
       if (body?.code === 'contact_delivery_not_configured') {
         setSubmissionState('not-connected');
       } else {
@@ -94,6 +111,8 @@ export default function Contact() {
         setSubmissionError(body?.message ?? 'We could not send your request.');
       }
     } catch {
+      setTurnstileToken(null);
+      setTurnstileResetNonce((value) => value + 1);
       setSubmissionState('error');
       setSubmissionError('We could not send your request.');
     }
@@ -336,9 +355,14 @@ export default function Contact() {
                         )}
                       />
 
+                      <TurnstileWidget
+                        onTokenChange={handleTurnstileTokenChange}
+                        resetNonce={turnstileResetNonce}
+                      />
+
                       <Button 
                         type="submit" 
-                        disabled={submissionState === 'sending'}
+                        disabled={submissionState === 'sending' || !turnstileToken}
                         className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg rounded-none uppercase tracking-wide"
                       >
                         {submissionState === 'sending' ? 'SENDING...' : 'Discuss Your Project'}
