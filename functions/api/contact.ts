@@ -39,6 +39,7 @@ export async function onRequestPost(context: CloudflareContactContext) {
   }
 
   let turnstileVerified = false;
+  let turnstileErrorCodes: string[] | null = null;
   try {
     const verificationBody = new URLSearchParams({
       secret: turnstileSecret,
@@ -54,16 +55,34 @@ export async function onRequestPost(context: CloudflareContactContext) {
     });
     const verificationResult = (await verificationResponse.json()) as {
       success?: boolean;
+      "error-codes"?: unknown;
     };
     turnstileVerified =
       verificationResponse.ok && verificationResult.success === true;
+    if (verificationResult.success === false) {
+      turnstileErrorCodes = Array.isArray(verificationResult["error-codes"])
+        ? verificationResult["error-codes"].filter(
+            (code): code is string => typeof code === "string",
+          )
+        : [];
+      console.warn("Turnstile verification failed", {
+        errorCodes: turnstileErrorCodes,
+      });
+    }
   } catch {
     turnstileVerified = false;
   }
 
   if (!turnstileVerified) {
     return json(
-      { ok: false, code: "turnstile_failed", message: TURNSTILE_RETRY_MESSAGE },
+      {
+        ok: false,
+        code: "turnstile_failed",
+        message: TURNSTILE_RETRY_MESSAGE,
+        ...(turnstileErrorCodes
+          ? { "error-codes": turnstileErrorCodes }
+          : {}),
+      },
       403,
     );
   }
