@@ -27,13 +27,24 @@ export async function onRequestPost(context: CloudflareContactContext) {
 
   const { turnstileToken, ...contactPayload } = body as Record<string, unknown>;
   const turnstileSecret = context.env["TURNSTILE_SECRET_KEY"];
-  if (
-    !turnstileSecret ||
-    typeof turnstileToken !== "string" ||
-    !turnstileToken
-  ) {
+  if (!turnstileSecret) {
     return json(
-      { ok: false, code: "turnstile_failed", message: TURNSTILE_RETRY_MESSAGE },
+      {
+        ok: false,
+        code: "turnstile_secret_missing",
+        message: "Security verification is not configured on the server.",
+      },
+      503,
+    );
+  }
+
+  if (typeof turnstileToken !== "string" || !turnstileToken) {
+    return json(
+      {
+        ok: false,
+        code: "turnstile_token_missing",
+        message: TURNSTILE_RETRY_MESSAGE,
+      },
       403,
     );
   }
