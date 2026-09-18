@@ -11,6 +11,7 @@ import ProjectDetail from '@/pages/ProjectDetail';
 import Gallery from '@/pages/Gallery';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
+import Justin from '@/pages/Justin';
 import NotFound from '@/pages/not-found';
 import DevResponsivePreview from '@/pages/DevResponsivePreview';
 
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/gallery" component={Gallery} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      <Route path="/justin" component={Justin} />
       <Route component={NotFound} />
     </Switch>
   );

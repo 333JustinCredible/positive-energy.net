@@ -37,7 +37,7 @@ export function Navbar() {
           <img
             src="/logos/pe-logo-wide.png"
             alt="Positive Energy"
-            className="h-10 w-auto"
+            className="h-12 w-auto"
           />
         </Link>
 

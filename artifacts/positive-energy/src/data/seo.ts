@@ -46,6 +46,11 @@ export const seoByPath: Record<string, SeoConfig> = {
       'Planning an EV charging, distributed energy, resilient power, or complex electrical project? Tell us about the site, requirements, and goals.',
     image: defaultSeo.image,
   },
+  '/justin': {
+    title: 'Justin Huff | Positive Energy',
+    description: 'Justin Huff — Founder & Principal of Positive Energy. Energy Infrastructure, Sustainability, Resilient Power.',
+    image: defaultSeo.image,
+  },
 };
 
 export const notFoundSeo: SeoConfig = {
