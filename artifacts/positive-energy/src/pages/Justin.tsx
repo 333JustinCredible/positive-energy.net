@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { 
   Phone, 
@@ -23,8 +23,8 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-const HEADSHOT_URL = "/images/justin-huff-headshot.jpg";
-const QR_CODE_URL = ""; // TODO: Add QR code image path here (e.g., "/images/justin-qr.png")
+const HEADSHOT_URL = "/images/justin-huff.webp";
+const QR_CODE_URL = "/images/justin-qr.png";
 
 export default function Justin() {
   const [qrOpen, setQrOpen] = useState(false);
@@ -90,24 +90,19 @@ END:VCARD`;
         <div className="w-full max-w-[420px] bg-card rounded-3xl shadow-xl overflow-hidden border border-border/60 animate-in fade-in slide-in-from-bottom-4 duration-700">
           
           {/* Header / Profile */}
-          <div className="relative pt-10 pb-6 px-6 flex flex-col items-center text-center">
+          <div className="relative pt-8 pb-6 px-6 flex flex-col items-center text-center">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-full h-32 bg-primary/10 rounded-b-[100%] blur-3xl pointer-events-none" />
             
-            <img
-              src="/logos/pe-logo-wide.png"
-              alt="Positive Energy"
-              className="relative z-10 h-10 w-auto mb-6"
-            />
-
-            <div className="relative z-10 w-28 h-28 rounded-full border-4 border-card shadow-sm overflow-hidden bg-muted mb-5 flex items-center justify-center">
-              {HEADSHOT_URL ? (
-                <img src={HEADSHOT_URL} alt="Justin Huff" className="w-full h-full object-cover" />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-primary/80 to-primary/40 flex items-center justify-center text-primary-foreground font-heading font-bold text-3xl">
-                  JH
-                </div>
-              )}
+            <div className="relative z-10 w-48 h-64 sm:w-52 sm:h-72 rounded-2xl border-4 border-card shadow-md overflow-hidden bg-muted mb-6">
+              <img
+                src={HEADSHOT_URL}
+                alt="Justin Huff"
+                width={768}
+                height={1154}
+                fetchPriority="high"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight mb-1">
@@ -204,24 +199,17 @@ END:VCARD`;
       </div>
 
       <Dialog open={qrOpen} onOpenChange={setQrOpen}>
-        <DialogContent className="sm:max-w-sm rounded-2xl flex flex-col items-center p-8">
-          <DialogHeader>
-            <DialogTitle className="text-center font-heading text-xl">Justin's Contact Info</DialogTitle>
-          </DialogHeader>
-          <div className="w-64 h-64 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-border shadow-sm my-2">
-            {QR_CODE_URL ? (
-              <img src={QR_CODE_URL} alt="QR Code" className="w-full h-full object-contain" />
-            ) : (
-              <div className="text-center p-4">
-                <QrCode className="w-16 h-16 mx-auto mb-3 text-muted-foreground/30" />
-                <p className="text-sm text-muted-foreground font-medium">QR Code Placeholder</p>
-                <p className="text-xs text-muted-foreground/60 mt-1">(Replace with actual QR)</p>
-              </div>
-            )}
+        <DialogContent className="w-[calc(100%-2rem)] sm:max-w-md rounded-2xl flex flex-col items-center p-4 pt-12">
+          <DialogTitle className="sr-only">Justin's QR code</DialogTitle>
+          <div className="w-full max-w-[400px] aspect-square bg-white rounded-xl flex items-center justify-center overflow-hidden border border-border shadow-sm">
+            <img
+              src={QR_CODE_URL}
+              alt="QR code for Justin Huff's contact page"
+              width={928}
+              height={928}
+              className="w-full h-full object-contain"
+            />
           </div>
-          <p className="text-sm text-muted-foreground text-center px-4 leading-relaxed mt-2">
-            Scan this code with a phone camera to quickly pull up this contact page.
-          </p>
         </DialogContent>
       </Dialog>
     </Layout>
