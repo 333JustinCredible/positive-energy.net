@@ -260,7 +260,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Full Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="Jane Doe" className="bg-background border-border rounded-none h-12" {...field} />
+                                <Input placeholder="Jane Doe" autoComplete="name" className="bg-background border-border rounded-none h-12 text-base" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -273,7 +273,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Company (Optional)</FormLabel>
                               <FormControl>
-                                <Input placeholder="Acme Logistics" className="bg-background border-border rounded-none h-12" {...field} />
+                                <Input placeholder="Acme Logistics" autoComplete="organization" className="bg-background border-border rounded-none h-12 text-base" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -289,7 +289,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Email Address</FormLabel>
                               <FormControl>
-                                <Input placeholder="jane@example.com" type="email" className="bg-background border-border rounded-none h-12" {...field} />
+                                <Input placeholder="jane@example.com" type="email" autoComplete="email" className="bg-background border-border rounded-none h-12 text-base" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -302,7 +302,7 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Phone Number (Optional)</FormLabel>
                               <FormControl>
-                                <Input placeholder="(555) 123-4567" className="bg-background border-border rounded-none h-12" {...field} />
+                                <Input placeholder="(555) 123-4567" type="tel" inputMode="tel" autoComplete="tel" className="bg-background border-border rounded-none h-12 text-base" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -318,7 +318,7 @@ export default function Contact() {
                             <FormLabel className="uppercase tracking-wider text-xs font-bold text-muted-foreground">Service Interest</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-background border-border rounded-none h-12">
+                                <SelectTrigger className="bg-background border-border rounded-none h-12 text-base">
                                   <SelectValue placeholder="Select a service category" />
                                 </SelectTrigger>
                               </FormControl>
@@ -346,7 +346,7 @@ export default function Contact() {
                             <FormControl>
                               <Textarea 
                                 placeholder="Tell us about your timeline, location, and requirements..." 
-                                className="bg-background border-border rounded-none min-h-[150px] resize-y" 
+                                className="bg-background border-border rounded-none min-h-[150px] resize-y text-base"
                                 {...field} 
                               />
                             </FormControl>

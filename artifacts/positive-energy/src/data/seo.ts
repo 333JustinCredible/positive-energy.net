@@ -7,10 +7,21 @@ export interface SeoConfig {
   robots?: 'index, follow' | 'noindex, follow';
 }
 
+export const siteUrl = 'https://positive-energy.net';
+
+export function toMetaDescription(value: string, maxLength = 160): string {
+  const normalized = value.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
 const defaultSeo: SeoConfig = {
   title: 'Positive Energy | Commercial Power Infrastructure',
   description:
-    'Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.',
+    'Commercial EV charging, distributed energy, and resilient power systems designed and delivered by Positive Energy.',
   image: '/logos/pe-logo-wide.png',
 };
 
@@ -19,13 +30,13 @@ export const seoByPath: Record<string, SeoConfig> = {
   '/services': {
     title: 'EV Charging & Resilient Power Services | Positive Energy',
     description:
-      'Positive Energy designs, builds, commissions, and supports EV charging, distributed energy, and resilient power systems for complex projects.',
+      'Explore Positive Energy services for commercial EV charging, distributed energy, monitoring, O&M, and resilient power.',
     image: defaultSeo.image,
   },
   '/projects': {
     title: 'Field-Proven Energy Infrastructure Projects | Positive Energy',
     description:
-      "We don't just draft plans; we build them. Explore our track record of critical infrastructure delivery.",
+      'Explore Positive Energy projects spanning commercial EV charging, distributed energy, remote power, and complex delivery.',
     image: defaultSeo.image,
   },
   '/gallery': {
@@ -43,12 +54,12 @@ export const seoByPath: Record<string, SeoConfig> = {
   '/contact': {
     title: 'Discuss Your Project | Positive Energy',
     description:
-      'Planning an EV charging, distributed energy, resilient power, or complex electrical project? Tell us about the site, requirements, and goals.',
+      'Start a project inquiry with Positive Energy for EV charging, distributed energy, resilient power, or complex electrical work.',
     image: defaultSeo.image,
   },
   '/justin': {
     title: 'Justin Huff | Positive Energy',
-    description: 'Justin Huff — Founder & Principal of Positive Energy. Energy Infrastructure, Sustainability, Resilient Power.',
+    description: 'Meet Justin Huff, Founder & Principal of Positive Energy, serving energy infrastructure projects from Middle Tennessee and beyond.',
     image: defaultSeo.image,
   },
 };
@@ -75,10 +86,20 @@ export function getSeoForPath(path: string): SeoConfig {
   if (project) {
     return {
       title: `${project.title} | Positive Energy`,
-      description: project.summary || defaultSeo.description,
+      description: toMetaDescription(project.indexSummary || project.summary || defaultSeo.description),
       image: project.coverImage?.src ?? project.image ?? defaultSeo.image,
     };
   }
 
   return notFoundSeo;
+}
+
+export function getProjectForPath(path: string) {
+  const projectSlug = path.startsWith('/projects/')
+    ? path.slice('/projects/'.length)
+    : null;
+
+  return projectSlug
+    ? projectsData.find((item) => item.slug === projectSlug)
+    : undefined;
 }
