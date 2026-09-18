@@ -23,7 +23,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-const HEADSHOT_URL = ""; // TODO: Add headshot image path here (e.g., "/images/justin-huff.jpg")
+const HEADSHOT_URL = "/images/justin-huff-headshot.jpg";
 const QR_CODE_URL = ""; // TODO: Add QR code image path here (e.g., "/images/justin-qr.png")
 
 export default function Justin() {
